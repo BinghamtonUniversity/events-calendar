@@ -1,0 +1,833 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Gdata/App/Entry.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Gdata/App/FeedEntryParent.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/App/Extension/Content.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/App/Extension/Edited.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/App/Extension/Published.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/App/Extension/Source.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/App/Extension/Summary.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/App/Extension/Control.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Gdata_App_Entry" class="class">
+<h3>Zend_Gdata_App_Entry</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="Zend_Gdata_App_FeedEntryParent.html#Zend_Gdata_App_FeedEntryParent">Zend_Gdata_App_FeedEntryParent</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Gdata</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">App</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Concrete class for working with Atom entries.</em><br>
+<br><div id="methods_Zend_Gdata_App_Entry">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Gdata_App_Entry::delete()">delete</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Entry::getContent()">getContent</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Entry::getControl()">getControl</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Entry::getDOM()">getDOM</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Entry::getPublished()">getPublished</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Entry::getSource()">getSource</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Entry::getSummary()">getSummary</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Entry::reload()">reload</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Entry::save()">save</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Entry::setContent()">setContent</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Entry::setControl()">setControl</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Entry::setPublished()">setPublished</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Entry::setSource()">setSource</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Entry::setSummary()">setSummary</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Entry::takeChildFromDOM()">takeChildFromDOM</a>,
+      <div class="method">
+<a id="Zend_Gdata_App_Entry::delete()"></a><h3>delete<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Deletes this entry to the server using the referenced
+Zend_Http_Client to do a HTTP DELETE to the edit link stored in this
+entry's link collection.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::getContent()"></a><h3>getContent<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_Extension_Content.html#Zend_Gdata_App_Extension_Content">Zend_Gdata_App_Extension_Content</a></span>
+</h3>
+<h4>Description</h4>
+<em>Gets the value of the atom:content element</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_Extension_Content.html#Zend_Gdata_App_Extension_Content">Zend_Gdata_App_Extension_Content</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::getControl()"></a><h3>getControl<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_Extension_Control.html#Zend_Gdata_App_Extension_Control">Zend_Gdata_App_Extension_Control</a></span>
+</h3>
+<h4>Description</h4>
+<em>Gets the value of the app:control element</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_Extension_Control.html#Zend_Gdata_App_Extension_Control">Zend_Gdata_App_Extension_Control</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::getDOM()"></a><h3>getDOM<span class="nb-faded-text">(
+          
+             
+            $doc
+            = null,
+          
+             
+            $majorVersion
+            = 1,
+          
+             
+            $minorVersion
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$doc</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr>
+<tr>
+<td>$majorVersion</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>1</td>
+</tr>
+<tr>
+<td>$minorVersion</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::getPublished()"></a><h3>getPublished<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_Extension_Published.html#Zend_Gdata_App_Extension_Published">Zend_Gdata_App_Extension_Published</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the value of the atom:published element
+This represents the publishing date for an entry</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_Extension_Published.html#Zend_Gdata_App_Extension_Published">Zend_Gdata_App_Extension_Published</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::getSource()"></a><h3>getSource<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_Extension_Source.html#Zend_Gdata_App_Extension_Source">Zend_Gdata_App_Extension_Source</a></span>
+</h3>
+<h4>Description</h4>
+<em>Gets the value of the atom:source element</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_Extension_Source.html#Zend_Gdata_App_Extension_Source">Zend_Gdata_App_Extension_Source</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::getSummary()"></a><h3>getSummary<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_Extension_Summary.html#Zend_Gdata_App_Extension_Summary">Zend_Gdata_App_Extension_Summary</a></span>
+</h3>
+<h4>Description</h4>
+<em>Gets the value of the atom:summary element
+This represents a textual summary of this entry's content</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_Extension_Summary.html#Zend_Gdata_App_Extension_Summary">Zend_Gdata_App_Extension_Summary</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::reload()"></a><h3>reload<span class="nb-faded-text">(
+          string|null
+             
+            $uri
+            = null,
+          string|null
+             
+            $className
+            = null,
+          array
+             
+            $extraHeaders
+            = array,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">mixed</span>
+</h3>
+<h4>Description</h4>
+<em>Reload the current entry. Returns a new copy of the entry as returned
+by the server, or null if no changes exist. This does not
+modify the current entry instance.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$uri</td>
+<td style="white-space: normal;">string |
+                null |
+                </td>
+<td>The URI to send requests to, or null if $data contains the URI.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$className</td>
+<td style="white-space: normal;">string |
+                null |
+                </td>
+<td>The name of the class that should we deserializing the server response. If null, then &#039;Zend_Gdata_App_Entry&#039; will be used.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$extraHeaders</td>
+<td style="white-space: normal;">array |
+                </td>
+<td>Extra headers to add to the request, as an array of string-based key/value pairs.</td>
+<td>array</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>mixed</td>
+<td>A new instance of the current entry with updated data, or null if the server reports that no changes have been made.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::save()"></a><h3>save<span class="nb-faded-text">(
+          string|null
+             
+            $uri
+            = null,
+          string|null
+             
+            $className
+            = null,
+          array
+             
+            $extraHeaders
+            = array,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_Entry.html#Zend_Gdata_App_Entry">Zend_Gdata_App_Entry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Uploads changes in this entry to the server using Zend_Gdata_App</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$uri</td>
+<td style="white-space: normal;">string |
+                null |
+                </td>
+<td>The URI to send requests to, or null if $data contains the URI.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$className</td>
+<td style="white-space: normal;">string |
+                null |
+                </td>
+<td>The name of the class that should we deserializing the server response. If null, then &#039;Zend_Gdata_App_Entry&#039; will be used.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$extraHeaders</td>
+<td style="white-space: normal;">array |
+                </td>
+<td>Extra headers to add to the request, as an array of string-based key/value pairs.</td>
+<td>array</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_Entry.html#Zend_Gdata_App_Entry">Zend_Gdata_App_Entry</a></td>
+<td>The updated entry.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::setContent()"></a><h3>setContent<span class="nb-faded-text">(
+          <a href="Zend_Gdata_App_Extension_Content.html#Zend_Gdata_App_Extension_Content">Zend_Gdata_App_Extension_Content</a>
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_Entry.html#Zend_Gdata_App_Entry">Zend_Gdata_App_Entry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the value of the atom:content element</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_App_Extension_Content.html#Zend_Gdata_App_Extension_Content">Zend_Gdata_App_Extension_Content</a> |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_Entry.html#Zend_Gdata_App_Entry">Zend_Gdata_App_Entry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::setControl()"></a><h3>setControl<span class="nb-faded-text">(
+          <a href="Zend_Gdata_App_Extension_Control.html#Zend_Gdata_App_Extension_Control">Zend_Gdata_App_Extension_Control</a>
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_Entry.html#Zend_Gdata_App_Entry">Zend_Gdata_App_Entry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the value of the app:control element</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_App_Extension_Control.html#Zend_Gdata_App_Extension_Control">Zend_Gdata_App_Extension_Control</a> |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_Entry.html#Zend_Gdata_App_Entry">Zend_Gdata_App_Entry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::setPublished()"></a><h3>setPublished<span class="nb-faded-text">(
+          <a href="Zend_Gdata_App_Extension_Published.html#Zend_Gdata_App_Extension_Published">Zend_Gdata_App_Extension_Published</a>
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_Entry.html#Zend_Gdata_App_Entry">Zend_Gdata_App_Entry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the value of the atom:published element
+This represents the publishing date for an entry</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_App_Extension_Published.html#Zend_Gdata_App_Extension_Published">Zend_Gdata_App_Extension_Published</a> |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_Entry.html#Zend_Gdata_App_Entry">Zend_Gdata_App_Entry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::setSource()"></a><h3>setSource<span class="nb-faded-text">(
+          <a href="Zend_Gdata_App_Extension_Source.html#Zend_Gdata_App_Extension_Source">Zend_Gdata_App_Extension_Source</a>
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_Entry.html#Zend_Gdata_App_Entry">Zend_Gdata_App_Entry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the value of the atom:source element</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_App_Extension_Source.html#Zend_Gdata_App_Extension_Source">Zend_Gdata_App_Extension_Source</a> |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_Entry.html#Zend_Gdata_App_Entry">Zend_Gdata_App_Entry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::setSummary()"></a><h3>setSummary<span class="nb-faded-text">(
+          <a href="Zend_Gdata_App_Extension_Summary.html#Zend_Gdata_App_Extension_Summary">Zend_Gdata_App_Extension_Summary</a>
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_Entry.html#Zend_Gdata_App_Entry">Zend_Gdata_App_Entry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the value of the atom:summary element
+This represents a textual summary of this entry's content</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_App_Extension_Summary.html#Zend_Gdata_App_Extension_Summary">Zend_Gdata_App_Extension_Summary</a> |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_Entry.html#Zend_Gdata_App_Entry">Zend_Gdata_App_Entry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::takeChildFromDOM()"></a><h3>takeChildFromDOM<span class="nb-faded-text">(
+          
+             
+            $child,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$child</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Gdata_App_Entry">
+<h4>Properties</h4>
+<a href="#Zend_Gdata_App_Entry::%24_content">$_content</a>,
+      <a href="#Zend_Gdata_App_Entry::%24_control">$_control</a>,
+      <a href="#Zend_Gdata_App_Entry::%24_edited">$_edited</a>,
+      <a href="#Zend_Gdata_App_Entry::%24_entryClassName">$_entryClassName</a>,
+      <a href="#Zend_Gdata_App_Entry::%24_published">$_published</a>,
+      <a href="#Zend_Gdata_App_Entry::%24_rootElement">$_rootElement</a>,
+      <a href="#Zend_Gdata_App_Entry::%24_source">$_source</a>,
+      <a href="#Zend_Gdata_App_Entry::%24_summary">$_summary</a>,
+      <div class="method">
+<a id="Zend_Gdata_App_Entry::$_content"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_content
+          =
+          null</h3>
+<em>atom:content elementZend_Gdata_App_Extension_Content</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::$_control"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_control
+          =
+          null</h3>
+<em>app:control elementZend_Gdata_App_Extension_Control</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::$_edited"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_edited
+          =
+          null</h3>
+<em>app:edited elementZend_Gdata_App_Extension_Edited</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::$_entryClassName"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_entryClassName
+          =
+          Zend_Gdata_App_Entry</h3>
+<em>Class name for each entry in this feed*string</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::$_published"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_published
+          =
+          null</h3>
+<em>atom:published elementZend_Gdata_App_Extension_Published</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::$_rootElement"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_rootElement
+          =
+          entry</h3>
+<em>Root XML element for Atom entries.string</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::$_source"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_source
+          =
+          null</h3>
+<em>atom:source elementZend_Gdata_App_Extension_Source</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Entry::$_summary"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_summary
+          =
+          null</h3>
+<em>atom:summary elementZend_Gdata_App_Extension_Summary</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

@@ -1,0 +1,2199 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Http/Client.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Loader.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Uri.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Http/Client/Adapter/Interface.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Http/Response.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Http/Response/Stream.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Http_Client" class="class">
+<h3>Zend_Http_Client</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Http</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">Client</a>
+             
+        </div>
+<label class="property-key">throws</label><div class="property-value">
+<a title="">Zend_Http_Client_Exception</a>
+             
+        </div>
+<label class="property-key">todo</label><div class="property-value">
+<a title="">Implement proxy settings</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Zend_Http_Client is an implementation of an HTTP client in PHP. The client
+supports basic features like sending different HTTP requests and handling
+redirections, as well as more advanced features like proxy settings, HTTP
+authentication and cookie persistence (using a Zend_Http_CookieJar object)</em><br>
+<br><div id="methods_Zend_Http_Client">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Http_Client::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::_detectFileMimeType()">_detectFileMimeType</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::_flattenParametersArray()">_flattenParametersArray</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::_getParametersRecursive()">_getParametersRecursive</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::_openTempStream()">_openTempStream</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::_prepareBody()">_prepareBody</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::_prepareHeaders()">_prepareHeaders</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::_setParameter()">_setParameter</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::encodeAuthHeader()">encodeAuthHeader</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::encodeFormData()">encodeFormData</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::getAdapter()">getAdapter</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::getCookieJar()">getCookieJar</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::getHeader()">getHeader</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::getLastRequest()">getLastRequest</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::getLastResponse()">getLastResponse</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::getRedirectionsCount()">getRedirectionsCount</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::getStream()">getStream</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::getUri()">getUri</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::request()">request</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::resetParameters()">resetParameters</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::setAdapter()">setAdapter</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::setAuth()">setAuth</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::setConfig()">setConfig</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::setCookie()">setCookie</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::setCookieJar()">setCookieJar</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::setEncType()">setEncType</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::setFileUpload()">setFileUpload</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::setHeaders()">setHeaders</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::setMethod()">setMethod</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::setParameterGet()">setParameterGet</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::setParameterPost()">setParameterPost</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::setRawData()">setRawData</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::setStream()">setStream</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client::setUri()">setUri</a>,
+      <div class="method">
+<a id="Zend_Http_Client::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          <a href="Zend_Uri_Http.html#Zend_Uri_Http">Zend_Uri_Http</a>|string
+             
+            $uri
+            = null,
+          array
+             
+            $config
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Constructor method. Will create a new HTTP client. Accepts the target
+URL and optionally configuration array.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$uri</td>
+<td style="white-space: normal;">
+<a href="Zend_Uri_Http.html#Zend_Uri_Http">Zend_Uri_Http</a> |
+                string |
+                </td>
+<td></td>
+<td>null</td>
+</tr>
+<tr>
+<td>$config</td>
+<td style="white-space: normal;">array |
+                </td>
+<td>Configuration key-value pairs.</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::_detectFileMimeType()"></a><h3>_detectFileMimeType<span class="nb-faded-text">(
+          string
+             
+            $file,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Attempt to detect the MIME type of a file using available extensions</em><br><small><p>This method will try to detect the MIME type of a file. If the fileinfo
+extension is available, it will be used. If not, the mime_magic
+extension which is deprected but is still available in many PHP setups
+will be tried.</p>
+
+<p>If neither extension is available, the default application/octet-stream
+MIME type will be returned</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$file</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>File path</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>MIME type</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::_flattenParametersArray()"></a><h3>_flattenParametersArray<span class="nb-faded-text">(
+          array
+             
+            $parray,
+          string
+             
+            $prefix
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array</span>
+</h3>
+<h4>Description</h4>
+<em>Convert an array of parameters into a flat array of (key, value) pairs</em><br><small><p>Will flatten a potentially multi-dimentional array of parameters (such
+as POST parameters) into a flat array of (key, value) paris. In case
+of multi-dimentional arrays, square brackets ([]) will be added to the
+key to indicate an array.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$parray</td>
+<td style="white-space: normal;">array |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$prefix</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>since</td>
+<td>1.9</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::_getParametersRecursive()"></a><h3>_getParametersRecursive<span class="nb-faded-text">(
+          array
+             
+            $parray,
+          bool
+             
+            $urlencode
+            = false,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array</span>
+</h3>
+<h4>Description</h4>
+<em>Helper method that gets a possibly multi-level parameters array (get or
+post) and flattens it.</em><br><small><p>The method returns an array of (key, value) pairs (because keys are not
+necessarily unique. If one of the parameters in as array, it will also
+add a [] suffix to the key.</p>
+
+<p>This method is deprecated since Zend Framework 1.9 in favour of
+self::_flattenParametersArray() and will be dropped in 2.0</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$parray</td>
+<td style="white-space: normal;">array |
+                </td>
+<td>The parameters array</td>
+<td></td>
+</tr>
+<tr>
+<td>$urlencode</td>
+<td style="white-space: normal;">bool |
+                </td>
+<td>Whether to urlencode the name and value</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>deprecated</td>
+<td>since 1.9</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::_openTempStream()"></a><h3>_openTempStream<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">resource</span>
+</h3>
+<h4>Description</h4>
+<em>Create temporary stream</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>resource</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::_prepareBody()"></a><h3>_prepareBody<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Prepare the request body (for POST and PUT requests)</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Http_Client_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::_prepareHeaders()"></a><h3>_prepareHeaders<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array</span>
+</h3>
+<h4>Description</h4>
+<em>Prepare the request headers</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::_setParameter()"></a><h3>_setParameter<span class="nb-faded-text">(
+          string
+             
+            $type,
+          string
+             
+            $name,
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">null</span>
+</h3>
+<h4>Description</h4>
+<em>Set a GET or POST parameter - used by SetParameterGet and SetParameterPost</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$type</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>GET or POST</td>
+<td></td>
+</tr>
+<tr>
+<td>$name</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>null</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::encodeAuthHeader()"></a><h3>encodeAuthHeader<span class="nb-faded-text">(
+          string
+             
+            $user,
+          string
+             
+            $password,
+          string
+             
+            $type
+            = self,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Create a HTTP authentication "Authorization:" header according to the
+specified user, password and authentication method.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$user</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$password</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$type</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td>self</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>see</td>
+<td>http://www.faqs.org/rfcs/rfc2617.html</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Http_Client_Exception</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::encodeFormData()"></a><h3>encodeFormData<span class="nb-faded-text">(
+          string
+             
+            $boundary,
+          string
+             
+            $name,
+          mixed
+             
+            $value,
+          string
+             
+            $filename
+            = null,
+          array
+             
+            $headers
+            = array,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Encode data to a multipart/form-data part suitable for a POST request.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$boundary</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$name</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$value</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$filename</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td>null</td>
+</tr>
+<tr>
+<td>$headers</td>
+<td style="white-space: normal;">array |
+                </td>
+<td>Associative array of optional headers @example (&quot;Content-Transfer-Encoding&quot; =&gt; &quot;binary&quot;)</td>
+<td>array</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::getAdapter()"></a><h3>getAdapter<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client_Adapter_Interface.html#Zend_Http_Client_Adapter_Interface">Zend_Http_Client_Adapter_Interface</a></span>
+</h3>
+<h4>Description</h4>
+<em>Load the connection adapter</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client_Adapter_Interface.html#Zend_Http_Client_Adapter_Interface">Zend_Http_Client_Adapter_Interface</a></td>
+<td>$adapter</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::getCookieJar()"></a><h3>getCookieJar<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Http_CookieJar|null</span>
+</h3>
+<h4>Description</h4>
+<em>Return the current cookie jar or null if none.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Http_CookieJar|null</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::getHeader()"></a><h3>getHeader<span class="nb-faded-text">(
+          string
+             
+            $key,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|array|null</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value of a specific header</em><br><small><p>Note that if the header has more than one value, an array
+will be returned.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$key</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|array|null</td>
+<td>The header value or null if it is not set</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::getLastRequest()"></a><h3>getLastRequest<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the last HTTP request as string</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::getLastResponse()"></a><h3>getLastResponse<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Response.html#Zend_Http_Response">Zend_Http_Response</a></span>
+</h3>
+<h4>Description</h4>
+<em>Get the last HTTP response received by this client</em><br><small><p>If $config['storeresponse'] is set to false, or no response was
+stored yet, will return null</p>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Response.html#Zend_Http_Response">Zend_Http_Response</a></td>
+<td>or null if none</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::getRedirectionsCount()"></a><h3>getRedirectionsCount<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">int</span>
+</h3>
+<h4>Description</h4>
+<em>Get the number of redirections done on the last request</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>int</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::getStream()"></a><h3>getStream<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean|string</span>
+</h3>
+<h4>Description</h4>
+<em>Get status of streaming for received data</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean|string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::getUri()"></a><h3>getUri<span class="nb-faded-text">(
+          boolean
+             
+            $as_string
+            = false,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Uri_Http|string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the URI for the next request</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$as_string</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>If true, will return the URI as a string</td>
+<td>false</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Uri_Http|string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::request()"></a><h3>request<span class="nb-faded-text">(
+          string
+             
+            $method
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Response.html#Zend_Http_Response">Zend_Http_Response</a></span>
+</h3>
+<h4>Description</h4>
+<em>Send the HTTP request and return an HTTP response object</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$method</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Response.html#Zend_Http_Response">Zend_Http_Response</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Http_Client_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::resetParameters()"></a><h3>resetParameters<span class="nb-faded-text">(
+          bool
+             
+            $clearAll
+            = false,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></span>
+</h3>
+<h4>Description</h4>
+<em>Clear all GET and POST parameters</em><br><small><p>Should be used to reset the request parameters if the client is
+used for several concurrent requests.</p>
+
+<p>clearAll parameter controls if we clean just parameters or also
+headers and last_*</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$clearAll</td>
+<td style="white-space: normal;">bool |
+                </td>
+<td>Should all data be cleared?</td>
+<td>false</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::setAdapter()"></a><h3>setAdapter<span class="nb-faded-text">(
+          <a href="Zend_Http_Client_Adapter_Interface.html#Zend_Http_Client_Adapter_Interface">Zend_Http_Client_Adapter_Interface</a>|string
+             
+            $adapter,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">null</span>
+</h3>
+<h4>Description</h4>
+<em>Load the connection adapter</em><br><small><p>While this method is not called more than one for a client, it is
+seperated from ->request() to preserve logic and readability</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$adapter</td>
+<td style="white-space: normal;">
+<a href="Zend_Http_Client_Adapter_Interface.html#Zend_Http_Client_Adapter_Interface">Zend_Http_Client_Adapter_Interface</a> |
+                string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>null</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Http_Client_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::setAuth()"></a><h3>setAuth<span class="nb-faded-text">(
+          string|false
+             
+            $user,
+          string
+             
+            $password,
+          string
+             
+            $type
+            = self,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set HTTP authentication parameters</em><br><small><p>$type should be one of the supported types - see the self::AUTH_*
+constants.</p>
+
+<p>To enable authentication:
+<code>
+$this->setAuth('shahar', 'secret', Zend_Http_Client::AUTH_BASIC);
+</code></p>
+
+<p>To disable authentication:
+<code>
+$this->setAuth(false);
+</code></p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$user</td>
+<td style="white-space: normal;">string |
+                false |
+                </td>
+<td>User name or false disable authentication</td>
+<td></td>
+</tr>
+<tr>
+<td>$password</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>Password</td>
+<td></td>
+</tr>
+<tr>
+<td>$type</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>Authentication type</td>
+<td>self</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>see</td>
+<td>http://www.faqs.org/rfcs/rfc2617.html</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Http_Client_Exception</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::setConfig()"></a><h3>setConfig<span class="nb-faded-text">(
+          Zend_Config
+             
+            $config
+            = array,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set configuration parameters for this HTTP client</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$config</td>
+<td style="white-space: normal;">Zend_Config |
+                </td>
+<td>| array $config</td>
+<td>array</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Http_Client_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::setCookie()"></a><h3>setCookie<span class="nb-faded-text">(
+          Zend_Http_Cookie|string
+             
+            $cookie,
+          string|null
+             
+            $value
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></span>
+</h3>
+<h4>Description</h4>
+<em>Add a cookie to the request. If the client has no Cookie Jar, the cookies
+will be added directly to the headers array as "Cookie" headers.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$cookie</td>
+<td style="white-space: normal;">Zend_Http_Cookie |
+                string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                null |
+                </td>
+<td>If &quot;cookie&quot; is a string, this is the cookie value.</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Http_Client_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::setCookieJar()"></a><h3>setCookieJar<span class="nb-faded-text">(
+          Zend_Http_CookieJar|boolean
+             
+            $cookiejar
+            = true,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the HTTP client's cookie jar.</em><br><small><p>A cookie jar is an object that holds and maintains cookies across HTTP requests
+and responses.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$cookiejar</td>
+<td style="white-space: normal;">Zend_Http_CookieJar |
+                boolean |
+                </td>
+<td>Existing cookiejar object, true to create a new one, false to disable</td>
+<td>true</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Http_Client_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::setEncType()"></a><h3>setEncType<span class="nb-faded-text">(
+          string
+             
+            $enctype
+            = self,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the encoding type for POST data</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$enctype</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td>self</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::setFileUpload()"></a><h3>setFileUpload<span class="nb-faded-text">(
+          string
+             
+            $filename,
+          string
+             
+            $formname,
+          string
+             
+            $data
+            = null,
+          string
+             
+            $ctype
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set a file to upload (using a POST request)</em><br><small><p>Can be used in two ways:</p>
+
+<ol>
+<li>$data is null (default): $filename is treated as the name if a local file which
+will be read and sent. Will try to guess the content type using mime_content_type().</li>
+<li>$data is set - $filename is sent as the file name, but $data is sent as the file
+contents and no file is read from the file system. In this case, you need to
+manually set the Content-Type ($ctype) or it will default to
+application/octet-stream.</li>
+</ol>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$filename</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>Name of file to upload, or name to save as</td>
+<td></td>
+</tr>
+<tr>
+<td>$formname</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>Name of form element to send as</td>
+<td></td>
+</tr>
+<tr>
+<td>$data</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>Data to send (if null, $filename is read and sent)</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$ctype</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>Content type to use (if $data is set and $ctype is null, will be application/octet-stream)</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Http_Client_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::setHeaders()"></a><h3>setHeaders<span class="nb-faded-text">(
+          string|array
+             
+            $name,
+          mixed
+             
+            $value
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set one or more request headers</em><br><small><p>This function can be used in several ways to set the client's request
+headers:
+1. By providing two parameters: $name as the header to set (e.g. 'Host')
+   and $value as it's value (e.g. 'www.example.com').
+2. By providing a single header string as the only parameter
+   e.g. 'Host: www.example.com'
+3. By providing an array of headers as the first parameter
+   e.g. array('host' => 'www.example.com', 'x-foo: bar'). In This case
+   the function will call itself recursively for each array item.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$name</td>
+<td style="white-space: normal;">string |
+                array |
+                </td>
+<td>Header name, full header string (&#039;Header: value&#039;) or an array of headers</td>
+<td></td>
+</tr>
+<tr>
+<td>$value</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>Header value or null</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Http_Client_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::setMethod()"></a><h3>setMethod<span class="nb-faded-text">(
+          string
+             
+            $method
+            = self,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the next request's method</em><br><small><p>Validated the passed method and sets it. If we have files set for
+POST requests, and the new method is not POST, the files are silently
+dropped.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$method</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td>self</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Http_Client_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::setParameterGet()"></a><h3>setParameterGet<span class="nb-faded-text">(
+          string|array
+             
+            $name,
+          string
+             
+            $value
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set a GET parameter for the request. Wrapper around _setParameter</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$name</td>
+<td style="white-space: normal;">string |
+                array |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::setParameterPost()"></a><h3>setParameterPost<span class="nb-faded-text">(
+          string|array
+             
+            $name,
+          string
+             
+            $value
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set a POST parameter for the request. Wrapper around _setParameter</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$name</td>
+<td style="white-space: normal;">string |
+                array |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::setRawData()"></a><h3>setRawData<span class="nb-faded-text">(
+          string|resource
+             
+            $data,
+          string
+             
+            $enctype
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the raw (already encoded) POST data.</em><br><small><p>This function is here for two reasons:
+1. For advanced user who would like to set their own data, already encoded
+2. For backwards compatibilty: If someone uses the old post($data) method.
+   this method will be used to set the encoded data.</p>
+
+<p>$data can also be stream (such as file) from which the data will be read.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$data</td>
+<td style="white-space: normal;">string |
+                resource |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$enctype</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::setStream()"></a><h3>setStream<span class="nb-faded-text">(
+          string|boolean
+             
+            $streamfile
+            = true,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set streaming for received data</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$streamfile</td>
+<td style="white-space: normal;">string |
+                boolean |
+                </td>
+<td>Stream file, true for temp file, false/null for no streaming</td>
+<td>true</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::setUri()"></a><h3>setUri<span class="nb-faded-text">(
+          <a href="Zend_Uri_Http.html#Zend_Uri_Http">Zend_Uri_Http</a>|string
+             
+            $uri,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the URI for the next request</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$uri</td>
+<td style="white-space: normal;">
+<a href="Zend_Uri_Http.html#Zend_Uri_Http">Zend_Uri_Http</a> |
+                string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Http_Client_Exception</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Http_Client">
+<h4>Properties</h4>
+<a href="#Zend_Http_Client::%24_fileInfoDb">$_fileInfoDb</a>,
+      <a href="#Zend_Http_Client::%24adapter">$adapter</a>,
+      <a href="#Zend_Http_Client::%24auth">$auth</a>,
+      <a href="#Zend_Http_Client::%24config">$config</a>,
+      <a href="#Zend_Http_Client::%24cookiejar">$cookiejar</a>,
+      <a href="#Zend_Http_Client::%24enctype">$enctype</a>,
+      <a href="#Zend_Http_Client::%24files">$files</a>,
+      <a href="#Zend_Http_Client::%24headers">$headers</a>,
+      <a href="#Zend_Http_Client::%24last_request">$last_request</a>,
+      <a href="#Zend_Http_Client::%24last_response">$last_response</a>,
+      <a href="#Zend_Http_Client::%24method">$method</a>,
+      <a href="#Zend_Http_Client::%24paramsGet">$paramsGet</a>,
+      <a href="#Zend_Http_Client::%24paramsPost">$paramsPost</a>,
+      <a href="#Zend_Http_Client::%24raw_post_data">$raw_post_data</a>,
+      <a href="#Zend_Http_Client::%24redirectCounter">$redirectCounter</a>,
+      <a href="#Zend_Http_Client::%24uri">$uri</a>,
+      <div class="method">
+<a id="Zend_Http_Client::$_fileInfoDb"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          static </span>$_fileInfoDb
+          =
+          null</h3>
+<em>Fileinfo magic database resourceresource</em><br><small>&lt;p&gt;This variable is populated the first time _detectFileMimeType is called
+and is then reused on every call to this method&lt;/p&gt;
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::$adapter"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$adapter
+          =
+          null</h3>
+<em>The adapter used to perform the actual connection to the serverZend_Http_Client_Adapter_Interface</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::$auth"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$auth
+          =
+          </h3>
+<em>HTTP Authentication settingsarray|null</em><br><small>&lt;p&gt;Expected to be an associative array with this structure:
+$this-&gt;auth = array('user' =&gt; 'username', 'password' =&gt; 'password', 'type' =&gt; 'basic')
+Where 'type' should be one of the supported authentication types (see the AUTH_*
+constants), for example 'basic' or 'digest'.&lt;/p&gt;
+
+&lt;p&gt;If null, no authentication will be used.&lt;/p&gt;
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::$config"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$config
+          =
+          array</h3>
+<em>Configuration array, set using the constructor or using ::setConfig()array</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::$cookiejar"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$cookiejar
+          =
+          null</h3>
+<em>The client's cookie jarZend_Http_CookieJar</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::$enctype"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$enctype
+          =
+          null</h3>
+<em>Request body content type (for POST requests)string</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::$files"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$files
+          =
+          array</h3>
+<em>File upload arrays (used in POST requests)array</em><br><small>&lt;p&gt;An associative array, where each element is of the format:
+  'name' =&gt; array('filename.txt', 'text/plain', 'This is the actual file contents')&lt;/p&gt;
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::$headers"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$headers
+          =
+          array</h3>
+<em>Associative array of request headersarray</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::$last_request"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$last_request
+          =
+          null</h3>
+<em>The last HTTP request sent by the client, as stringstring</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::$last_response"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$last_response
+          =
+          null</h3>
+<em>The last HTTP response received by the clientZend_Http_Response</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::$method"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$method
+          =
+          self</h3>
+<em>HTTP request methodstring</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::$paramsGet"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$paramsGet
+          =
+          array</h3>
+<em>Associative array of GET parametersarray</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::$paramsPost"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$paramsPost
+          =
+          array</h3>
+<em>Associative array of POST parametersarray</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::$raw_post_data"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$raw_post_data
+          =
+          null</h3>
+<em>The raw post data to send. Could be set by setRawData($data, $enctype).string</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::$redirectCounter"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$redirectCounter
+          =
+          0</h3>
+<em>Redirection counterint</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client::$uri"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$uri
+          =
+          null</h3>
+<em>Request URIZend_Uri_Http</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div id="constants_Zend_Http_Client">
+<h4>Constants</h4>
+<a id="Zend_Http_Client::AUTH_BASIC"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>AUTH_BASIC<span class="nb-faded-text">
+         = basic</span>
+</h3>
+<em>Supported HTTP Authentication methods</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Http_Client::CONNECT"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>CONNECT<span class="nb-faded-text">
+         = CONNECT</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Http_Client::CONTENT_LENGTH"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>CONTENT_LENGTH<span class="nb-faded-text">
+         = Content-Length</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Http_Client::CONTENT_TYPE"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>CONTENT_TYPE<span class="nb-faded-text">
+         = Content-Type</span>
+</h3>
+<em>Content attributes</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Http_Client::DELETE"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>DELETE<span class="nb-faded-text">
+         = DELETE</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Http_Client::ENC_FORMDATA"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>ENC_FORMDATA<span class="nb-faded-text">
+         = multipart/form-data</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Http_Client::ENC_URLENCODED"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>ENC_URLENCODED<span class="nb-faded-text">
+         = application/x-www-form-urlencoded</span>
+</h3>
+<em>POST data encoding methods</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Http_Client::GET"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>GET<span class="nb-faded-text">
+         = GET</span>
+</h3>
+<em>HTTP request methods</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Http_Client::HEAD"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>HEAD<span class="nb-faded-text">
+         = HEAD</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Http_Client::HTTP_0"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>HTTP_0<span class="nb-faded-text">
+         = 1.0</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Http_Client::HTTP_1"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>HTTP_1<span class="nb-faded-text">
+         = 1.1</span>
+</h3>
+<em>HTTP protocol versions</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Http_Client::MERGE"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>MERGE<span class="nb-faded-text">
+         = MERGE</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Http_Client::OPTIONS"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>OPTIONS<span class="nb-faded-text">
+         = OPTIONS</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Http_Client::POST"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>POST<span class="nb-faded-text">
+         = POST</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Http_Client::PUT"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>PUT<span class="nb-faded-text">
+         = PUT</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Http_Client::TRACE"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>TRACE<span class="nb-faded-text">
+         = TRACE</span>
+</h3>
+<em></em><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

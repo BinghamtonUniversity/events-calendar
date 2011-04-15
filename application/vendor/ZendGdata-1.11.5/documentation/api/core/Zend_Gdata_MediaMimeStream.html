@@ -1,0 +1,408 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Gdata/MediaMimeStream.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Gdata/MimeFile.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/MimeBodyString.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Gdata_MediaMimeStream" class="class">
+<h3>Zend_Gdata_MediaMimeStream</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Gdata</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">Gdata</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>A streaming Media MIME class that allows for buffered read operations.</em><br>
+<br><div id="methods_Zend_Gdata_MediaMimeStream">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Gdata_MediaMimeStream::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_MediaMimeStream::closeFileHandle()">closeFileHandle</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_MediaMimeStream::getContentType()">getContentType</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_MediaMimeStream::getTotalSize()">getTotalSize</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_MediaMimeStream::read()">read</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_MediaMimeStream::wrapEntry()">wrapEntry</a>,
+      <div class="method">
+<a id="Zend_Gdata_MediaMimeStream::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          string
+             
+            $xmlString
+            = null,
+          string
+             
+            $filePath
+            = null,
+          string
+             
+            $fileContentType
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Create a new MimeMediaStream object.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$xmlString</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The string corresponding to the XML section of the message, typically an atom entry or feed.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$filePath</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The path to the file that constitutes the binary part of the message.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$fileContentType</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The valid internet media type of the file.</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_IOException If the file cannot be read or does
+        not exist. Also if mbstring.func_overload has been set &amp;gt; 1.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_MediaMimeStream::closeFileHandle()"></a><h3>closeFileHandle<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Close the internal file that we are streaming to the socket.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_MediaMimeStream::getContentType()"></a><h3>getContentType<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Return a Content-type header that includes the current boundary string.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>A valid HTTP Content-Type header.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_MediaMimeStream::getTotalSize()"></a><h3>getTotalSize<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">integer</span>
+</h3>
+<h4>Description</h4>
+<em>Return the total size of the mime message.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>integer</td>
+<td>Total size of the message to be sent.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_MediaMimeStream::read()"></a><h3>read<span class="nb-faded-text">(
+          
+             
+            $bytesRequested,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Read a specific chunk of the the MIME multipart message.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$bytesRequested</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>A corresponding piece of the message. This could be binary or regular text.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_MediaMimeStream::wrapEntry()"></a><h3>wrapEntry<span class="nb-faded-text">(
+          
+             
+            $entry,
+          
+             
+            $fileMimeType,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Sandwiches the entry body into a MIME message</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$entry</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$fileMimeType</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Gdata_MediaMimeStream">
+<h4>Properties</h4>
+<a href="#Zend_Gdata_MediaMimeStream::%24_boundaryString">$_boundaryString</a>,
+      <a href="#Zend_Gdata_MediaMimeStream::%24_currentPart">$_currentPart</a>,
+      <a href="#Zend_Gdata_MediaMimeStream::%24_fileHandle">$_fileHandle</a>,
+      <a href="#Zend_Gdata_MediaMimeStream::%24_parts">$_parts</a>,
+      <a href="#Zend_Gdata_MediaMimeStream::%24_totalSize">$_totalSize</a>,
+      <div class="method">
+<a id="Zend_Gdata_MediaMimeStream::$_boundaryString"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_boundaryString
+          =
+          null</h3>
+<em>A valid MIME boundary.string</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_MediaMimeStream::$_currentPart"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_currentPart
+          =
+          0</h3>
+<em>The current part being read from.integer</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_MediaMimeStream::$_fileHandle"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_fileHandle
+          =
+          null</h3>
+<em>A handle to the file that is part of the message.resource</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_MediaMimeStream::$_parts"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_parts
+          =
+          null</h3>
+<em>An array of all the parts to be sent. Array members are either a
+MimeFile or a MimeBodyString object.array</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_MediaMimeStream::$_totalSize"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_totalSize
+          =
+          0</h3>
+<em>The size of the MIME message.integer</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

@@ -1,0 +1,799 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Validate/Hostname.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Validate/Abstract.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Validate/Ip.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Validate_Hostname" class="class">
+<h3>Zend_Validate_Hostname</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="Zend_Validate_Abstract.html#Zend_Validate_Abstract">Zend_Validate_Abstract</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Validate</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Please note there are two standalone test scripts for testing IDN characters due to problems
+with file encoding.</em><br><p>The first is tests/Zend/Validate/HostnameTestStandalone.php which is designed to be run on
+the command line.</p>
+
+<p>The second is tests/Zend/Validate/HostnameTestForm.php which is designed to be run via HTML
+to allow users to test entering UTF-8 characters in a form.</p>
+<br><div id="methods_Zend_Validate_Hostname">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Validate_Hostname::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#Zend_Validate_Hostname::decodePunycode()">decodePunycode</a>,
+      <a style="font-style: italic;" href="#Zend_Validate_Hostname::getAllow()">getAllow</a>,
+      <a style="font-style: italic;" href="#Zend_Validate_Hostname::getIpValidator()">getIpValidator</a>,
+      <a style="font-style: italic;" href="#Zend_Validate_Hostname::getOptions()">getOptions</a>,
+      <a style="font-style: italic;" href="#Zend_Validate_Hostname::getValidateIdn()">getValidateIdn</a>,
+      <a style="font-style: italic;" href="#Zend_Validate_Hostname::getValidateTld()">getValidateTld</a>,
+      <a style="font-style: italic;" href="#Zend_Validate_Hostname::isValid()">isValid</a>,
+      <a style="font-style: italic;" href="#Zend_Validate_Hostname::setAllow()">setAllow</a>,
+      <a style="font-style: italic;" href="#Zend_Validate_Hostname::setIpValidator()">setIpValidator</a>,
+      <a style="font-style: italic;" href="#Zend_Validate_Hostname::setOptions()">setOptions</a>,
+      <a style="font-style: italic;" href="#Zend_Validate_Hostname::setValidateIdn()">setValidateIdn</a>,
+      <a style="font-style: italic;" href="#Zend_Validate_Hostname::setValidateTld()">setValidateTld</a>,
+      <div class="method">
+<a id="Zend_Validate_Hostname::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          
+             
+            $options
+            = array,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Sets validator options</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$options</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>array</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>http://www.iana.org/cctld/specifications-policies-cctlds-01apr02.htm  Technical Specifications for ccTLDs</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::decodePunycode()"></a><h3>decodePunycode<span class="nb-faded-text">(
+          string
+             
+            $encoded,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Decodes a punycode encoded string to it's original utf8 string
+In case of a decoding failure the original string is returned</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$encoded</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>Punycode encoded string to decode</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::getAllow()"></a><h3>getAllow<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">integer</span>
+</h3>
+<h4>Description</h4>
+<em>Returns the allow option</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>integer</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::getIpValidator()"></a><h3>getIpValidator<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Validate_Ip.html#Zend_Validate_Ip">Zend_Validate_Ip</a></span>
+</h3>
+<h4>Description</h4>
+<em>Returns the set ip validator</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Validate_Ip.html#Zend_Validate_Ip">Zend_Validate_Ip</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::getOptions()"></a><h3>getOptions<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array</span>
+</h3>
+<h4>Description</h4>
+<em>Returns all set options</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::getValidateIdn()"></a><h3>getValidateIdn<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Returns the set idn option</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::getValidateTld()"></a><h3>getValidateTld<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Returns the set tld option</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::isValid()"></a><h3>isValid<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Defined by Zend_Validate_Interface</em><br><small><p>Returns true if and only if the $value is a valid hostname with respect to the current allow option</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Validate_Exception if a fatal error occurs for validation process</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::setAllow()"></a><h3>setAllow<span class="nb-faded-text">(
+          integer
+             
+            $allow,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Validate_Hostname.html#Zend_Validate_Hostname">Zend_Validate_Hostname</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the allow option</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$allow</td>
+<td style="white-space: normal;">integer |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Validate_Hostname.html#Zend_Validate_Hostname">Zend_Validate_Hostname</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::setIpValidator()"></a><h3>setIpValidator<span class="nb-faded-text">(
+          <a href="Zend_Validate_Ip.html#Zend_Validate_Ip">Zend_Validate_Ip</a>
+             
+            $ipValidator
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void;</span>
+</h3>
+<h4>Description</h4>
+<small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$ipValidator</td>
+<td style="white-space: normal;">
+<a href="Zend_Validate_Ip.html#Zend_Validate_Ip">Zend_Validate_Ip</a> |
+                </td>
+<td>OPTIONAL</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void;</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::setOptions()"></a><h3>setOptions<span class="nb-faded-text">(
+          array
+             
+            $options,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Validate_Hostname.html#Zend_Validate_Hostname">Zend_Validate_Hostname</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the options for this validator</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$options</td>
+<td style="white-space: normal;">array |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Validate_Hostname.html#Zend_Validate_Hostname">Zend_Validate_Hostname</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::setValidateIdn()"></a><h3>setValidateIdn<span class="nb-faded-text">(
+          boolean
+             
+            $allowed,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Set whether IDN domains are validated</em><br><small><p>This only applies when DNS hostnames are validated</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$allowed</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>Set allowed to true to validate IDNs, and false to not validate them</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::setValidateTld()"></a><h3>setValidateTld<span class="nb-faded-text">(
+          boolean
+             
+            $allowed,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Set whether the TLD element of a hostname is validated</em><br><small><p>This only applies when DNS hostnames are validated</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$allowed</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>Set allowed to true to validate TLDs, and false to not validate them</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Validate_Hostname">
+<h4>Properties</h4>
+<a href="#Zend_Validate_Hostname::%24_idnLength">$_idnLength</a>,
+      <a href="#Zend_Validate_Hostname::%24_messageTemplates">$_messageTemplates</a>,
+      <a href="#Zend_Validate_Hostname::%24_messageVariables">$_messageVariables</a>,
+      <a href="#Zend_Validate_Hostname::%24_options">$_options</a>,
+      <a href="#Zend_Validate_Hostname::%24_tld">$_tld</a>,
+      <a href="#Zend_Validate_Hostname::%24_validIdns">$_validIdns</a>,
+      <a href="#Zend_Validate_Hostname::%24_validTlds">$_validTlds</a>,
+      <div class="method">
+<a id="Zend_Validate_Hostname::$_idnLength"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_idnLength
+          =
+          array</h3>
+<em></em><br>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::$_messageTemplates"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_messageTemplates
+          =
+          array</h3>
+<em>array</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::$_messageVariables"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_messageVariables
+          =
+          array</h3>
+<em>array</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::$_options"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_options
+          =
+          array</h3>
+<em></em><br>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::$_tld"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_tld
+          =
+          </h3>
+<em>string</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::$_validIdns"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_validIdns
+          =
+          array</h3>
+<em>Array for valid Idnsarray</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Validate_Hostname::$_validTlds"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_validTlds
+          =
+          array</h3>
+<em>Array of valid top-level-domainsarray</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div id="constants_Zend_Validate_Hostname">
+<h4>Constants</h4>
+<a id="Zend_Validate_Hostname::ALLOW_ALL"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>ALLOW_ALL<span class="nb-faded-text">
+         = 7</span>
+</h3>
+<em>Allows all types of hostnames</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Validate_Hostname::ALLOW_DNS"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>ALLOW_DNS<span class="nb-faded-text">
+         = 1</span>
+</h3>
+<em>Allows Internet domain names (e.g., example.com)</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Validate_Hostname::ALLOW_IP"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>ALLOW_IP<span class="nb-faded-text">
+         = 2</span>
+</h3>
+<em>Allows IP addresses</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Validate_Hostname::ALLOW_LOCAL"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>ALLOW_LOCAL<span class="nb-faded-text">
+         = 4</span>
+</h3>
+<em>Allows local network names (e.g., localhost, www.localdomain)</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Validate_Hostname::ALLOW_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>ALLOW_URI<span class="nb-faded-text">
+         = 8</span>
+</h3>
+<em>Allows all types of hostnames</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Validate_Hostname::CANNOT_DECODE_PUNYCODE"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>CANNOT_DECODE_PUNYCODE<span class="nb-faded-text">
+         = hostnameCannotDecodePunycode</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Validate_Hostname::INVALID"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>INVALID<span class="nb-faded-text">
+         = hostnameInvalid</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Validate_Hostname::INVALID_DASH"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>INVALID_DASH<span class="nb-faded-text">
+         = hostnameDashCharacter</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Validate_Hostname::INVALID_HOSTNAME"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>INVALID_HOSTNAME<span class="nb-faded-text">
+         = hostnameInvalidHostname</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Validate_Hostname::INVALID_HOSTNAME_SCHEMA"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>INVALID_HOSTNAME_SCHEMA<span class="nb-faded-text">
+         = hostnameInvalidHostnameSchema</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Validate_Hostname::INVALID_LOCAL_NAME"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>INVALID_LOCAL_NAME<span class="nb-faded-text">
+         = hostnameInvalidLocalName</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Validate_Hostname::INVALID_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>INVALID_URI<span class="nb-faded-text">
+         = hostnameInvalidUri</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Validate_Hostname::IP_ADDRESS_NOT_ALLOWED"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>IP_ADDRESS_NOT_ALLOWED<span class="nb-faded-text">
+         = hostnameIpAddressNotAllowed</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Validate_Hostname::LOCAL_NAME_NOT_ALLOWED"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>LOCAL_NAME_NOT_ALLOWED<span class="nb-faded-text">
+         = hostnameLocalNameNotAllowed</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Validate_Hostname::UNDECIPHERABLE_TLD"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>UNDECIPHERABLE_TLD<span class="nb-faded-text">
+         = hostnameUndecipherableTld</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Validate_Hostname::UNKNOWN_TLD"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>UNKNOWN_TLD<span class="nb-faded-text">
+         = hostnameUnknownTld</span>
+</h3>
+<em></em><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

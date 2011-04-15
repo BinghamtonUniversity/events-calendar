@@ -1,0 +1,873 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Gdata/HttpClient.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Http/Client.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Gdata_HttpClient" class="class">
+<h3>Zend_Gdata_HttpClient</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Gdata</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">Gdata</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Gdata Http Client object.</em><br><p>Class to extend the generic Zend Http Client with the ability to perform
+secure AuthSub requests</p>
+<br><div id="methods_Zend_Gdata_HttpClient">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Gdata_HttpClient::_prepareBody()">_prepareBody</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_HttpClient::filterHttpRequest()">filterHttpRequest</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_HttpClient::filterHttpResponse()">filterHttpResponse</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_HttpClient::getAdapter()">getAdapter</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_HttpClient::getAuthSubPrivateKeyId()">getAuthSubPrivateKeyId</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_HttpClient::getAuthSubToken()">getAuthSubToken</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_HttpClient::getClientLoginToken()">getClientLoginToken</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_HttpClient::getStreamingRequest()">getStreamingRequest</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_HttpClient::resetParameters()">resetParameters</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_HttpClient::setAdapter()">setAdapter</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_HttpClient::setAuthSubPrivateKey()">setAuthSubPrivateKey</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_HttpClient::setAuthSubPrivateKeyFile()">setAuthSubPrivateKeyFile</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_HttpClient::setAuthSubToken()">setAuthSubToken</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_HttpClient::setClientLoginToken()">setClientLoginToken</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_HttpClient::setRawDataStream()">setRawDataStream</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_HttpClient::setStreamingRequest()">setStreamingRequest</a>,
+      <div class="method">
+<a id="Zend_Gdata_HttpClient::_prepareBody()"></a><h3>_prepareBody<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Prepare the request body (for POST and PUT requests)</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Http_Client_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::filterHttpRequest()"></a><h3>filterHttpRequest<span class="nb-faded-text">(
+          string
+             
+            $method,
+          string
+             
+            $url,
+          array
+             
+            $headers
+            = array,
+          string
+             
+            $body
+            = null,
+          string
+             
+            $contentType
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array</span>
+</h3>
+<h4>Description</h4>
+<em>Filters the HTTP requests being sent to add the Authorization header.</em><br><small><p>If both AuthSub and ClientLogin tokens are set,
+AuthSub takes precedence.  If an AuthSub key is set, then
+secure AuthSub authentication is used, and the request is signed.
+Requests must be signed only with the private key corresponding to the
+public key registered with Google.  If an AuthSub key is set, but
+openssl support is not enabled in the PHP installation, an exception is
+thrown.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$method</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The HTTP method</td>
+<td></td>
+</tr>
+<tr>
+<td>$url</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The URL</td>
+<td></td>
+</tr>
+<tr>
+<td>$headers</td>
+<td style="white-space: normal;">array |
+                </td>
+<td>An associate array of headers to be sent with the request or null</td>
+<td>array</td>
+</tr>
+<tr>
+<td>$body</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The body of the request or null</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$contentType</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The MIME content type of the body or null</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array</td>
+<td>The processed values in an associative array, using the same names as the params</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception if there was a signing failure</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::filterHttpResponse()"></a><h3>filterHttpResponse<span class="nb-faded-text">(
+          <a href="Zend_Http_Response.html#Zend_Http_Response">Zend_Http_Response</a>
+             
+            $response,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Response.html#Zend_Http_Response">Zend_Http_Response</a></span>
+</h3>
+<h4>Description</h4>
+<em>Method for filtering the HTTP response, though no filtering is
+currently done.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$response</td>
+<td style="white-space: normal;">
+<a href="Zend_Http_Response.html#Zend_Http_Response">Zend_Http_Response</a> |
+                </td>
+<td>The response object to filter</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Response.html#Zend_Http_Response">Zend_Http_Response</a></td>
+<td>The filterd response object</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::getAdapter()"></a><h3>getAdapter<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Http_Client_Adapter_Interface|string</span>
+</h3>
+<h4>Description</h4>
+<em>Return the current connection adapter</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Http_Client_Adapter_Interface|string</td>
+<td>$adapter</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::getAuthSubPrivateKeyId()"></a><h3>getAuthSubPrivateKeyId<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the openssl private key id</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The private key</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::getAuthSubToken()"></a><h3>getAuthSubToken<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the AuthSub token used for authentication</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The token</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::getClientLoginToken()"></a><h3>getClientLoginToken<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the ClientLogin token used for authentication</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The token</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::getStreamingRequest()"></a><h3>getStreamingRequest<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Check whether the client is set to perform streaming requests.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td>True if yes, false otherwise.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::resetParameters()"></a><h3>resetParameters<span class="nb-faded-text">(
+          
+             
+            $clearAll
+            = false,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></span>
+</h3>
+<h4>Description</h4>
+<em>Clear all custom parameters we set.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$clearAll</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>false</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::setAdapter()"></a><h3>setAdapter<span class="nb-faded-text">(
+          <a href="Zend_Http_Client_Adapter_Interface.html#Zend_Http_Client_Adapter_Interface">Zend_Http_Client_Adapter_Interface</a>
+             
+            $adapter,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Load the connection adapter</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$adapter</td>
+<td style="white-space: normal;">
+<a href="Zend_Http_Client_Adapter_Interface.html#Zend_Http_Client_Adapter_Interface">Zend_Http_Client_Adapter_Interface</a> |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::setAuthSubPrivateKey()"></a><h3>setAuthSubPrivateKey<span class="nb-faded-text">(
+          string
+             
+            $key,
+          string
+             
+            $passphrase
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_HttpClient.html#Zend_Gdata_HttpClient">Zend_Gdata_HttpClient</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the PEM formatted private key to be used for secure AuthSub auth.</em><br><small><p>In order to call this method, openssl must be enabled in your PHP
+installation.  Otherwise, a Zend_Gdata_App_InvalidArgumentException
+will be thrown.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$key</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The private key</td>
+<td></td>
+</tr>
+<tr>
+<td>$passphrase</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The optional private key passphrase</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_HttpClient.html#Zend_Gdata_HttpClient">Zend_Gdata_HttpClient</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_InvalidArgumentException</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::setAuthSubPrivateKeyFile()"></a><h3>setAuthSubPrivateKeyFile<span class="nb-faded-text">(
+          string
+             
+            $file,
+          string
+             
+            $passphrase
+            = null,
+          bool
+             
+            $useIncludePath
+            = false,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Sets the PEM formatted private key, as read from a file.</em><br><small><p>This method reads the file and then calls setAuthSubPrivateKey()
+with the file contents.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$file</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The location of the file containing the PEM key</td>
+<td></td>
+</tr>
+<tr>
+<td>$passphrase</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The optional private key passphrase</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$useIncludePath</td>
+<td style="white-space: normal;">bool |
+                </td>
+<td>Whether to search the include_path for the file</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::setAuthSubToken()"></a><h3>setAuthSubToken<span class="nb-faded-text">(
+          string
+             
+            $token,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_HttpClient.html#Zend_Gdata_HttpClient">Zend_Gdata_HttpClient</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the AuthSub token used for authentication</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$token</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The token</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_HttpClient.html#Zend_Gdata_HttpClient">Zend_Gdata_HttpClient</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::setClientLoginToken()"></a><h3>setClientLoginToken<span class="nb-faded-text">(
+          string
+             
+            $token,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_HttpClient.html#Zend_Gdata_HttpClient">Zend_Gdata_HttpClient</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the ClientLogin token used for authentication</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$token</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The token</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_HttpClient.html#Zend_Gdata_HttpClient">Zend_Gdata_HttpClient</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::setRawDataStream()"></a><h3>setRawDataStream<span class="nb-faded-text">(
+          string
+             
+            $data,
+          string
+             
+            $enctype
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the raw (already encoded) POST data from a stream source.</em><br><small><p>This is used to support POSTing from open file handles without
+caching the entire body into memory. It is a wrapper around
+Zend_Http_Client::setRawData().</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$data</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The request data</td>
+<td></td>
+</tr>
+<tr>
+<td>$enctype</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The encoding type</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::setStreamingRequest()"></a><h3>setStreamingRequest<span class="nb-faded-text">(
+          boolean
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Set the streamingRequest variable which controls whether we are
+sending the raw (already encoded) POST data from a stream source.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>The value to set.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Gdata_HttpClient">
+<h4>Properties</h4>
+<a href="#Zend_Gdata_HttpClient::%24_authSubPrivateKeyId">$_authSubPrivateKeyId</a>,
+      <a href="#Zend_Gdata_HttpClient::%24_authSubToken">$_authSubToken</a>,
+      <a href="#Zend_Gdata_HttpClient::%24_clientLoginKey">$_clientLoginKey</a>,
+      <a href="#Zend_Gdata_HttpClient::%24_clientLoginToken">$_clientLoginToken</a>,
+      <a href="#Zend_Gdata_HttpClient::%24_streamingRequest">$_streamingRequest</a>,
+      <div class="method">
+<a id="Zend_Gdata_HttpClient::$_authSubPrivateKeyId"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_authSubPrivateKeyId
+          =
+          null</h3>
+<em>OpenSSL private key resource id
+This key is used for AuthSub authentication.  If this value is set,
+it is assuemd that secure AuthSub is desired.resource</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::$_authSubToken"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_authSubToken
+          =
+          null</h3>
+<em>Token for AuthSub authentication.string</em><br><small>&lt;p&gt;If this token is set, AuthSub authentication is used.&lt;/p&gt;
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::$_clientLoginKey"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_clientLoginKey
+          =
+          null</h3>
+<em>Token for ClientLogin authentication.string</em><br><small>&lt;p&gt;If this token is set, and the AuthSub key is not set,
+ClientLogin authentication is used&lt;/p&gt;
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::$_clientLoginToken"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_clientLoginToken
+          =
+          null</h3>
+<em>Token for ClientLogin authentication.string</em><br><small>&lt;p&gt;If only this token is set, ClientLogin authentication is used.&lt;/p&gt;
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_HttpClient::$_streamingRequest"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_streamingRequest
+          =
+          null</h3>
+<em>True if this request is being made with data supplied by
+a stream object instead of a raw encoded string.bool</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

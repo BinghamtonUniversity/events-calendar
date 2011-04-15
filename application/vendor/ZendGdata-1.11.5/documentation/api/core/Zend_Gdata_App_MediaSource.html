@@ -1,0 +1,272 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Gdata/App/MediaSource.php</h1>
+<div class="file_menu"><a href="#interfaces">Interfaces</a></div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="interfaces"></a><h2>Interfaces</h2>
+<div id="Zend_Gdata_App_MediaSource" class="interface">
+<h3>Zend_Gdata_App_MediaSource</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Gdata</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">App</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value"> 
+      </div>
+<label class="property-key">Final</label><div class="property-value"> 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Interface for defining data that can be encoded and sent over the network.</em><br>
+<br><div id="methods_Zend_Gdata_App_MediaSource">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Gdata_App_MediaSource::encode()">encode</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_MediaSource::getContentType()">getContentType</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_MediaSource::getSlug()">getSlug</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_MediaSource::setContentType()">setContentType</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_MediaSource::setSlug()">setSlug</a>,
+      <div class="method">
+<a id="Zend_Gdata_App_MediaSource::encode()"></a><h3>encode<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Return a byte stream representation of this object.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_MediaSource::getContentType()"></a><h3>getContentType<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>The content type for the file attached (example image/png)</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The content type</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_MediaSource::getSlug()"></a><h3>getSlug<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Returns the Slug header value.  Used by some services to determine the
+title for the uploaded file.  Returns null if no slug should be used.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The slug value</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_MediaSource::setContentType()"></a><h3>setContentType<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_MediaFileSource.html#Zend_Gdata_App_MediaFileSource">Zend_Gdata_App_MediaFileSource</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the content type for the file attached (example image/png)</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The content type</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_MediaFileSource.html#Zend_Gdata_App_MediaFileSource">Zend_Gdata_App_MediaFileSource</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_MediaSource::setSlug()"></a><h3>setSlug<span class="nb-faded-text">(
+          
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_MediaSource.html#Zend_Gdata_App_MediaSource">Zend_Gdata_App_MediaSource</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the Slug header value.  Used by some services to determine the
+title for the uploaded file.  A null value indicates no slug header.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_MediaSource.html#Zend_Gdata_App_MediaSource">Zend_Gdata_App_MediaSource</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>var</td>
+<td>The slug value</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

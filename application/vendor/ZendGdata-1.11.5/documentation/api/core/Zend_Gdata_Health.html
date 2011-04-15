@@ -1,0 +1,554 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Gdata/Health.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Gdata.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Health/ProfileFeed.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Health/ProfileListFeed.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Health/ProfileListEntry.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Health/ProfileEntry.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Gdata_Health" class="class">
+<h3>Zend_Gdata_Health</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="Zend_Gdata.html#Zend_Gdata">Zend_Gdata</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">link</label><div class="property-value">
+<a title="">http://code.google.com/apis/health</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Gdata</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">Health</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Service class for interacting with the Google Health Data API</em><br>
+<br><div id="methods_Zend_Gdata_Health">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Gdata_Health::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health::getHealthProfileEntry()">getHealthProfileEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health::getHealthProfileFeed()">getHealthProfileFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health::getHealthProfileListFeed()">getHealthProfileListFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health::getProfileID()">getProfileID</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health::sendHealthNotice()">sendHealthNotice</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health::setProfileID()">setProfileID</a>,
+      <div class="method">
+<a id="Zend_Gdata_Health::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          <a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a>
+             
+            $client
+            = null,
+          string
+             
+            $applicationId
+            = MyCompany-MyApp-1.0,
+          bool
+             
+            $useH9Sandbox
+            = false,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Create Zend_Gdata_Health object</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$client</td>
+<td style="white-space: normal;">
+<a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a> |
+                </td>
+<td>(optional) The HTTP client to use when when communicating with the Google Health servers.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$applicationId</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The identity of the application in the form of Company-AppName-Version</td>
+<td>MyCompany-MyApp-1.0</td>
+</tr>
+<tr>
+<td>$useH9Sandbox</td>
+<td style="white-space: normal;">bool |
+                </td>
+<td>True if the H9 Developer&#039;s Sandbox should be used instead of production Google Health.</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health::getHealthProfileEntry()"></a><h3>getHealthProfileEntry<span class="nb-faded-text">(
+          mixed
+             
+            $query
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Health_ProfileEntry.html#Zend_Gdata_Health_ProfileEntry">Zend_Gdata_Health_ProfileEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieve a profile entry object</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$query</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>The query for the feed, as a URL or Query</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Health_ProfileEntry.html#Zend_Gdata_Health_ProfileEntry">Zend_Gdata_Health_ProfileEntry</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health::getHealthProfileFeed()"></a><h3>getHealthProfileFeed<span class="nb-faded-text">(
+          mixed
+             
+            $query
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Health_ProfileFeed.html#Zend_Gdata_Health_ProfileFeed">Zend_Gdata_Health_ProfileFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieve a user's profile as a feed object.  If ClientLogin is used, the
+profile associated with $this->_profileID is returned, otherwise
+the profile associated with the AuthSub token is read.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$query</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>The query for the feed, as a URL or Query</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Health_ProfileFeed.html#Zend_Gdata_Health_ProfileFeed">Zend_Gdata_Health_ProfileFeed</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health::getHealthProfileListFeed()"></a><h3>getHealthProfileListFeed<span class="nb-faded-text">(
+          string
+             
+            $query
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Feed.html#Zend_Gdata_Feed">Zend_Gdata_Feed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves the list of profiles associated with the user's ClientLogin
+credentials.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$query</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The query of the feed as a URL or Query object</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Feed.html#Zend_Gdata_Feed">Zend_Gdata_Feed</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health::getProfileID()"></a><h3>getProfileID<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the id of the user's profile</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The profile id</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health::sendHealthNotice()"></a><h3>sendHealthNotice<span class="nb-faded-text">(
+          string
+             
+            $subject,
+          string
+             
+            $body,
+          string
+             
+            $bodyType
+            = null,
+          string
+             
+            $ccrXML
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Health_ProfileEntry.html#Zend_Gdata_Health_ProfileEntry">Zend_Gdata_Health_ProfileEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Posts a new notice using the register feed.  This function constructs
+the atom profile entry.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$subject</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The subject line of the notice</td>
+<td></td>
+</tr>
+<tr>
+<td>$body</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The message body of the notice</td>
+<td></td>
+</tr>
+<tr>
+<td>$bodyType</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The (optional) type of message body (text, xhtml, html, etc.)</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$ccrXML</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The (optional) CCR to add to the user&#039;s profile</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Health_ProfileEntry.html#Zend_Gdata_Health_ProfileEntry">Zend_Gdata_Health_ProfileEntry</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health::setProfileID()"></a><h3>setProfileID<span class="nb-faded-text">(
+          string
+             
+            $id,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Health.html#Zend_Gdata_Health">Zend_Gdata_Health</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets which of the user's profiles will be used</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$id</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The profile ID</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Health.html#Zend_Gdata_Health">Zend_Gdata_Health</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Gdata_Health">
+<h4>Properties</h4>
+<a href="#Zend_Gdata_Health::%24_profileID">$_profileID</a>,
+      <a href="#Zend_Gdata_Health::%24_useH9Sandbox">$_useH9Sandbox</a>,
+      <a href="#Zend_Gdata_Health::%24namespaces">$namespaces</a>,
+      <div class="method">
+<a id="Zend_Gdata_Health::$_profileID"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_profileID
+          =
+          null</h3>
+<em>Profile ID used for all API interactions.  This can only be set when
+using ClientLogin for authentication.string</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health::$_useH9Sandbox"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_useH9Sandbox
+          =
+          false</h3>
+<em>True if API calls should be made to the H9 developer sandbox at /h9
+rather than /healthbool</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health::$namespaces"></a><h3>
+<span class="nb-faded-text"> 
+          public 
+          static </span>$namespaces
+          =
+          array</h3>
+<em></em><br>
+</div>
+</div>
+<div id="constants_Zend_Gdata_Health">
+<h4>Constants</h4>
+<a id="Zend_Gdata_Health::AUTHSUB_PROFILE_FEED_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>AUTHSUB_PROFILE_FEED_URI<span class="nb-faded-text">
+         = https://www.google.com/health/feeds/profile/default</span>
+</h3>
+<em>URIs of the AuthSub/OAuth feeds.</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_Health::AUTHSUB_REGISTER_FEED_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>AUTHSUB_REGISTER_FEED_URI<span class="nb-faded-text">
+         = https://www.google.com/health/feeds/register/default</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_Health::CLIENTLOGIN_PROFILELIST_FEED_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>CLIENTLOGIN_PROFILELIST_FEED_URI<span class="nb-faded-text">
+         = https://www.google.com/health/feeds/profile/list</span>
+</h3>
+<em>URIs of the ClientLogin feeds.</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_Health::CLIENTLOGIN_PROFILE_FEED_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>CLIENTLOGIN_PROFILE_FEED_URI<span class="nb-faded-text">
+         = https://www.google.com/health/feeds/profile/ui</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_Health::CLIENTLOGIN_REGISTER_FEED_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>CLIENTLOGIN_REGISTER_FEED_URI<span class="nb-faded-text">
+         = https://www.google.com/health/feeds/register/ui</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_Health::H9_SANDBOX_SERVICE_NAME"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>H9_SANDBOX_SERVICE_NAME<span class="nb-faded-text">
+         = weaver</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_Health::HEALTH_SERVICE_NAME"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>HEALTH_SERVICE_NAME<span class="nb-faded-text">
+         = health</span>
+</h3>
+<em>Authentication service names for Google Health and the H9 Sandbox.</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

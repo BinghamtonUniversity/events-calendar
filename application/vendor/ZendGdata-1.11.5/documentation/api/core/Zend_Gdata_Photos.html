@@ -1,0 +1,1360 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Gdata/Photos.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Gdata.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Photos/UserFeed.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Photos/AlbumFeed.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Photos/PhotoFeed.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Gdata_Photos" class="class">
+<h3>Zend_Gdata_Photos</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="Zend_Gdata.html#Zend_Gdata">Zend_Gdata</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">link</label><div class="property-value">
+<a title="">http://code.google.com/apis/picasaweb/gdata.html</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Gdata</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">Photos</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Service class for interacting with the Google Photos Data API.</em><br><p>Like other service classes in this module, this class provides access via
+an HTTP client to Google servers for working with entries and feeds.</p>
+<br><div id="methods_Zend_Gdata_Photos">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Gdata_Photos::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos::deleteAlbumEntry()">deleteAlbumEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos::deleteCommentEntry()">deleteCommentEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos::deletePhotoEntry()">deletePhotoEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos::deleteTagEntry()">deleteTagEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos::getAlbumEntry()">getAlbumEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos::getAlbumFeed()">getAlbumFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos::getCommentEntry()">getCommentEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos::getPhotoEntry()">getPhotoEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos::getPhotoFeed()">getPhotoFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos::getTagEntry()">getTagEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos::getUserEntry()">getUserEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos::getUserFeed()">getUserFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos::insertAlbumEntry()">insertAlbumEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos::insertCommentEntry()">insertCommentEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos::insertPhotoEntry()">insertPhotoEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos::insertTagEntry()">insertTagEntry</a>,
+      <div class="method">
+<a id="Zend_Gdata_Photos::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          <a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a>
+             
+            $client
+            = null,
+          string
+             
+            $applicationId
+            = MyCompany-MyApp-1.0,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Create Zend_Gdata_Photos object</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$client</td>
+<td style="white-space: normal;">
+<a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a> |
+                </td>
+<td>(optional) The HTTP client to use when when communicating with the servers.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$applicationId</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The identity of the app in the form of Company-AppName-Version</td>
+<td>MyCompany-MyApp-1.0</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos::deleteAlbumEntry()"></a><h3>deleteAlbumEntry<span class="nb-faded-text">(
+          <a href="Zend_Gdata_Photos_AlbumEntry.html#Zend_Gdata_Photos_AlbumEntry">Zend_Gdata_Photos_AlbumEntry</a>
+             
+            $album,
+          boolean
+             
+            $catch,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void.</span>
+</h3>
+<h4>Description</h4>
+<em>Delete an AlbumEntry.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$album</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_Photos_AlbumEntry.html#Zend_Gdata_Photos_AlbumEntry">Zend_Gdata_Photos_AlbumEntry</a> |
+                </td>
+<td>The album entry to delete.</td>
+<td></td>
+</tr>
+<tr>
+<td>$catch</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>Whether to catch an exception when modified and re-delete or throw</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos::deleteCommentEntry()"></a><h3>deleteCommentEntry<span class="nb-faded-text">(
+          <a href="Zend_Gdata_Photos_CommentEntry.html#Zend_Gdata_Photos_CommentEntry">Zend_Gdata_Photos_CommentEntry</a>
+             
+            $comment,
+          boolean
+             
+            $catch,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void.</span>
+</h3>
+<h4>Description</h4>
+<em>Delete a CommentEntry.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$comment</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_Photos_CommentEntry.html#Zend_Gdata_Photos_CommentEntry">Zend_Gdata_Photos_CommentEntry</a> |
+                </td>
+<td>The comment entry to delete.</td>
+<td></td>
+</tr>
+<tr>
+<td>$catch</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>Whether to catch an exception when modified and re-delete or throw</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos::deletePhotoEntry()"></a><h3>deletePhotoEntry<span class="nb-faded-text">(
+          <a href="Zend_Gdata_Photos_PhotoEntry.html#Zend_Gdata_Photos_PhotoEntry">Zend_Gdata_Photos_PhotoEntry</a>
+             
+            $photo,
+          boolean
+             
+            $catch,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void.</span>
+</h3>
+<h4>Description</h4>
+<em>Delete a PhotoEntry.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$photo</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_Photos_PhotoEntry.html#Zend_Gdata_Photos_PhotoEntry">Zend_Gdata_Photos_PhotoEntry</a> |
+                </td>
+<td>The photo entry to delete.</td>
+<td></td>
+</tr>
+<tr>
+<td>$catch</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>Whether to catch an exception when modified and re-delete or throw</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos::deleteTagEntry()"></a><h3>deleteTagEntry<span class="nb-faded-text">(
+          <a href="Zend_Gdata_Photos_TagEntry.html#Zend_Gdata_Photos_TagEntry">Zend_Gdata_Photos_TagEntry</a>
+             
+            $tag,
+          boolean
+             
+            $catch,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void.</span>
+</h3>
+<h4>Description</h4>
+<em>Delete a TagEntry.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$tag</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_Photos_TagEntry.html#Zend_Gdata_Photos_TagEntry">Zend_Gdata_Photos_TagEntry</a> |
+                </td>
+<td>The tag entry to delete.</td>
+<td></td>
+</tr>
+<tr>
+<td>$catch</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>Whether to catch an exception when modified and re-delete or throw</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos::getAlbumEntry()"></a><h3>getAlbumEntry<span class="nb-faded-text">(
+          mixed
+             
+            $location,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_AlbumEntry.html#Zend_Gdata_Photos_AlbumEntry">Zend_Gdata_Photos_AlbumEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retreive a single AlbumEntry object.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>The location for the feed, as a URL or Query.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_AlbumEntry.html#Zend_Gdata_Photos_AlbumEntry">Zend_Gdata_Photos_AlbumEntry</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos::getAlbumFeed()"></a><h3>getAlbumFeed<span class="nb-faded-text">(
+          mixed
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_AlbumFeed.html#Zend_Gdata_Photos_AlbumFeed">Zend_Gdata_Photos_AlbumFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retreive AlbumFeed object containing multiple PhotoEntry or TagEntry
+objects.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The location for the feed, as a URL or Query.</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_AlbumFeed.html#Zend_Gdata_Photos_AlbumFeed">Zend_Gdata_Photos_AlbumFeed</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos::getCommentEntry()"></a><h3>getCommentEntry<span class="nb-faded-text">(
+          mixed
+             
+            $location,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_CommentEntry.html#Zend_Gdata_Photos_CommentEntry">Zend_Gdata_Photos_CommentEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retreive a single CommentEntry object.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>The location for the feed, as a URL or Query.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_CommentEntry.html#Zend_Gdata_Photos_CommentEntry">Zend_Gdata_Photos_CommentEntry</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos::getPhotoEntry()"></a><h3>getPhotoEntry<span class="nb-faded-text">(
+          mixed
+             
+            $location,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_PhotoEntry.html#Zend_Gdata_Photos_PhotoEntry">Zend_Gdata_Photos_PhotoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retreive a single PhotoEntry object.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>The location for the feed, as a URL or Query.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_PhotoEntry.html#Zend_Gdata_Photos_PhotoEntry">Zend_Gdata_Photos_PhotoEntry</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos::getPhotoFeed()"></a><h3>getPhotoFeed<span class="nb-faded-text">(
+          mixed
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_PhotoFeed.html#Zend_Gdata_Photos_PhotoFeed">Zend_Gdata_Photos_PhotoFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retreive PhotoFeed object containing comments and tags associated
+with a given photo.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The location for the feed, as a URL or Query. If not specified, the community search feed will be returned instead.</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_PhotoFeed.html#Zend_Gdata_Photos_PhotoFeed">Zend_Gdata_Photos_PhotoFeed</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos::getTagEntry()"></a><h3>getTagEntry<span class="nb-faded-text">(
+          mixed
+             
+            $location,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_TagEntry.html#Zend_Gdata_Photos_TagEntry">Zend_Gdata_Photos_TagEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retreive a single TagEntry object.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>The location for the feed, as a URL or Query.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_TagEntry.html#Zend_Gdata_Photos_TagEntry">Zend_Gdata_Photos_TagEntry</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos::getUserEntry()"></a><h3>getUserEntry<span class="nb-faded-text">(
+          mixed
+             
+            $location,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_UserEntry.html#Zend_Gdata_Photos_UserEntry">Zend_Gdata_Photos_UserEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retreive a single UserEntry object.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>The location for the feed, as a URL or Query.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_UserEntry.html#Zend_Gdata_Photos_UserEntry">Zend_Gdata_Photos_UserEntry</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos::getUserFeed()"></a><h3>getUserFeed<span class="nb-faded-text">(
+          string
+             
+            $userName
+            = null,
+          mixed
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_UserFeed.html#Zend_Gdata_Photos_UserFeed">Zend_Gdata_Photos_UserFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieve a UserFeed containing AlbumEntries, PhotoEntries and
+TagEntries associated with a given user.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$userName</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The userName of interest</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The location for the feed, as a URL or Query. If not provided, a default URL will be used instead.</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_UserFeed.html#Zend_Gdata_Photos_UserFeed">Zend_Gdata_Photos_UserFeed</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos::insertAlbumEntry()"></a><h3>insertAlbumEntry<span class="nb-faded-text">(
+          <a href="Zend_Gdata_Photos_AlbumEntry.html#Zend_Gdata_Photos_AlbumEntry">Zend_Gdata_Photos_AlbumEntry</a>
+             
+            $album,
+          
+             
+            $uri
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_AlbumEntry.html#Zend_Gdata_Photos_AlbumEntry">Zend_Gdata_Photos_AlbumEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Create a new album from a AlbumEntry.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$album</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_Photos_AlbumEntry.html#Zend_Gdata_Photos_AlbumEntry">Zend_Gdata_Photos_AlbumEntry</a> |
+                </td>
+<td>The album entry to insert.</td>
+<td></td>
+</tr>
+<tr>
+<td>$uri</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_AlbumEntry.html#Zend_Gdata_Photos_AlbumEntry">Zend_Gdata_Photos_AlbumEntry</a></td>
+<td>The inserted album entry as returned by the server.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos::insertCommentEntry()"></a><h3>insertCommentEntry<span class="nb-faded-text">(
+          <a href="Zend_Gdata_Photos_CommentEntry.html#Zend_Gdata_Photos_CommentEntry">Zend_Gdata_Photos_CommentEntry</a>
+             
+            $comment,
+          
+             
+            $uri
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_CommentEntry.html#Zend_Gdata_Photos_CommentEntry">Zend_Gdata_Photos_CommentEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Create a new comment from a CommentEntry.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$comment</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_Photos_CommentEntry.html#Zend_Gdata_Photos_CommentEntry">Zend_Gdata_Photos_CommentEntry</a> |
+                </td>
+<td>The comment entry to insert.</td>
+<td></td>
+</tr>
+<tr>
+<td>$uri</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_CommentEntry.html#Zend_Gdata_Photos_CommentEntry">Zend_Gdata_Photos_CommentEntry</a></td>
+<td>The inserted comment entry as returned by the server.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos::insertPhotoEntry()"></a><h3>insertPhotoEntry<span class="nb-faded-text">(
+          <a href="Zend_Gdata_Photos_PhotoEntry.html#Zend_Gdata_Photos_PhotoEntry">Zend_Gdata_Photos_PhotoEntry</a>
+             
+            $photo,
+          
+             
+            $uri
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_PhotoEntry.html#Zend_Gdata_Photos_PhotoEntry">Zend_Gdata_Photos_PhotoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Create a new photo from a PhotoEntry.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$photo</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_Photos_PhotoEntry.html#Zend_Gdata_Photos_PhotoEntry">Zend_Gdata_Photos_PhotoEntry</a> |
+                </td>
+<td>The photo to insert.</td>
+<td></td>
+</tr>
+<tr>
+<td>$uri</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_PhotoEntry.html#Zend_Gdata_Photos_PhotoEntry">Zend_Gdata_Photos_PhotoEntry</a></td>
+<td>The inserted photo entry as returned by the server.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos::insertTagEntry()"></a><h3>insertTagEntry<span class="nb-faded-text">(
+          <a href="Zend_Gdata_Photos_TagEntry.html#Zend_Gdata_Photos_TagEntry">Zend_Gdata_Photos_TagEntry</a>
+             
+            $tag,
+          
+             
+            $uri
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_TagEntry.html#Zend_Gdata_Photos_TagEntry">Zend_Gdata_Photos_TagEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Create a new tag from a TagEntry.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$tag</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_Photos_TagEntry.html#Zend_Gdata_Photos_TagEntry">Zend_Gdata_Photos_TagEntry</a> |
+                </td>
+<td>The tag entry to insert.</td>
+<td></td>
+</tr>
+<tr>
+<td>$uri</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_TagEntry.html#Zend_Gdata_Photos_TagEntry">Zend_Gdata_Photos_TagEntry</a></td>
+<td>The inserted tag entry as returned by the server.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Gdata_Photos">
+<h4>Properties</h4>
+<a href="#Zend_Gdata_Photos::%24namespaces">$namespaces</a>,
+      <div class="method">
+<a id="Zend_Gdata_Photos::$namespaces"></a><h3>
+<span class="nb-faded-text"> 
+          public 
+          static </span>$namespaces
+          =
+          array</h3>
+<em>Namespaces used for Zend_Gdata_Photosarray</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div id="constants_Zend_Gdata_Photos">
+<h4>Constants</h4>
+<a id="Zend_Gdata_Photos::ALBUM_PATH"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>ALBUM_PATH<span class="nb-faded-text">
+         = albumid</span>
+</h3>
+<em>Path to album feeds on the Picasa server.</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_Photos::AUTH_SERVICE_NAME"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>AUTH_SERVICE_NAME<span class="nb-faded-text">
+         = lh2</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_Photos::COMMUNITY_SEARCH_PATH"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>COMMUNITY_SEARCH_PATH<span class="nb-faded-text">
+         = all</span>
+</h3>
+<em>The path to the community search feed on the Picasa server.</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_Photos::DEFAULT_PROJECTION"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>DEFAULT_PROJECTION<span class="nb-faded-text">
+         = api</span>
+</h3>
+<em>Default projection when interacting with the Picasa server.</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_Photos::DEFAULT_USER"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>DEFAULT_USER<span class="nb-faded-text">
+         = default</span>
+</h3>
+<em>The default user to retrieve feeds for.</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_Photos::DEFAULT_VISIBILITY"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>DEFAULT_VISIBILITY<span class="nb-faded-text">
+         = all</span>
+</h3>
+<em>The default visibility to filter events by.</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_Photos::FEED_LINK_PATH"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>FEED_LINK_PATH<span class="nb-faded-text">
+         = http://schemas.google.com/g/2005#feed</span>
+</h3>
+<em>The path to use for finding links to feeds within entries</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_Photos::KIND_PATH"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>KIND_PATH<span class="nb-faded-text">
+         = http://schemas.google.com/g/2005#kind</span>
+</h3>
+<em>The path to use for the determining type of an entry</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_Photos::PHOTO_PATH"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>PHOTO_PATH<span class="nb-faded-text">
+         = photoid</span>
+</h3>
+<em>Path to photo feeds on the Picasa server.</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_Photos::PICASA_BASE_FEED_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>PICASA_BASE_FEED_URI<span class="nb-faded-text">
+         = https://picasaweb.google.com/data/feed</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_Photos::PICASA_BASE_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>PICASA_BASE_URI<span class="nb-faded-text">
+         = https://picasaweb.google.com/data</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_Photos::USER_PATH"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>USER_PATH<span class="nb-faded-text">
+         = user</span>
+</h3>
+<em>Path to the user feed on the Picasa server.</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

@@ -1,0 +1,607 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Http/Client/Adapter/Test.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Uri/Http.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Http/Response.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Http/Client/Adapter/Interface.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Http_Client_Adapter_Test" class="class">
+<h3>Zend_Http_Client_Adapter_Test</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+         </div>
+<label class="property-key">Implements</label><div class="property-value">Zend_Http_Client_Adapter_Interface<br> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Http</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">Client_Adapter</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>A testing-purposes adapter.</em><br><p>Should be used to test all components that rely on Zend_Http_Client,
+without actually performing an HTTP request. You should instantiate this
+object manually, and then set it as the client's adapter. Then, you can
+set the expected response using the setResponse() method.</p>
+<br><div id="methods_Zend_Http_Client_Adapter_Test">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Test::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Test::addResponse()">addResponse</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Test::close()">close</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Test::connect()">connect</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Test::read()">read</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Test::setConfig()">setConfig</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Test::setNextRequestWillFail()">setNextRequestWillFail</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Test::setResponse()">setResponse</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Test::setResponseIndex()">setResponseIndex</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Test::write()">write</a>,
+      <div class="method">
+<a id="Zend_Http_Client_Adapter_Test::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Adapter constructor, currently empty. Config is set using setConfig()</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Test::addResponse()"></a><h3>addResponse<span class="nb-faded-text">(
+          string
+             
+            $response,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Add another response to the response buffer.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$response</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>Zend_Http_Response|$response</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Test::close()"></a><h3>close<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Close the connection (dummy)</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Test::connect()"></a><h3>connect<span class="nb-faded-text">(
+          string
+             
+            $host,
+          int
+             
+            $port
+            = 80,
+          boolean
+             
+            $secure
+            = false,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Connect to the remote server</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$host</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$port</td>
+<td style="white-space: normal;">int |
+                </td>
+<td></td>
+<td>80</td>
+</tr>
+<tr>
+<td>$secure</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td></td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Http_Client_Adapter_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Test::read()"></a><h3>read<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Return the response set in $this->setResponse()</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Test::setConfig()"></a><h3>setConfig<span class="nb-faded-text">(
+          Zend_Config
+             
+            $config
+            = array,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Set the configuration array for the adapter</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$config</td>
+<td style="white-space: normal;">Zend_Config |
+                </td>
+<td>| array $config</td>
+<td>array</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Test::setNextRequestWillFail()"></a><h3>setNextRequestWillFail<span class="nb-faded-text">(
+          boolean
+             
+            $flag,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client_Adapter_Test.html#Zend_Http_Client_Adapter_Test">Zend_Http_Client_Adapter_Test</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the nextRequestWillFail flag</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$flag</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client_Adapter_Test.html#Zend_Http_Client_Adapter_Test">Zend_Http_Client_Adapter_Test</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Test::setResponse()"></a><h3>setResponse<span class="nb-faded-text">(
+          <a href="Zend_Http_Response.html#Zend_Http_Response">Zend_Http_Response</a>|array|string
+             
+            $response,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Set the HTTP response(s) to be returned by this adapter</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$response</td>
+<td style="white-space: normal;">
+<a href="Zend_Http_Response.html#Zend_Http_Response">Zend_Http_Response</a> |
+                array |
+                string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Test::setResponseIndex()"></a><h3>setResponseIndex<span class="nb-faded-text">(
+          integer
+             
+            $index,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Sets the position of the response buffer.  Selects which
+response will be returned on the next call to read().</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$index</td>
+<td style="white-space: normal;">integer |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Test::write()"></a><h3>write<span class="nb-faded-text">(
+          string
+             
+            $method,
+          <a href="Zend_Uri_Http.html#Zend_Uri_Http">Zend_Uri_Http</a>
+             
+            $uri,
+          string
+             
+            $http_ver
+            = 1.1,
+          array
+             
+            $headers
+            = array,
+          string
+             
+            $body,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Send request to the remote server</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$method</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$uri</td>
+<td style="white-space: normal;">
+<a href="Zend_Uri_Http.html#Zend_Uri_Http">Zend_Uri_Http</a> |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$http_ver</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>$headers</td>
+<td style="white-space: normal;">array |
+                </td>
+<td></td>
+<td>array</td>
+</tr>
+<tr>
+<td>$body</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>Request as string</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Http_Client_Adapter_Test">
+<h4>Properties</h4>
+<a href="#Zend_Http_Client_Adapter_Test::%24_nextRequestWillFail">$_nextRequestWillFail</a>,
+      <a href="#Zend_Http_Client_Adapter_Test::%24config">$config</a>,
+      <a href="#Zend_Http_Client_Adapter_Test::%24responseIndex">$responseIndex</a>,
+      <a href="#Zend_Http_Client_Adapter_Test::%24responses">$responses</a>,
+      <div class="method">
+<a id="Zend_Http_Client_Adapter_Test::$_nextRequestWillFail"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_nextRequestWillFail
+          =
+          false</h3>
+<em>Wether or not the next request will fail with an exceptionboolean</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Test::$config"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$config
+          =
+          array</h3>
+<em>Parameters arrayarray</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Test::$responseIndex"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$responseIndex
+          =
+          0</h3>
+<em>Current position in the response bufferinteger</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Test::$responses"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$responses
+          =
+          array</h3>
+<em>Buffer of responses to be returned by the read() method.  Can be
+set using setResponse() and addResponse().array</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

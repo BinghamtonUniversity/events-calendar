@@ -1,0 +1,463 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Gdata/Media/Extension/MediaCategory.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Gdata/App/Extension.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Gdata_Media_Extension_MediaCategory" class="class">
+<h3>Zend_Gdata_Media_Extension_MediaCategory</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="Zend_Gdata_Extension.html#Zend_Gdata_Extension">Zend_Gdata_Extension</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Gdata</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">Media</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Represents the media:category element</em><br>
+<br><div id="methods_Zend_Gdata_Media_Extension_MediaCategory">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Gdata_Media_Extension_MediaCategory::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Media_Extension_MediaCategory::getDOM()">getDOM</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Media_Extension_MediaCategory::getLabel()">getLabel</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Media_Extension_MediaCategory::getScheme()">getScheme</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Media_Extension_MediaCategory::setLabel()">setLabel</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Media_Extension_MediaCategory::setScheme()">setScheme</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Media_Extension_MediaCategory::takeAttributeFromDOM()">takeAttributeFromDOM</a>,
+      <div class="method">
+<a id="Zend_Gdata_Media_Extension_MediaCategory::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          string
+             
+            $text
+            = null,
+          string
+             
+            $scheme
+            = null,
+          string
+             
+            $label
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Creates an individual MediaCategory object.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$text</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>Indication of the type and content of the media</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$scheme</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>URI that identifies the categorization scheme</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$label</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>Human-readable label to be displayed in applications</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Media_Extension_MediaCategory::getDOM()"></a><h3>getDOM<span class="nb-faded-text">(
+          DOMDocument
+             
+            $doc
+            = null,
+          
+             
+            $majorVersion
+            = 1,
+          
+             
+            $minorVersion
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">DOMElement</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a DOMElement which corresponds to this element and all
+child properties.  This is used to build an entry back into a DOM
+and eventually XML text for sending to the server upon updates, or
+for application storage/persistence.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$doc</td>
+<td style="white-space: normal;">DOMDocument |
+                </td>
+<td>The DOMDocument used to construct DOMElements</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$majorVersion</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>1</td>
+</tr>
+<tr>
+<td>$minorVersion</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>DOMElement</td>
+<td>The DOMElement representing this element and all child properties.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Media_Extension_MediaCategory::getLabel()"></a><h3>getLabel<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>Human-readable label to be displayed in applications</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Media_Extension_MediaCategory::getScheme()"></a><h3>getScheme<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Returns the URI that identifies the categorization scheme
+Optional.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>URI that identifies the categorization scheme</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Media_Extension_MediaCategory::setLabel()"></a><h3>setLabel<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Media_Extension_MediaCategory.html#Zend_Gdata_Media_Extension_MediaCategory">Zend_Gdata_Media_Extension_MediaCategory</a></span>
+</h3>
+<h4>Description</h4>
+<small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>Human-readable label to be displayed in applications</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Media_Extension_MediaCategory.html#Zend_Gdata_Media_Extension_MediaCategory">Zend_Gdata_Media_Extension_MediaCategory</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Media_Extension_MediaCategory::setScheme()"></a><h3>setScheme<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Media_Extension_MediaCategory.html#Zend_Gdata_Media_Extension_MediaCategory">Zend_Gdata_Media_Extension_MediaCategory</a></span>
+</h3>
+<h4>Description</h4>
+<small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>URI that identifies the categorization scheme</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Media_Extension_MediaCategory.html#Zend_Gdata_Media_Extension_MediaCategory">Zend_Gdata_Media_Extension_MediaCategory</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Media_Extension_MediaCategory::takeAttributeFromDOM()"></a><h3>takeAttributeFromDOM<span class="nb-faded-text">(
+          DOMNode
+             
+            $attribute,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Given a DOMNode representing an attribute, tries to map the data into
+instance members.  If no mapping is defined, the name and value are
+stored in an array.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$attribute</td>
+<td style="white-space: normal;">DOMNode |
+                </td>
+<td>The DOMNode attribute needed to be handled</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Gdata_Media_Extension_MediaCategory">
+<h4>Properties</h4>
+<a href="#Zend_Gdata_Media_Extension_MediaCategory::%24_label">$_label</a>,
+      <a href="#Zend_Gdata_Media_Extension_MediaCategory::%24_rootElement">$_rootElement</a>,
+      <a href="#Zend_Gdata_Media_Extension_MediaCategory::%24_rootNamespace">$_rootNamespace</a>,
+      <a href="#Zend_Gdata_Media_Extension_MediaCategory::%24_scheme">$_scheme</a>,
+      <div class="method">
+<a id="Zend_Gdata_Media_Extension_MediaCategory::$_label"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_label
+          =
+          null</h3>
+<em></em><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Media_Extension_MediaCategory::$_rootElement"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_rootElement
+          =
+          category</h3>
+<em></em><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Media_Extension_MediaCategory::$_rootNamespace"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_rootNamespace
+          =
+          media</h3>
+<em></em><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Media_Extension_MediaCategory::$_scheme"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_scheme
+          =
+          null</h3>
+<em>string</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

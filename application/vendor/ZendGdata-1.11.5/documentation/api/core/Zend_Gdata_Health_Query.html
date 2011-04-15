@@ -1,0 +1,625 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Gdata/Health/Query.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Gdata/Query.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Gdata_Health_Query" class="class">
+<h3>Zend_Gdata_Health_Query</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="Zend_Gdata_Query.html#Zend_Gdata_Query">Zend_Gdata_Query</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">link</label><div class="property-value">
+<a title="">http://code.google.com/apis/health</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Gdata</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">Health</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Assists in constructing queries for Google Health</em><br>
+<br><div id="methods_Zend_Gdata_Health_Query">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Gdata_Health_Query::getCategory()">getCategory</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health_Query::getDigest()">getDigest</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health_Query::getGrouped()">getGrouped</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health_Query::getMaxResultsGroup()">getMaxResultsGroup</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health_Query::getMaxResultsInGroup()">getMaxResultsInGroup</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health_Query::getStartIndexGroup()">getStartIndexGroup</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health_Query::getStartIndexInGroup()">getStartIndexInGroup</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health_Query::setCategory()">setCategory</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health_Query::setDigest()">setDigest</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health_Query::setGrouped()">setGrouped</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health_Query::setMaxResultsGroup()">setMaxResultsGroup</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health_Query::setMaxResultsInGroup()">setMaxResultsInGroup</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health_Query::setStartIndexGroup()">setStartIndexGroup</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Health_Query::setStartIndexInGroup()">setStartIndexInGroup</a>,
+      <div class="method">
+<a id="Zend_Gdata_Health_Query::getCategory()"></a><h3>getCategory<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Returns the query object's category.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>id</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health_Query::getDigest()"></a><h3>getDigest<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Returns the digest parameter's value.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The value set for the digest parameter.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health_Query::getGrouped()"></a><h3>getGrouped<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Returns the value set for the grouped parameter.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>grouped parameter.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health_Query::getMaxResultsGroup()"></a><h3>getMaxResultsGroup<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">int</span>
+</h3>
+<h4>Description</h4>
+<em>Returns the value set for max-results-group.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>int</td>
+<td>Returns max-results-group parameter.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health_Query::getMaxResultsInGroup()"></a><h3>getMaxResultsInGroup<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">int</span>
+</h3>
+<h4>Description</h4>
+<em>Returns the value set for max-results-in-group.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>int</td>
+<td>Returns max-results-in-group parameter.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health_Query::getStartIndexGroup()"></a><h3>getStartIndexGroup<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">int</span>
+</h3>
+<h4>Description</h4>
+<em>Returns the value set for start-index-group.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>int</td>
+<td>Returns start-index-group parameter.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health_Query::getStartIndexInGroup()"></a><h3>getStartIndexInGroup<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">int</span>
+</h3>
+<h4>Description</h4>
+<em>Returns the value set for start-index-in-group.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>int</td>
+<td>Returns start-index-in-group parameter.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health_Query::setCategory()"></a><h3>setCategory<span class="nb-faded-text">(
+          string
+             
+            $item,
+          string
+             
+            $name
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Health_Query.html#Zend_Gdata_Health_Query">Zend_Gdata_Health_Query</a></span>
+</h3>
+<h4>Description</h4>
+<em>Setter for category queries.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$item</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>A category to query.</td>
+<td></td>
+</tr>
+<tr>
+<td>$name</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>(optional) A specific item to search a category for. An example would be &#039;Lipitor&#039; if $item is set to &#039;medication&#039;.</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Health_Query.html#Zend_Gdata_Health_Query">Zend_Gdata_Health_Query</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health_Query::setDigest()"></a><h3>setDigest<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Health_Query.html#Zend_Gdata_Health_Query">Zend_Gdata_Health_Query</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the digest parameter's value.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Health_Query.html#Zend_Gdata_Health_Query">Zend_Gdata_Health_Query</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health_Query::setGrouped()"></a><h3>setGrouped<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Health_Query.html#Zend_Gdata_Health_Query">Zend_Gdata_Health_Query</a></span>
+</h3>
+<h4>Description</h4>
+<em>Setter for the grouped parameter.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>setting a count of results per group.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Health_Query.html#Zend_Gdata_Health_Query">Zend_Gdata_Health_Query</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health_Query::setMaxResultsGroup()"></a><h3>setMaxResultsGroup<span class="nb-faded-text">(
+          int
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Health_Query.html#Zend_Gdata_Health_Query">Zend_Gdata_Health_Query</a></span>
+</h3>
+<h4>Description</h4>
+<em>Setter for the max-results-group parameter.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">int |
+                </td>
+<td>Specifies the maximum number of groups to be retrieved. Must be an integer value greater than zero. This parameter is only valid if grouped=true.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Health_Query.html#Zend_Gdata_Health_Query">Zend_Gdata_Health_Query</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health_Query::setMaxResultsInGroup()"></a><h3>setMaxResultsInGroup<span class="nb-faded-text">(
+          int
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Health_Query.html#Zend_Gdata_Health_Query">Zend_Gdata_Health_Query</a></span>
+</h3>
+<h4>Description</h4>
+<em>Setter for the max-results-group parameter.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">int |
+                </td>
+<td>Specifies the maximum number of records to be retrieved from each group. The limits that you specify with this parameter apply to all groups. Must be an integer value greater than zero. This parameter is only valid if grouped=true.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Health_Query.html#Zend_Gdata_Health_Query">Zend_Gdata_Health_Query</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health_Query::setStartIndexGroup()"></a><h3>setStartIndexGroup<span class="nb-faded-text">(
+          int
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Health_Query.html#Zend_Gdata_Health_Query">Zend_Gdata_Health_Query</a></span>
+</h3>
+<h4>Description</h4>
+<em>Setter for the start-index-group parameter.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">int |
+                </td>
+<td>Retrieves only items whose group ranking is at least start-index-group. This should be set to a 1-based index of the first group to be retrieved. The range is applied per category. This parameter is only valid if grouped=true.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Health_Query.html#Zend_Gdata_Health_Query">Zend_Gdata_Health_Query</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Health_Query::setStartIndexInGroup()"></a><h3>setStartIndexInGroup<span class="nb-faded-text">(
+          int
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Health_Query.html#Zend_Gdata_Health_Query">Zend_Gdata_Health_Query</a></span>
+</h3>
+<h4>Description</h4>
+<em>Setter for the start-index-in-group parameter.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">int |
+                </td>
+<td>A 1-based index of the records to be retrieved from each group. This parameter is only valid if grouped=true.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Health_Query.html#Zend_Gdata_Health_Query">Zend_Gdata_Health_Query</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Gdata_Health_Query">
+<h4>Properties</h4>
+<a href="#Zend_Gdata_Health_Query::%24_defaultFeedUri">$_defaultFeedUri</a>,
+      <div class="method">
+<a id="Zend_Gdata_Health_Query::$_defaultFeedUri"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_defaultFeedUri
+          =
+          self</h3>
+<em>The default URI for POST methodsstring</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div id="constants_Zend_Gdata_Health_Query">
+<h4>Constants</h4>
+<a id="Zend_Gdata_Health_Query::HEALTH_PROFILE_FEED_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>HEALTH_PROFILE_FEED_URI<span class="nb-faded-text">
+         = https://www.google.com/health/feeds/profile/default</span>
+</h3>
+<em>URI of a user's profile feed.</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_Health_Query::HEALTH_REGISTER_FEED_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>HEALTH_REGISTER_FEED_URI<span class="nb-faded-text">
+         = https://www.google.com/health/feeds/register/default</span>
+</h3>
+<em>URI of register (notices) feed.</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_Health_Query::ITEM_CATEGORY_NS"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>ITEM_CATEGORY_NS<span class="nb-faded-text">
+         = http://schemas.google.com/health/item</span>
+</h3>
+<em>Namespace for an item category</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

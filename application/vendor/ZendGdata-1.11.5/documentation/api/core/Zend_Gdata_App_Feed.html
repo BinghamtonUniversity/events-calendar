@@ -1,0 +1,919 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Gdata/App/Feed.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Gdata/App/Entry.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/App/FeedSourceParent.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Gdata_App_Feed" class="class">
+<h3>Zend_Gdata_App_Feed</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="Zend_Gdata_App_FeedSourceParent.html#Zend_Gdata_App_FeedSourceParent">Zend_Gdata_App_FeedSourceParent</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value">Iterator<br>ArrayAccess<br>Countable<br> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Gdata</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">App</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Atom feed class</em><br>
+<br><div id="methods_Zend_Gdata_App_Feed">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Gdata_App_Feed::__get()">__get</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::addEntry()">addEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::count()">count</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::current()">current</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::getDOM()">getDOM</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::getEntry()">getEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::getNextFeed()">getNextFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::getPreviousFeed()">getPreviousFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::key()">key</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::next()">next</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::offsetExists()">offsetExists</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::offsetGet()">offsetGet</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::offsetSet()">offsetSet</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::offsetUnset()">offsetUnset</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::rewind()">rewind</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::setEntry()">setEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::setMajorProtocolVersion()">setMajorProtocolVersion</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::setMinorProtocolVersion()">setMinorProtocolVersion</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::takeChildFromDOM()">takeChildFromDOM</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_App_Feed::valid()">valid</a>,
+      <div class="method">
+<a id="Zend_Gdata_App_Feed::__get()"></a><h3>__get<span class="nb-faded-text">(
+          string
+             
+            $var,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">mixed</span>
+</h3>
+<h4>Description</h4>
+<em>Make accessing some individual elements of the feed easier.</em><br><small><p>Special accessors 'entry' and 'entries' are provided so that if
+you wish to iterate over an Atom feed's entries, you can do so
+using foreach ($feed->entries as $entry) or foreach
+($feed->entry as $entry).</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$var</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The property to get.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>mixed</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::addEntry()"></a><h3>addEntry<span class="nb-faded-text">(
+          <a href="Zend_Gdata_App_Entry.html#Zend_Gdata_App_Entry">Zend_Gdata_App_Entry</a>
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_Feed.html#Zend_Gdata_App_Feed">Zend_Gdata_App_Feed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Adds an entry representation to the array of entries
+contained within this feed</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_App_Entry.html#Zend_Gdata_App_Entry">Zend_Gdata_App_Entry</a> |
+                </td>
+<td>An individual entry to add.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_Feed.html#Zend_Gdata_App_Feed">Zend_Gdata_App_Feed</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::count()"></a><h3>count<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">integer</span>
+</h3>
+<h4>Description</h4>
+<em>Get the number of entries in this feed object.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>integer</td>
+<td>Entry count.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::current()"></a><h3>current<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">mixed</span>
+</h3>
+<h4>Description</h4>
+<em>Required by the Iterator interface.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>mixed</td>
+<td>The current row, or null if no rows.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::getDOM()"></a><h3>getDOM<span class="nb-faded-text">(
+          DOMDocument
+             
+            $doc
+            = null,
+          
+             
+            $majorVersion
+            = 1,
+          
+             
+            $minorVersion
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">DOMElement</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves the DOM model representing this object and all children</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$doc</td>
+<td style="white-space: normal;">DOMDocument |
+                </td>
+<td></td>
+<td>null</td>
+</tr>
+<tr>
+<td>$majorVersion</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>1</td>
+</tr>
+<tr>
+<td>$minorVersion</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>DOMElement</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::getEntry()"></a><h3>getEntry<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the array of atom:entry elements contained within this
+atom:feed representation</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array</td>
+<td>Zend_Gdata_App_Entry array</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::getNextFeed()"></a><h3>getNextFeed<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">mixed|null</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieve the next set of results from this feed.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>mixed|null</td>
+<td>Returns the next set of results as a feed of the same class as this feed, or null if no results exist.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::getPreviousFeed()"></a><h3>getPreviousFeed<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">mixed|null</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieve the previous set of results from this feed.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>mixed|null</td>
+<td>Returns the previous set of results as a feed of the same class as this feed, or null if no results exist.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::key()"></a><h3>key<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">mixed</span>
+</h3>
+<h4>Description</h4>
+<em>Required by the Iterator interface.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>mixed</td>
+<td>The current row number (starts at 0), or NULL if no rows</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::next()"></a><h3>next<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">mixed</span>
+</h3>
+<h4>Description</h4>
+<em>Required by the Iterator interface.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>mixed</td>
+<td>The next row, or null if no more rows.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::offsetExists()"></a><h3>offsetExists<span class="nb-faded-text">(
+          int
+             
+            $key,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Required by the ArrayAccess interface</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$key</td>
+<td style="white-space: normal;">int |
+                </td>
+<td>The index to check for existence</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::offsetGet()"></a><h3>offsetGet<span class="nb-faded-text">(
+          int
+             
+            $key,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Required by the ArrayAccess interface</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$key</td>
+<td style="white-space: normal;">int |
+                </td>
+<td>The index to get</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::offsetSet()"></a><h3>offsetSet<span class="nb-faded-text">(
+          int
+             
+            $key,
+          <a href="Zend_Gdata_App_Entry.html#Zend_Gdata_App_Entry">Zend_Gdata_App_Entry</a>
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Required by the ArrayAccess interface</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$key</td>
+<td style="white-space: normal;">int |
+                </td>
+<td>The index to set</td>
+<td></td>
+</tr>
+<tr>
+<td>$value</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_App_Entry.html#Zend_Gdata_App_Entry">Zend_Gdata_App_Entry</a> |
+                </td>
+<td>The value to set</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::offsetUnset()"></a><h3>offsetUnset<span class="nb-faded-text">(
+          int
+             
+            $key,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Required by the ArrayAccess interface</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$key</td>
+<td style="white-space: normal;">int |
+                </td>
+<td>The index to set</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::rewind()"></a><h3>rewind<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Required by the Iterator interface.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::setEntry()"></a><h3>setEntry<span class="nb-faded-text">(
+          array
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_Feed.html#Zend_Gdata_App_Feed">Zend_Gdata_App_Feed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the array of atom:entry elements contained within this
+atom:feed representation</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">array |
+                </td>
+<td>The array of Zend_Gdata_App_Entry elements</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_Feed.html#Zend_Gdata_App_Feed">Zend_Gdata_App_Feed</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::setMajorProtocolVersion()"></a><h3>setMajorProtocolVersion<span class="nb-faded-text">(
+          (int|NULL)
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Set the major protocol version that should be used. Values < 1 will
+cause a Zend_Gdata_App_InvalidArgumentException to be thrown.</em><br><small><p>This value will be propogated to all child entries.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">(int |
+                NULL) |
+                </td>
+<td>The major protocol version to use.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>see</td>
+<td>_majorProtocolVersion</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_InvalidArgumentException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::setMinorProtocolVersion()"></a><h3>setMinorProtocolVersion<span class="nb-faded-text">(
+          (int|NULL)
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Set the minor protocol version that should be used. If set to NULL, no
+minor protocol version will be sent to the server. Values < 0 will
+cause a Zend_Gdata_App_InvalidArgumentException to be thrown.</em><br><small><p>This value will be propogated to all child entries.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">(int |
+                NULL) |
+                </td>
+<td>The minor protocol version to use.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>see</td>
+<td>_minorProtocolVersion</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_InvalidArgumentException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::takeChildFromDOM()"></a><h3>takeChildFromDOM<span class="nb-faded-text">(
+          DOMNode
+             
+            $child,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Creates individual Entry objects of the appropriate type and
+stores them in the $_entry array based upon DOM data.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$child</td>
+<td style="white-space: normal;">DOMNode |
+                </td>
+<td>The DOMNode to process</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::valid()"></a><h3>valid<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Required by the Iterator interface.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td>Whether the iteration is valid</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Gdata_App_Feed">
+<h4>Properties</h4>
+<a href="#Zend_Gdata_App_Feed::%24_entry">$_entry</a>,
+      <a href="#Zend_Gdata_App_Feed::%24_entryIndex">$_entryIndex</a>,
+      <a href="#Zend_Gdata_App_Feed::%24_rootElement">$_rootElement</a>,
+      <div class="method">
+<a id="Zend_Gdata_App_Feed::$_entry"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_entry
+          =
+          array</h3>
+<em>Cache of feed entries.array</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::$_entryIndex"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_entryIndex
+          =
+          0</h3>
+<em>Current location in $_entry arrayint</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_App_Feed::$_rootElement"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_rootElement
+          =
+          feed</h3>
+<em>The root xml element of this data elementstring</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

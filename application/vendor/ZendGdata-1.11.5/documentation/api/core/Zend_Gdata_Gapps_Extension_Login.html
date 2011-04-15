@@ -1,0 +1,1091 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Gdata/Gapps/Extension/Login.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Gdata/Extension.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Gapps.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Gdata_Gapps_Extension_Login" class="class">
+<h3>Zend_Gdata_Gapps_Extension_Login</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="Zend_Gdata_Extension.html#Zend_Gdata_Extension">Zend_Gdata_Extension</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Gdata</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">Gapps</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Represents the apps:login element used by the Apps data API. This
+class is used to describe properties of a user, and is usually contained
+within instances of Zene_Gdata_Gapps_UserEntry or any other class
+which is linked to a particular username.</em><br>
+<br><div id="methods_Zend_Gdata_Gapps_Extension_Login">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::__toString()">__toString</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::getAdmin()">getAdmin</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::getAgreedToTerms()">getAgreedToTerms</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::getChangePasswordAtNextLogin()">getChangePasswordAtNextLogin</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::getDOM()">getDOM</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::getHashFunctionName()">getHashFunctionName</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::getPassword()">getPassword</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::getSuspended()">getSuspended</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::getUsername()">getUsername</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::setAdmin()">setAdmin</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::setAgreedToTerms()">setAgreedToTerms</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::setChangePasswordAtNextLogin()">setChangePasswordAtNextLogin</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::setHashFunctionName()">setHashFunctionName</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::setPassword()">setPassword</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::setSuspended()">setSuspended</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::setUsername()">setUsername</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Gapps_Extension_Login::takeAttributeFromDOM()">takeAttributeFromDOM</a>,
+      <div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          string
+             
+            $username
+            = null,
+          string
+             
+            $password
+            = null,
+          string
+             
+            $hashFunctionName
+            = null,
+          boolean
+             
+            $admin
+            = null,
+          boolean
+             
+            $suspended
+            = null,
+          boolean
+             
+            $changePasswordAtNextLogin
+            = null,
+          boolean
+             
+            $agreedToTerms
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Constructs a new Zend_Gdata_Gapps_Extension_Login object.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$username</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>(optional) The username to be used for this login.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$password</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>(optional) The password to be used for this login.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$hashFunctionName</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>(optional) The name of the hash function used to protect the password, or null if no has function has been applied. As of this writing, the only valid values are &#039;SHA-1&#039; or null.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$admin</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>(optional) Whether the user is an administrator or not.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$suspended</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>(optional) Whether this login is suspended or not.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$changePasswordAtNextLogin</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>(optional) Whether the user is required to change their password at their next login.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$agreedToTerms</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>(optional) Whether the user has agreed to the terms of service.</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::__toString()"></a><h3>__toString<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Magic toString method allows using this directly via echo
+Works best in PHP >= 4.2.0</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::getAdmin()"></a><h3>getAdmin<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's admin attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>see</td>
+<td>setAdmin</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_InvalidArgumentException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::getAgreedToTerms()"></a><h3>getAgreedToTerms<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's agreedToTerms attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>see</td>
+<td>setAgreedToTerms</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_InvalidArgumentException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::getChangePasswordAtNextLogin()"></a><h3>getChangePasswordAtNextLogin<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's changePasswordAtNextLogin attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>see</td>
+<td>setChangePasswordAtNextLogin</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_InvalidArgumentException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::getDOM()"></a><h3>getDOM<span class="nb-faded-text">(
+          DOMDocument
+             
+            $doc
+            = null,
+          
+             
+            $majorVersion
+            = 1,
+          
+             
+            $minorVersion
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">DOMElement</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a DOMElement which corresponds to this element and all
+child properties.  This is used to build an entry back into a DOM
+and eventually XML text for sending to the server upon updates, or
+for application storage/persistence.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$doc</td>
+<td style="white-space: normal;">DOMDocument |
+                </td>
+<td>The DOMDocument used to construct DOMElements</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$majorVersion</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>1</td>
+</tr>
+<tr>
+<td>$minorVersion</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>DOMElement</td>
+<td>The DOMElement representing this element and all child properties.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::getHashFunctionName()"></a><h3>getHashFunctionName<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's hashFunctionName attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setHashFunctionName</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::getPassword()"></a><h3>getPassword<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's password attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setPassword</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::getSuspended()"></a><h3>getSuspended<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's suspended attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>see</td>
+<td>setSuspended</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>Zend_Gdata_App_InvalidArgumentException</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::getUsername()"></a><h3>getUsername<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's username attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The attribute being modified.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setUsername</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::setAdmin()"></a><h3>setAdmin<span class="nb-faded-text">(
+          boolean
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Gapps_Extension_Login.html#Zend_Gdata_Gapps_Extension_Login">Zend_Gdata_Gapps_Extension_Login</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's admin attribute. This indicates
+whether this user is an administrator for this domain.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Gapps_Extension_Login.html#Zend_Gdata_Gapps_Extension_Login">Zend_Gdata_Gapps_Extension_Login</a></td>
+<td>Provides a fluent interface.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_InvalidArgumentException</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::setAgreedToTerms()"></a><h3>setAgreedToTerms<span class="nb-faded-text">(
+          boolean
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Gapps_Extension_Login.html#Zend_Gdata_Gapps_Extension_Login">Zend_Gdata_Gapps_Extension_Login</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's agreedToTerms attribute. This
+indicates whether this user has agreed to the terms of service.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Gapps_Extension_Login.html#Zend_Gdata_Gapps_Extension_Login">Zend_Gdata_Gapps_Extension_Login</a></td>
+<td>Provides a fluent interface.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_InvalidArgumentException</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::setChangePasswordAtNextLogin()"></a><h3>setChangePasswordAtNextLogin<span class="nb-faded-text">(
+          boolean
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Gapps_Extension_Login.html#Zend_Gdata_Gapps_Extension_Login">Zend_Gdata_Gapps_Extension_Login</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's changePasswordAtNextLogin attribute.</em><br><small><p>If true, the user will be forced to set a new password the next
+time they login.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Gapps_Extension_Login.html#Zend_Gdata_Gapps_Extension_Login">Zend_Gdata_Gapps_Extension_Login</a></td>
+<td>Provides a fluent interface.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_InvalidArgumentException</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::setHashFunctionName()"></a><h3>setHashFunctionName<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Gapps_Extension_Login.html#Zend_Gdata_Gapps_Extension_Login">Zend_Gdata_Gapps_Extension_Login</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's hashFunctionName attribute. This
+indicates whether the password supplied with setPassword() is in
+plaintext or has had a hash function applied to it. If null,
+plaintext is assumed. As of this writing, the only valid hash
+function is 'SHA-1'.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Gapps_Extension_Login.html#Zend_Gdata_Gapps_Extension_Login">Zend_Gdata_Gapps_Extension_Login</a></td>
+<td>Provides a fluent interface.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::setPassword()"></a><h3>setPassword<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Gapps_Extension_Login.html#Zend_Gdata_Gapps_Extension_Login">Zend_Gdata_Gapps_Extension_Login</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's password attribute. As of this
+writing, this can be either be provided as plaintext or hashed using
+the SHA-1 algorithm for protection. If using a hash function,
+this must be indicated by calling setHashFunctionName().</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Gapps_Extension_Login.html#Zend_Gdata_Gapps_Extension_Login">Zend_Gdata_Gapps_Extension_Login</a></td>
+<td>Provides a fluent interface.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::setSuspended()"></a><h3>setSuspended<span class="nb-faded-text">(
+          boolean
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Gapps_Extension_Login.html#Zend_Gdata_Gapps_Extension_Login">Zend_Gdata_Gapps_Extension_Login</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's suspended attribute. If true, the
+user will not be able to login to this domain until unsuspended.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Gapps_Extension_Login.html#Zend_Gdata_Gapps_Extension_Login">Zend_Gdata_Gapps_Extension_Login</a></td>
+<td>Provides a fluent interface.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_InvalidArgumentException</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::setUsername()"></a><h3>setUsername<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Gapps_Extension_Login.html#Zend_Gdata_Gapps_Extension_Login">Zend_Gdata_Gapps_Extension_Login</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's username attribute. This string
+is used to uniquely identify the user in this domian and is used
+to form this user's email address.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Gapps_Extension_Login.html#Zend_Gdata_Gapps_Extension_Login">Zend_Gdata_Gapps_Extension_Login</a></td>
+<td>Provides a fluent interface.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::takeAttributeFromDOM()"></a><h3>takeAttributeFromDOM<span class="nb-faded-text">(
+          DOMNode
+             
+            $attribute,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Given a DOMNode representing an attribute, tries to map the data into
+instance members.  If no mapping is defined, the name and value are
+stored in an array.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$attribute</td>
+<td style="white-space: normal;">DOMNode |
+                </td>
+<td>The DOMNode attribute needed to be handled</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_InvalidArgumentException</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Gdata_Gapps_Extension_Login">
+<h4>Properties</h4>
+<a href="#Zend_Gdata_Gapps_Extension_Login::%24_admin">$_admin</a>,
+      <a href="#Zend_Gdata_Gapps_Extension_Login::%24_agreedToTerms">$_agreedToTerms</a>,
+      <a href="#Zend_Gdata_Gapps_Extension_Login::%24_changePasswordAtNextLogin">$_changePasswordAtNextLogin</a>,
+      <a href="#Zend_Gdata_Gapps_Extension_Login::%24_hashFunctionName">$_hashFunctionName</a>,
+      <a href="#Zend_Gdata_Gapps_Extension_Login::%24_password">$_password</a>,
+      <a href="#Zend_Gdata_Gapps_Extension_Login::%24_rootElement">$_rootElement</a>,
+      <a href="#Zend_Gdata_Gapps_Extension_Login::%24_rootNamespace">$_rootNamespace</a>,
+      <a href="#Zend_Gdata_Gapps_Extension_Login::%24_suspended">$_suspended</a>,
+      <a href="#Zend_Gdata_Gapps_Extension_Login::%24_username">$_username</a>,
+      <div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::$_admin"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_admin
+          =
+          null</h3>
+<em>True if the user has administrative rights for this domain, false
+otherwise.boolean</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::$_agreedToTerms"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_agreedToTerms
+          =
+          null</h3>
+<em>True if the user has agreed to the terms of service for Google Apps,
+false otherwise.boolean.</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::$_changePasswordAtNextLogin"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_changePasswordAtNextLogin
+          =
+          null</h3>
+<em>True if the user will be required to change their password at
+their next login, false otherwise.boolean</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::$_hashFunctionName"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_hashFunctionName
+          =
+          null</h3>
+<em>Specifies whether the password stored in _password is in cleartext
+or is an SHA-1 digest of a password. If the password is cleartext,
+then this should be null. If the password is an SHA-1 digest, then
+this should be set to 'SHA-1'.string</em><br><small>&lt;p&gt;At the time of writing, no other hash functions are supported&lt;/p&gt;
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::$_password"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_password
+          =
+          null</h3>
+<em>The password for the user. May be in cleartext or as an SHA-1
+digest, depending on the value of _hashFunctionName.string</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::$_rootElement"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_rootElement
+          =
+          login</h3>
+<em></em><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::$_rootNamespace"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_rootNamespace
+          =
+          apps</h3>
+<em></em><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::$_suspended"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_suspended
+          =
+          null</h3>
+<em>True if this user has been suspended, false otherwise.boolean</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Gapps_Extension_Login::$_username"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_username
+          =
+          null</h3>
+<em>The username for this user. This is used as the user's email address
+and when logging in to Google Apps-hosted services.string</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

@@ -1,0 +1,1979 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Gdata/YouTube/VideoEntry.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Gdata/Extension/Comments.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Extension/FeedLink.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/MediaEntry.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/Extension/MediaGroup.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/Extension/NoEmbed.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/Extension/Statistics.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/Extension/Link.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/Extension/Racy.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Extension/Rating.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Geo/Extension/GeoRssWhere.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/Extension/Control.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/Extension/Recorded.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/Extension/Location.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Gdata_YouTube_VideoEntry" class="class">
+<h3>Zend_Gdata_YouTube_VideoEntry</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="Zend_Gdata_YouTube_MediaEntry.html#Zend_Gdata_YouTube_MediaEntry">Zend_Gdata_YouTube_MediaEntry</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Gdata</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">YouTube</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Represents the YouTube video flavor of an Atom entry</em><br>
+<br><div id="methods_Zend_Gdata_YouTube_VideoEntry">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::addVideoDeveloperTag()">addVideoDeveloperTag</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::ensureMediaGroupIsNotNull()">ensureMediaGroupIsNotNull</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getComments()">getComments</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getDOM()">getDOM</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getFeedLink()">getFeedLink</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getFlashPlayerUrl()">getFlashPlayerUrl</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getLocation()">getLocation</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getNoEmbed()">getNoEmbed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getRacy()">getRacy</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getRating()">getRating</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getRecorded()">getRecorded</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getStatistics()">getStatistics</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoCategory()">getVideoCategory</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoCommentFeedUrl()">getVideoCommentFeedUrl</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoComplaintsLink()">getVideoComplaintsLink</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoDescription()">getVideoDescription</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoDeveloperTags()">getVideoDeveloperTags</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoDuration()">getVideoDuration</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoGeoLocation()">getVideoGeoLocation</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoId()">getVideoId</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoRatingInfo()">getVideoRatingInfo</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoRatingsLink()">getVideoRatingsLink</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoRecorded()">getVideoRecorded</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoResponsesLink()">getVideoResponsesLink</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoState()">getVideoState</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoTags()">getVideoTags</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoThumbnails()">getVideoThumbnails</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoTitle()">getVideoTitle</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoViewCount()">getVideoViewCount</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getVideoWatchPageUrl()">getVideoWatchPageUrl</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::getWhere()">getWhere</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::isVideoEmbeddable()">isVideoEmbeddable</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::isVideoPrivate()">isVideoPrivate</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setComments()">setComments</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setFeedLink()">setFeedLink</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setLocation()">setLocation</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setNoEmbed()">setNoEmbed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setRacy()">setRacy</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setRating()">setRating</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setRecorded()">setRecorded</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setStatistics()">setStatistics</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setVideoCategory()">setVideoCategory</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setVideoDescription()">setVideoDescription</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setVideoDeveloperTags()">setVideoDeveloperTags</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setVideoPrivate()">setVideoPrivate</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setVideoPublic()">setVideoPublic</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setVideoRating()">setVideoRating</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setVideoRecorded()">setVideoRecorded</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setVideoTags()">setVideoTags</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setVideoTitle()">setVideoTitle</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::setWhere()">setWhere</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoEntry::takeChildFromDOM()">takeChildFromDOM</a>,
+      <div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          DOMElement
+             
+            $element
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Creates a Video entry, representing an individual video</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$element</td>
+<td style="white-space: normal;">DOMElement |
+                </td>
+<td>(optional) DOMElement from which this object should be constructed.</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::addVideoDeveloperTag()"></a><h3>addVideoDeveloperTag<span class="nb-faded-text">(
+          string
+             
+            $developerTag,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Adds a developer tag to array of tags for the video.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$developerTag</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>DeveloperTag for the video</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::ensureMediaGroupIsNotNull()"></a><h3>ensureMediaGroupIsNotNull<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Get the VideoEntry's Zend_Gdata_YouTube_Extension_MediaGroup object.</em><br><small><p>If the mediaGroup does not exist, then set it.</p>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getComments()"></a><h3>getComments<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Extension_Comments.html#Zend_Gdata_Extension_Comments">Zend_Gdata_Extension_Comments</a></span>
+</h3>
+<h4>Description</h4>
+<em>Returns the comments relating to the video.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Extension_Comments.html#Zend_Gdata_Extension_Comments">Zend_Gdata_Extension_Comments</a></td>
+<td>The comments relating to the video</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getDOM()"></a><h3>getDOM<span class="nb-faded-text">(
+          DOMDocument
+             
+            $doc
+            = null,
+          
+             
+            $majorVersion
+            = 1,
+          
+             
+            $minorVersion
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">DOMElement</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a DOMElement which corresponds to this element and all
+child properties.  This is used to build an entry back into a DOM
+and eventually XML text for sending to the server upon updates, or
+for application storage/persistence.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$doc</td>
+<td style="white-space: normal;">DOMDocument |
+                </td>
+<td>The DOMDocument used to construct DOMElements</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$majorVersion</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>1</td>
+</tr>
+<tr>
+<td>$minorVersion</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>DOMElement</td>
+<td>The DOMElement representing this element and all child properties.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getFeedLink()"></a><h3>getFeedLink<span class="nb-faded-text">(
+          string
+             
+            $rel
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">mixed</span>
+</h3>
+<h4>Description</h4>
+<em>Get the feed link property for this entry.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$rel</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>(optional) The rel value of the link to be found. If null, the array of links is returned.</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>mixed</td>
+<td>If $rel is specified, a Zend_Gdata_Extension_FeedLink object corresponding to the requested rel value is returned if found, or null if the requested value is not found. If $rel is null or not specified, an array of all available feed links for this entry is returned, or null if no feed links are set.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setFeedLink</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getFlashPlayerUrl()"></a><h3>getFlashPlayerUrl<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|null</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the URL of the flash player SWF.  null is returned if the
+duration value is not available.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|null</td>
+<td>The URL of the flash player SWF</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getLocation()"></a><h3>getLocation<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Gdata_YouTube_Extension_Location|null</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the location where the video was recorded.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Gdata_YouTube_Extension_Location|null</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getNoEmbed()"></a><h3>getNoEmbed<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Gdata_YouTube_Extension_NoEmbed|null</span>
+</h3>
+<h4>Description</h4>
+<em>If the return value is an instance of
+Zend_Gdata_YouTube_Extension_NoEmbed, this video cannot be embedded.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Gdata_YouTube_Extension_NoEmbed|null</td>
+<td>Whether or not the video can be embedded</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getRacy()"></a><h3>getRacy<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Gdata_YouTube_Extension_Racy|null</span>
+</h3>
+<h4>Description</h4>
+<em>Returns the racy flag object.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Gdata_YouTube_Extension_Racy|null</td>
+<td>The racy flag object</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_VersionException</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getRating()"></a><h3>getRating<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Extension_Rating.html#Zend_Gdata_Extension_Rating">Zend_Gdata_Extension_Rating</a></span>
+</h3>
+<h4>Description</h4>
+<em>Returns the rating relating to the video.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Extension_Rating.html#Zend_Gdata_Extension_Rating">Zend_Gdata_Extension_Rating</a></td>
+<td>The rating relating to the video</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getRecorded()"></a><h3>getRecorded<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Gdata_YouTube_Extension_Recorded|null</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the date that the video was recorded.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Gdata_YouTube_Extension_Recorded|null</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getStatistics()"></a><h3>getStatistics<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_Extension_Statistics.html#Zend_Gdata_YouTube_Extension_Statistics">Zend_Gdata_YouTube_Extension_Statistics</a></span>
+</h3>
+<h4>Description</h4>
+<em>Returns the statistics relating to the video.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_Extension_Statistics.html#Zend_Gdata_YouTube_Extension_Statistics">Zend_Gdata_YouTube_Extension_Statistics</a></td>
+<td>The statistics relating to the video</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoCategory()"></a><h3>getVideoCategory<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|null</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the category of this video, if available.  The category is returned
+as a string. Valid categories are found at:
+http://gdata.youtube.com/schemas/2007/categories.cat
+If the category is not set, null is returned.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|null</td>
+<td>The category of this video</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoCommentFeedUrl()"></a><h3>getVideoCommentFeedUrl<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|null</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieve the URL for a video's comment feed.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|null</td>
+<td>The URL if found, or null if not found.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoComplaintsLink()"></a><h3>getVideoComplaintsLink<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_Extension_Link.html#Zend_Gdata_App_Extension_Link">Zend_Gdata_App_Extension_Link</a></span>
+</h3>
+<h4>Description</h4>
+<em>Returns the link element relating to video complaints.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_Extension_Link.html#Zend_Gdata_App_Extension_Link">Zend_Gdata_App_Extension_Link</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoDescription()"></a><h3>getVideoDescription<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|null</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the description  of the video as a string.  null is returned
+if the video description is not available.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|null</td>
+<td>The description of the video</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoDeveloperTags()"></a><h3>getVideoDeveloperTags<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array|null</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the developer tags for the video, if available and if client is
+authenticated with a valid developerKey. The tags are returned
+as an array.</em><br><small><p>If no tags are set, null is returned.</p>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array|null</td>
+<td>The developer tags for this video or null if none were set.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoDuration()"></a><h3>getVideoDuration<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|null</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the duration of the video, in seconds.  null is returned
+if the duration value is not available.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|null</td>
+<td>The duration of the video, in seconds.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoGeoLocation()"></a><h3>getVideoGeoLocation<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array|null</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the location specified for this video, if available.  The location
+is returned as an array containing the keys 'longitude' and 'latitude'.</em><br><small><p>null is returned if the location is not available.</p>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array|null</td>
+<td>The location specified for this video</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoId()"></a><h3>getVideoId<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the YouTube video ID based upon the atom:id value</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The video ID</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoRatingInfo()"></a><h3>getVideoRatingInfo<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array|null</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the rating information for this video, if available.  The rating
+is returned as an array containing the keys 'average' and 'numRaters'.</em><br><small><p>null is returned if the rating information is not available.</p>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array|null</td>
+<td>The rating information for this video</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoRatingsLink()"></a><h3>getVideoRatingsLink<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_Extension_Link.html#Zend_Gdata_App_Extension_Link">Zend_Gdata_App_Extension_Link</a></span>
+</h3>
+<h4>Description</h4>
+<em>Returns the link element relating to video ratings.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_Extension_Link.html#Zend_Gdata_App_Extension_Link">Zend_Gdata_App_Extension_Link</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoRecorded()"></a><h3>getVideoRecorded<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|null</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the date that the video was recorded.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|null</td>
+<td>The date that the video was recorded</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoResponsesLink()"></a><h3>getVideoResponsesLink<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App_Extension_Link.html#Zend_Gdata_App_Extension_Link">Zend_Gdata_App_Extension_Link</a></span>
+</h3>
+<h4>Description</h4>
+<em>Returns the link element relating to video responses.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App_Extension_Link.html#Zend_Gdata_App_Extension_Link">Zend_Gdata_App_Extension_Link</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoState()"></a><h3>getVideoState<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Gdata_YouTube_Extension_State|null</span>
+</h3>
+<h4>Description</h4>
+<em>Get the current publishing state of the video.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Gdata_YouTube_Extension_State|null</td>
+<td>The publishing state of this video</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoTags()"></a><h3>getVideoTags<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array</span>
+</h3>
+<h4>Description</h4>
+<em>Gets an array of the tags assigned to this video.  For convient
+usage inside a foreach loop, an empty array is returned when there
+are no tags assigned.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array</td>
+<td>An array of the tags assigned to this video</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoThumbnails()"></a><h3>getVideoThumbnails<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array</span>
+</h3>
+<h4>Description</h4>
+<em>Gets an array of the thumbnails representing the video.</em><br><small><p>Each thumbnail is an element of the array, and is an
+array of the thumbnail properties - time, height, width,
+and url.  For convient usage inside a foreach loop, an
+empty array is returned if there are no thumbnails.</p>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array</td>
+<td>An array of video thumbnails.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoTitle()"></a><h3>getVideoTitle<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|null</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the title of the video as a string.  null is returned
+if the video title is not available.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|null</td>
+<td>The title of the video</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoViewCount()"></a><h3>getVideoViewCount<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|null</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the number of views for this video.  null is returned if the
+number of views is not available.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|null</td>
+<td>The number of views for this video</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getVideoWatchPageUrl()"></a><h3>getVideoWatchPageUrl<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|null</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the URL of the YouTube video watch page.  null is returned
+if the video watch page URL is not available.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|null</td>
+<td>The URL of the YouTube video watch page</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::getWhere()"></a><h3>getWhere<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Geo_Extension_GeoRssWhere.html#Zend_Gdata_Geo_Extension_GeoRssWhere">Zend_Gdata_Geo_Extension_GeoRssWhere</a></span>
+</h3>
+<h4>Description</h4>
+<em>Gets the georss:where element</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Geo_Extension_GeoRssWhere.html#Zend_Gdata_Geo_Extension_GeoRssWhere">Zend_Gdata_Geo_Extension_GeoRssWhere</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::isVideoEmbeddable()"></a><h3>isVideoEmbeddable<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">bool</span>
+</h3>
+<h4>Description</h4>
+<em>Checks whether the video is embeddable.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>bool</td>
+<td>Returns true if the video is embeddable.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::isVideoPrivate()"></a><h3>isVideoPrivate<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">bool</span>
+</h3>
+<h4>Description</h4>
+<em>Checks whether the video is private.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>bool</td>
+<td>Return true if video is private</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setComments()"></a><h3>setComments<span class="nb-faded-text">(
+          <a href="Zend_Gdata_Extension_Comments.html#Zend_Gdata_Extension_Comments">Zend_Gdata_Extension_Comments</a>
+             
+            $comments
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the comments relating to the video.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$comments</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_Extension_Comments.html#Zend_Gdata_Extension_Comments">Zend_Gdata_Extension_Comments</a> |
+                </td>
+<td>The comments relating to the video</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setFeedLink()"></a><h3>setFeedLink<span class="nb-faded-text">(
+          array
+             
+            $feedLink
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the array of embedded feeds related to the video</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$feedLink</td>
+<td style="white-space: normal;">array |
+                </td>
+<td>The array of embedded feeds relating to the video</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setLocation()"></a><h3>setLocation<span class="nb-faded-text">(
+          <a href="Zend_Gdata_YouTube_Extension_Location.html#Zend_Gdata_YouTube_Extension_Location">Zend_Gdata_YouTube_Extension_Location</a>
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the location information.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$location</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_YouTube_Extension_Location.html#Zend_Gdata_YouTube_Extension_Location">Zend_Gdata_YouTube_Extension_Location</a> |
+                </td>
+<td>Where the video was recorded</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setNoEmbed()"></a><h3>setNoEmbed<span class="nb-faded-text">(
+          <a href="Zend_Gdata_YouTube_Extension_NoEmbed.html#Zend_Gdata_YouTube_Extension_NoEmbed">Zend_Gdata_YouTube_Extension_NoEmbed</a>
+             
+            $noEmbed
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>If an instance of Zend_Gdata_YouTube_Extension_NoEmbed is passed in,
+the video cannot be embedded.  Otherwise, if null is passsed in, the
+video is able to be embedded.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$noEmbed</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_YouTube_Extension_NoEmbed.html#Zend_Gdata_YouTube_Extension_NoEmbed">Zend_Gdata_YouTube_Extension_NoEmbed</a> |
+                </td>
+<td>Whether or not the video can be embedded.</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setRacy()"></a><h3>setRacy<span class="nb-faded-text">(
+          <a href="Zend_Gdata_YouTube_Extension_Racy.html#Zend_Gdata_YouTube_Extension_Racy">Zend_Gdata_YouTube_Extension_Racy</a>
+             
+            $racy
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Specifies that the video has racy content.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$racy</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_YouTube_Extension_Racy.html#Zend_Gdata_YouTube_Extension_Racy">Zend_Gdata_YouTube_Extension_Racy</a> |
+                </td>
+<td>The racy flag object</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_VersionException</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setRating()"></a><h3>setRating<span class="nb-faded-text">(
+          <a href="Zend_Gdata_Extension_Rating.html#Zend_Gdata_Extension_Rating">Zend_Gdata_Extension_Rating</a>
+             
+            $rating
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the rating relating to the video.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$rating</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_Extension_Rating.html#Zend_Gdata_Extension_Rating">Zend_Gdata_Extension_Rating</a> |
+                </td>
+<td>The rating relating to the video</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setRecorded()"></a><h3>setRecorded<span class="nb-faded-text">(
+          <a href="Zend_Gdata_YouTube_Extension_Recorded.html#Zend_Gdata_YouTube_Extension_Recorded">Zend_Gdata_YouTube_Extension_Recorded</a>
+             
+            $recorded
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets when the video was recorded.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$recorded</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_YouTube_Extension_Recorded.html#Zend_Gdata_YouTube_Extension_Recorded">Zend_Gdata_YouTube_Extension_Recorded</a> |
+                </td>
+<td>When the video was recorded</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setStatistics()"></a><h3>setStatistics<span class="nb-faded-text">(
+          <a href="Zend_Gdata_YouTube_Extension_Statistics.html#Zend_Gdata_YouTube_Extension_Statistics">Zend_Gdata_YouTube_Extension_Statistics</a>
+             
+            $statistics
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the statistics relating to the video.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$statistics</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_YouTube_Extension_Statistics.html#Zend_Gdata_YouTube_Extension_Statistics">Zend_Gdata_YouTube_Extension_Statistics</a> |
+                </td>
+<td>The statistics relating to the video</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setVideoCategory()"></a><h3>setVideoCategory<span class="nb-faded-text">(
+          string
+             
+            $category,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the category of the video as a string.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$category</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>Categories for the video</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setVideoDescription()"></a><h3>setVideoDescription<span class="nb-faded-text">(
+          string
+             
+            $description,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the description of the video as a string.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$description</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>Description for the video</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setVideoDeveloperTags()"></a><h3>setVideoDeveloperTags<span class="nb-faded-text">(
+          array
+             
+            $developerTags,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set multiple developer tags for the video as strings.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$developerTags</td>
+<td style="white-space: normal;">array |
+                </td>
+<td>Array of developerTag for the video</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setVideoPrivate()"></a><h3>setVideoPrivate<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets video to private.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setVideoPublic()"></a><h3>setVideoPublic<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets a private video to be public.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setVideoRating()"></a><h3>setVideoRating<span class="nb-faded-text">(
+          integer
+             
+            $ratingValue,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Helper function to conveniently set a video's rating.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$ratingValue</td>
+<td style="white-space: normal;">integer |
+                </td>
+<td>A number representing the rating. Must be between 1 and 5 inclusive.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setVideoRecorded()"></a><h3>setVideoRecorded<span class="nb-faded-text">(
+          string
+             
+            $recorded,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Sets the date that the video was recorded.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$recorded</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The date that the video was recorded, in the format of &#039;2001-06-19&#039;</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setVideoTags()"></a><h3>setVideoTags<span class="nb-faded-text">(
+          mixed
+             
+            $tags,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the keyword tags for a video.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$tags</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>Either a comma-separated string or an array of tags for the video</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setVideoTitle()"></a><h3>setVideoTitle<span class="nb-faded-text">(
+          string
+             
+            $title,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the title of the video as a string.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$title</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>Title for the video</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::setWhere()"></a><h3>setWhere<span class="nb-faded-text">(
+          <a href="Zend_Gdata_Geo_Extension_GeoRssWhere.html#Zend_Gdata_Geo_Extension_GeoRssWhere">Zend_Gdata_Geo_Extension_GeoRssWhere</a>
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the georss:where element</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_Geo_Extension_GeoRssWhere.html#Zend_Gdata_Geo_Extension_GeoRssWhere">Zend_Gdata_Geo_Extension_GeoRssWhere</a> |
+                </td>
+<td>The georss:where class value</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::takeChildFromDOM()"></a><h3>takeChildFromDOM<span class="nb-faded-text">(
+          DOMNode
+             
+            $child,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Creates individual Entry objects of the appropriate type and
+stores them in the $_entry array based upon DOM data.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$child</td>
+<td style="white-space: normal;">DOMNode |
+                </td>
+<td>The DOMNode to process</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Gdata_YouTube_VideoEntry">
+<h4>Properties</h4>
+<a href="#Zend_Gdata_YouTube_VideoEntry::%24_comments">$_comments</a>,
+      <a href="#Zend_Gdata_YouTube_VideoEntry::%24_entryClassName">$_entryClassName</a>,
+      <a href="#Zend_Gdata_YouTube_VideoEntry::%24_feedLink">$_feedLink</a>,
+      <a href="#Zend_Gdata_YouTube_VideoEntry::%24_location">$_location</a>,
+      <a href="#Zend_Gdata_YouTube_VideoEntry::%24_noEmbed">$_noEmbed</a>,
+      <a href="#Zend_Gdata_YouTube_VideoEntry::%24_private">$_private</a>,
+      <a href="#Zend_Gdata_YouTube_VideoEntry::%24_racy">$_racy</a>,
+      <a href="#Zend_Gdata_YouTube_VideoEntry::%24_rating">$_rating</a>,
+      <a href="#Zend_Gdata_YouTube_VideoEntry::%24_recorded">$_recorded</a>,
+      <a href="#Zend_Gdata_YouTube_VideoEntry::%24_statistics">$_statistics</a>,
+      <a href="#Zend_Gdata_YouTube_VideoEntry::%24_where">$_where</a>,
+      <div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::$_comments"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_comments
+          =
+          null</h3>
+<em>Specifies the comments associated with a video.Zend_Gdata_Extensions_Comments</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::$_entryClassName"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_entryClassName
+          =
+          Zend_Gdata_YouTube_VideoEntry</h3>
+<em></em><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::$_feedLink"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_feedLink
+          =
+          array</h3>
+<em>Nested feed linksarray</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::$_location"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_location
+          =
+          null</h3>
+<em>Location informtion for the videoZend_Gdata_YouTube_Extension_Location|null</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::$_noEmbed"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_noEmbed
+          =
+          null</h3>
+<em>If null, the video can be embeddedZend_Gdata_YouTube_Extension_NoEmbed|null</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::$_private"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_private
+          =
+          null</h3>
+<em>If not null, specifies that the video is private.Zend_Gdata_YouTube_Extension_Private|null</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::$_racy"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_racy
+          =
+          null</h3>
+<em>If not null, specifies that the video has racy content.Zend_Gdata_YouTube_Extension_Racy|null</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::$_rating"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_rating
+          =
+          null</h3>
+<em>Specifies the video's rating.Zend_Gdata_Extension_Rating</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::$_recorded"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_recorded
+          =
+          null</h3>
+<em>Recording date for the videoZend_Gdata_YouTube_Extension_Recorded|null</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::$_statistics"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_statistics
+          =
+          null</h3>
+<em>Specifies the statistics relating to the video.Zend_Gdata_YouTube_Extension_Statistics</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoEntry::$_where"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_where
+          =
+          null</h3>
+<em>Geo location for the videoZend_Gdata_Geo_Extension_GeoRssWhere</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div id="constants_Zend_Gdata_YouTube_VideoEntry">
+<h4>Constants</h4>
+<a id="Zend_Gdata_YouTube_VideoEntry::YOUTUBE_CATEGORY_SCHEMA"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>YOUTUBE_CATEGORY_SCHEMA<span class="nb-faded-text">
+         = http://gdata.youtube.com/schemas/2007/categories.cat</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube_VideoEntry::YOUTUBE_DEVELOPER_TAGS_SCHEMA"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>YOUTUBE_DEVELOPER_TAGS_SCHEMA<span class="nb-faded-text">
+         = http://gdata.youtube.com/schemas/2007/developertags.cat</span>
+</h3>
+<em></em><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

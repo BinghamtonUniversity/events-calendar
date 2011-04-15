@@ -1,0 +1,957 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Gdata/YouTube/VideoQuery.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Gdata/YouTube.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Query.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Gdata_YouTube_VideoQuery" class="class">
+<h3>Zend_Gdata_YouTube_VideoQuery</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="Zend_Gdata_Query.html#Zend_Gdata_Query">Zend_Gdata_Query</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">link</label><div class="property-value">
+<a title="">http://code.google.com/apis/youtube/</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Gdata</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">YouTube</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Assists in constructing queries for YouTube videos</em><br>
+<br><div id="methods_Zend_Gdata_YouTube_VideoQuery">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::getFormat()">getFormat</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::getLocation()">getLocation</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::getLocationRadius()">getLocationRadius</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::getOrderBy()">getOrderBy</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::getQueryString()">getQueryString</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::getQueryUrl()">getQueryUrl</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::getRacy()">getRacy</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::getSafeSearch()">getSafeSearch</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::getTime()">getTime</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::getVideoQuery()">getVideoQuery</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::setFeedType()">setFeedType</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::setFormat()">setFormat</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::setLocation()">setLocation</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::setLocationRadius()">setLocationRadius</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::setOrderBy()">setOrderBy</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::setRacy()">setRacy</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::setSafeSearch()">setSafeSearch</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::setTime()">setTime</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::setUploader()">setUploader</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube_VideoQuery::setVideoQuery()">setVideoQuery</a>,
+      <div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          
+             
+            $url
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Create Gdata_YouTube_VideoQuery object</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$url</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::getFormat()"></a><h3>getFormat<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|null</span>
+</h3>
+<h4>Description</h4>
+<em>Return the value of the format parameter</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|null</td>
+<td>The value of format if it exists, null otherwise.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::getLocation()"></a><h3>getLocation<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|null</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value of the location parameter</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|null</td>
+<td>Return the location if it exists, null otherwise.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::getLocationRadius()"></a><h3>getLocationRadius<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|null</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value of the location-radius parameter</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|null</td>
+<td>Return the location-radius if it exists, null otherwise.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::getOrderBy()"></a><h3>getOrderBy<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|null</span>
+</h3>
+<h4>Description</h4>
+<em>Return the value of the orderby parameter if it exists</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|null</td>
+<td>The value of orderby if it exists, null otherwise.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::getQueryString()"></a><h3>getQueryString<span class="nb-faded-text">(
+          integer
+             
+            $majorProtocolVersion
+            = null,
+          integer
+             
+            $minorProtocolVersion
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Generate the query string from the URL parameters, optionally modifying
+them based on protocol version.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$majorProtocolVersion</td>
+<td style="white-space: normal;">integer |
+                </td>
+<td>The major protocol version</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$minorProtocolVersion</td>
+<td style="white-space: normal;">integer |
+                </td>
+<td>The minor protocol version</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>querystring</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_VersionException</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::getQueryUrl()"></a><h3>getQueryUrl<span class="nb-faded-text">(
+          integer
+             
+            $majorProtocolVersion
+            = null,
+          integer
+             
+            $minorProtocolVersion
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Returns the generated full query URL, optionally modifying it based on
+the protocol version.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$majorProtocolVersion</td>
+<td style="white-space: normal;">integer |
+                </td>
+<td>The major protocol version</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$minorProtocolVersion</td>
+<td style="white-space: normal;">integer |
+                </td>
+<td>The minor protocol version</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The URL</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::getRacy()"></a><h3>getRacy<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|null</span>
+</h3>
+<h4>Description</h4>
+<em>Whether or not to include racy videos in the search results</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|null</td>
+<td>The value of racy if it exists, null otherwise.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::getSafeSearch()"></a><h3>getSafeSearch<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|null</span>
+</h3>
+<h4>Description</h4>
+<em>Return the value of the safeSearch parameter</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|null</td>
+<td>The value of the safeSearch parameter if it has been set, null otherwise.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::getTime()"></a><h3>getTime<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|null</span>
+</h3>
+<h4>Description</h4>
+<em>Return the value of the time parameter</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|null</td>
+<td>The time parameter if it exists, null otherwise.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::getVideoQuery()"></a><h3>getVideoQuery<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|null</span>
+</h3>
+<h4>Description</h4>
+<em>Return the value of the video query that has been set</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|null</td>
+<td>The value of the video query if it exists, null otherwise.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::setFeedType()"></a><h3>setFeedType<span class="nb-faded-text">(
+          string
+             
+            $feedType,
+          string
+             
+            $videoId
+            = null,
+          string
+             
+            $entry
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Sets the type of feed this query should be used to search</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$feedType</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The type of feed</td>
+<td></td>
+</tr>
+<tr>
+<td>$videoId</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The ID of the video associated with this query</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$entry</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The ID of the entry associated with this query</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::setFormat()"></a><h3>setFormat<span class="nb-faded-text">(
+          string
+             
+            $value
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoQuery.html#Zend_Gdata_YouTube_VideoQuery">Zend_Gdata_YouTube_VideoQuery</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the param to return videos of a specific format</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoQuery.html#Zend_Gdata_YouTube_VideoQuery">Zend_Gdata_YouTube_VideoQuery</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::setLocation()"></a><h3>setLocation<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoQuery.html#Zend_Gdata_YouTube_VideoQuery">Zend_Gdata_YouTube_VideoQuery</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the location parameter for the query</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoQuery.html#Zend_Gdata_YouTube_VideoQuery">Zend_Gdata_YouTube_VideoQuery</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_InvalidArgumentException</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::setLocationRadius()"></a><h3>setLocationRadius<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoQuery.html#Zend_Gdata_YouTube_VideoQuery">Zend_Gdata_YouTube_VideoQuery</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the location-radius parameter for the query</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoQuery.html#Zend_Gdata_YouTube_VideoQuery">Zend_Gdata_YouTube_VideoQuery</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::setOrderBy()"></a><h3>setOrderBy<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Gdata_YouTube_Query</span>
+</h3>
+<h4>Description</h4>
+<em>Set the value of the orderby parameter</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Gdata_YouTube_Query</td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::setRacy()"></a><h3>setRacy<span class="nb-faded-text">(
+          string
+             
+            $value
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoQuery.html#Zend_Gdata_YouTube_VideoQuery">Zend_Gdata_YouTube_VideoQuery</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets whether or not to include racy videos in the search results</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoQuery.html#Zend_Gdata_YouTube_VideoQuery">Zend_Gdata_YouTube_VideoQuery</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::setSafeSearch()"></a><h3>setSafeSearch<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoQuery.html#Zend_Gdata_YouTube_VideoQuery">Zend_Gdata_YouTube_VideoQuery</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the safeSearch parameter</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The value of the parameter, currently only &#039;none&#039;, &#039;moderate&#039; or &#039;strict&#039; are allowed values.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoQuery.html#Zend_Gdata_YouTube_VideoQuery">Zend_Gdata_YouTube_VideoQuery</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_InvalidArgumentException</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::setTime()"></a><h3>setTime<span class="nb-faded-text">(
+          string
+             
+            $value
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoQuery.html#Zend_Gdata_YouTube_VideoQuery">Zend_Gdata_YouTube_VideoQuery</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the time period over which this query should apply</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoQuery.html#Zend_Gdata_YouTube_VideoQuery">Zend_Gdata_YouTube_VideoQuery</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_InvalidArgumentException</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::setUploader()"></a><h3>setUploader<span class="nb-faded-text">(
+          string
+             
+            $value
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoQuery.html#Zend_Gdata_YouTube_VideoQuery">Zend_Gdata_YouTube_VideoQuery</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the value of the uploader parameter</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The value of the uploader parameter. Currently this can only be set to the value of &#039;partner&#039;.</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoQuery.html#Zend_Gdata_YouTube_VideoQuery">Zend_Gdata_YouTube_VideoQuery</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_InvalidArgumentException</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube_VideoQuery::setVideoQuery()"></a><h3>setVideoQuery<span class="nb-faded-text">(
+          string
+             
+            $value
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoQuery.html#Zend_Gdata_YouTube_VideoQuery">Zend_Gdata_YouTube_VideoQuery</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the formatted video query (vq) URL param value</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoQuery.html#Zend_Gdata_YouTube_VideoQuery">Zend_Gdata_YouTube_VideoQuery</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

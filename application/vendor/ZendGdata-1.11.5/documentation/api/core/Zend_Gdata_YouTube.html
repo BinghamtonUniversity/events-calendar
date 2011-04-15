@@ -1,0 +1,1829 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Gdata/YouTube.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Gdata/Media.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/VideoEntry.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/VideoFeed.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/CommentFeed.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/PlaylistListFeed.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/SubscriptionFeed.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/ContactFeed.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/PlaylistVideoFeed.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/ActivityFeed.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/YouTube/InboxFeed.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Gdata_YouTube" class="class">
+<h3>Zend_Gdata_YouTube</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="Zend_Gdata_Media.html#Zend_Gdata_Media">Zend_Gdata_Media</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">link</label><div class="property-value">
+<a title="">http://code.google.com/apis/youtube/</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Gdata</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">YouTube</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Service class for interacting with the YouTube Data API.</em><br>
+<br><div id="methods_Zend_Gdata_YouTube">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Gdata_YouTube::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getActivityForUser()">getActivityForUser</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getContactFeed()">getContactFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getFormUploadToken()">getFormUploadToken</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getFriendActivityForCurrentUser()">getFriendActivityForCurrentUser</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getFullVideoEntry()">getFullVideoEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getInboxFeedForCurrentUser()">getInboxFeedForCurrentUser</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getMostViewedVideoFeed()">getMostViewedVideoFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getPlaylistListFeed()">getPlaylistListFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getPlaylistVideoFeed()">getPlaylistVideoFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getRecentlyFeaturedVideoFeed()">getRecentlyFeaturedVideoFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getRelatedVideoFeed()">getRelatedVideoFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getSubscriptionFeed()">getSubscriptionFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getTopRatedVideoFeed()">getTopRatedVideoFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getUserFavorites()">getUserFavorites</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getUserProfile()">getUserProfile</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getUserUploads()">getUserUploads</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getVideoCommentFeed()">getVideoCommentFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getVideoEntry()">getVideoEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getVideoFeed()">getVideoFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getVideoResponseFeed()">getVideoResponseFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::getWatchOnMobileVideoFeed()">getWatchOnMobileVideoFeed</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::parseFormUploadTokenResponse()">parseFormUploadTokenResponse</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::replyToCommentEntry()">replyToCommentEntry</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::sendVideoMessage()">sendVideoMessage</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_YouTube::setHttpClient()">setHttpClient</a>,
+      <div class="method">
+<a id="Zend_Gdata_YouTube::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          <a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a>
+             
+            $client
+            = null,
+          string
+             
+            $applicationId
+            = MyCompany-MyApp-1.0,
+          string
+             
+            $clientId
+            = null,
+          string
+             
+            $developerKey
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Create Zend_Gdata_YouTube object</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$client</td>
+<td style="white-space: normal;">
+<a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a> |
+                </td>
+<td>(optional) The HTTP client to use when when communicating with the Google servers.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$applicationId</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The identity of the app in the form of Company-AppName-Version</td>
+<td>MyCompany-MyApp-1.0</td>
+</tr>
+<tr>
+<td>$clientId</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The clientId issued by the YouTube dashboard</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$developerKey</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The developerKey issued by the YouTube dashboard</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getActivityForUser()"></a><h3>getActivityForUser<span class="nb-faded-text">(
+          
+             
+            $username,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_ActivityFeed.html#Zend_Gdata_YouTube_ActivityFeed">Zend_Gdata_YouTube_ActivityFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves the activity feed for users</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$username</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_ActivityFeed.html#Zend_Gdata_YouTube_ActivityFeed">Zend_Gdata_YouTube_ActivityFeed</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_VersionException if using version less than 2.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getContactFeed()"></a><h3>getContactFeed<span class="nb-faded-text">(
+          string
+             
+            $user
+            = null,
+          mixed
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_ContactFeed.html#Zend_Gdata_YouTube_ContactFeed">Zend_Gdata_YouTube_ContactFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a feed of a user's contacts</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$user</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>(optional) The username of interest</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The URL to query or a Zend_Gdata_Query object from which a URL can be determined</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_ContactFeed.html#Zend_Gdata_YouTube_ContactFeed">Zend_Gdata_YouTube_ContactFeed</a></td>
+<td>The feed of contacts</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getFormUploadToken()"></a><h3>getFormUploadToken<span class="nb-faded-text">(
+          <a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a>
+             
+            $videoEntry,
+          string
+             
+            $url
+            = http://gdata.youtube.com/action/GetUploadToken,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a YouTube token</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$videoEntry</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a> |
+                </td>
+<td>The video entry</td>
+<td></td>
+</tr>
+<tr>
+<td>$url</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The location as a string URL</td>
+<td>http://gdata.youtube.com/action/GetUploadToken</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array</td>
+<td>An array containing a token and URL</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getFriendActivityForCurrentUser()"></a><h3>getFriendActivityForCurrentUser<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_ActivityFeed.html#Zend_Gdata_YouTube_ActivityFeed">Zend_Gdata_YouTube_ActivityFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieve the activity of the currently authenticated users friend.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_ActivityFeed.html#Zend_Gdata_YouTube_ActivityFeed">Zend_Gdata_YouTube_ActivityFeed</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception if not logged in.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getFullVideoEntry()"></a><h3>getFullVideoEntry<span class="nb-faded-text">(
+          
+             
+            $videoId,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Gdata_YouTube_VideoEntry|null</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a video entry from the user's upload feed.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$videoId</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Gdata_YouTube_VideoEntry|null</td>
+<td>The video entry to be retrieved, or null if it was not found or the user requesting it did not have the appropriate permissions.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getInboxFeedForCurrentUser()"></a><h3>getInboxFeedForCurrentUser<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Gdata_YouTube_InboxFeed|null</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieve a feed of messages in the currently authenticated user's inbox.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Gdata_YouTube_InboxFeed|null</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception if not logged in.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getMostViewedVideoFeed()"></a><h3>getMostViewedVideoFeed<span class="nb-faded-text">(
+          mixed
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoFeed.html#Zend_Gdata_YouTube_VideoFeed">Zend_Gdata_YouTube_VideoFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a feed of the most viewed videos.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The URL to query or a Zend_Gdata_Query object from which a URL can be determined</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoFeed.html#Zend_Gdata_YouTube_VideoFeed">Zend_Gdata_YouTube_VideoFeed</a></td>
+<td>The feed of videos found at the specified URL.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getPlaylistListFeed()"></a><h3>getPlaylistListFeed<span class="nb-faded-text">(
+          string
+             
+            $user
+            = null,
+          mixed
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_PlaylistListFeed.html#Zend_Gdata_YouTube_PlaylistListFeed">Zend_Gdata_YouTube_PlaylistListFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a feed which lists a user's playlist</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$user</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>(optional) The username of interest</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The URL to query or a Zend_Gdata_Query object from which a URL can be determined</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_PlaylistListFeed.html#Zend_Gdata_YouTube_PlaylistListFeed">Zend_Gdata_YouTube_PlaylistListFeed</a></td>
+<td>The feed of playlists</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getPlaylistVideoFeed()"></a><h3>getPlaylistVideoFeed<span class="nb-faded-text">(
+          mixed
+             
+            $location,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_PlaylistVideoFeed.html#Zend_Gdata_YouTube_PlaylistVideoFeed">Zend_Gdata_YouTube_PlaylistVideoFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a feed of videos in a particular playlist</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The URL to query or a Zend_Gdata_Query object from which a URL can be determined</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_PlaylistVideoFeed.html#Zend_Gdata_YouTube_PlaylistVideoFeed">Zend_Gdata_YouTube_PlaylistVideoFeed</a></td>
+<td>The feed of videos found at the specified URL.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getRecentlyFeaturedVideoFeed()"></a><h3>getRecentlyFeaturedVideoFeed<span class="nb-faded-text">(
+          mixed
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoFeed.html#Zend_Gdata_YouTube_VideoFeed">Zend_Gdata_YouTube_VideoFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a feed of recently featured videos.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The URL to query or a Zend_Gdata_Query object from which a URL can be determined</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoFeed.html#Zend_Gdata_YouTube_VideoFeed">Zend_Gdata_YouTube_VideoFeed</a></td>
+<td>The feed of videos found at the specified URL.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getRelatedVideoFeed()"></a><h3>getRelatedVideoFeed<span class="nb-faded-text">(
+          string
+             
+            $videoId
+            = null,
+          mixed
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoFeed.html#Zend_Gdata_YouTube_VideoFeed">Zend_Gdata_YouTube_VideoFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a feed of videos related to the specified video ID.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$videoId</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The videoId of interest</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The URL to query or a Zend_Gdata_Query object from which a URL can be determined</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoFeed.html#Zend_Gdata_YouTube_VideoFeed">Zend_Gdata_YouTube_VideoFeed</a></td>
+<td>The feed of videos found at the specified URL.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getSubscriptionFeed()"></a><h3>getSubscriptionFeed<span class="nb-faded-text">(
+          string
+             
+            $user
+            = null,
+          mixed
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Gdata_YouTube_SubscriptionListFeed</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a feed of a user's subscriptions</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$user</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>(optional) The username of interest</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The URL to query or a Zend_Gdata_Query object from which a URL can be determined</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Gdata_YouTube_SubscriptionListFeed</td>
+<td>The feed of subscriptions</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getTopRatedVideoFeed()"></a><h3>getTopRatedVideoFeed<span class="nb-faded-text">(
+          mixed
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_CommentFeed.html#Zend_Gdata_YouTube_CommentFeed">Zend_Gdata_YouTube_CommentFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a feed of comments related to the specified video ID.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The URL to query or a Zend_Gdata_Query object from which a URL can be determined</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_CommentFeed.html#Zend_Gdata_YouTube_CommentFeed">Zend_Gdata_YouTube_CommentFeed</a></td>
+<td>The feed of videos found at the specified URL.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getUserFavorites()"></a><h3>getUserFavorites<span class="nb-faded-text">(
+          string
+             
+            $user
+            = null,
+          mixed
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoFeed.html#Zend_Gdata_YouTube_VideoFeed">Zend_Gdata_YouTube_VideoFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a user's favorites</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$user</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>(optional) The username of interest</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The URL to query or a Zend_Gdata_Query object from which a URL can be determined</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoFeed.html#Zend_Gdata_YouTube_VideoFeed">Zend_Gdata_YouTube_VideoFeed</a></td>
+<td>The videos favorited by the user</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getUserProfile()"></a><h3>getUserProfile<span class="nb-faded-text">(
+          string
+             
+            $user
+            = null,
+          mixed
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_UserProfileEntry.html#Zend_Gdata_YouTube_UserProfileEntry">Zend_Gdata_YouTube_UserProfileEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a user's profile as an entry</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$user</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>(optional) The username of interest</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The URL to query or a Zend_Gdata_Query object from which a URL can be determined</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_UserProfileEntry.html#Zend_Gdata_YouTube_UserProfileEntry">Zend_Gdata_YouTube_UserProfileEntry</a></td>
+<td>The user profile entry</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getUserUploads()"></a><h3>getUserUploads<span class="nb-faded-text">(
+          string
+             
+            $user
+            = null,
+          mixed
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoFeed.html#Zend_Gdata_YouTube_VideoFeed">Zend_Gdata_YouTube_VideoFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a user's uploads</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$user</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>(optional) The username of interest</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The URL to query or a Zend_Gdata_Query object from which a URL can be determined</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoFeed.html#Zend_Gdata_YouTube_VideoFeed">Zend_Gdata_YouTube_VideoFeed</a></td>
+<td>The videos uploaded by the user</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getVideoCommentFeed()"></a><h3>getVideoCommentFeed<span class="nb-faded-text">(
+          string
+             
+            $videoId
+            = null,
+          mixed
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_CommentFeed.html#Zend_Gdata_YouTube_CommentFeed">Zend_Gdata_YouTube_CommentFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a feed of comments related to the specified video ID.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$videoId</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The videoId of interest</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The URL to query or a Zend_Gdata_Query object from which a URL can be determined</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_CommentFeed.html#Zend_Gdata_YouTube_CommentFeed">Zend_Gdata_YouTube_CommentFeed</a></td>
+<td>The feed of videos found at the specified URL.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getVideoEntry()"></a><h3>getVideoEntry<span class="nb-faded-text">(
+          mixed
+             
+            $videoId
+            = null,
+          mixed
+             
+            $location
+            = null,
+          boolean
+             
+            $fullEntry
+            = false,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a specific video entry.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$videoId</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>The ID of the video to retrieve.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The URL to query or a Zend_Gdata_Query object from which a URL can be determined.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$fullEntry</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>(optional) Retrieve the full metadata for the entry. Only possible if entry belongs to currently authenticated user. An exception will be thrown otherwise.</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a></td>
+<td>The video entry found at the specified URL.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getVideoFeed()"></a><h3>getVideoFeed<span class="nb-faded-text">(
+          mixed
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoFeed.html#Zend_Gdata_YouTube_VideoFeed">Zend_Gdata_YouTube_VideoFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a feed of videos.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The URL to query or a Zend_Gdata_Query object from which a URL can be determined</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoFeed.html#Zend_Gdata_YouTube_VideoFeed">Zend_Gdata_YouTube_VideoFeed</a></td>
+<td>The feed of videos found at the specified URL.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getVideoResponseFeed()"></a><h3>getVideoResponseFeed<span class="nb-faded-text">(
+          string
+             
+            $videoId
+            = null,
+          mixed
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoFeed.html#Zend_Gdata_YouTube_VideoFeed">Zend_Gdata_YouTube_VideoFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a feed of video responses related to the specified video ID.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$videoId</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The videoId of interest</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The URL to query or a Zend_Gdata_Query object from which a URL can be determined</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoFeed.html#Zend_Gdata_YouTube_VideoFeed">Zend_Gdata_YouTube_VideoFeed</a></td>
+<td>The feed of videos found at the specified URL.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::getWatchOnMobileVideoFeed()"></a><h3>getWatchOnMobileVideoFeed<span class="nb-faded-text">(
+          mixed
+             
+            $location
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_VideoFeed.html#Zend_Gdata_YouTube_VideoFeed">Zend_Gdata_YouTube_VideoFeed</a></span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a feed of videos recently featured for mobile devices.</em><br><small><p>These videos will have RTSP links in the $entry->mediaGroup->content</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$location</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>(optional) The URL to query or a Zend_Gdata_Query object from which a URL can be determined</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_VideoFeed.html#Zend_Gdata_YouTube_VideoFeed">Zend_Gdata_YouTube_VideoFeed</a></td>
+<td>The feed of videos found at the specified URL.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::parseFormUploadTokenResponse()"></a><h3>parseFormUploadTokenResponse<span class="nb-faded-text">(
+          string
+             
+            $response,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array</span>
+</h3>
+<h4>Description</h4>
+<em>Helper function for parsing a YouTube token response</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$response</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The service response</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array</td>
+<td>An array containing the token and URL</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::replyToCommentEntry()"></a><h3>replyToCommentEntry<span class="nb-faded-text">(
+          <a href="Zend_Gdata_YouTube_CommentEntry.html#Zend_Gdata_YouTube_CommentEntry">Zend_Gdata_YouTube_CommentEntry</a>
+             
+            $commentEntry,
+          string
+             
+            $commentText,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_YouTube_CommentEntry.html#Zend_Gdata_YouTube_CommentEntry">Zend_Gdata_YouTube_CommentEntry</a></span>
+</h3>
+<h4>Description</h4>
+<em>Post a comment in reply to an existing comment</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$commentEntry</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_YouTube_CommentEntry.html#Zend_Gdata_YouTube_CommentEntry">Zend_Gdata_YouTube_CommentEntry</a> |
+                </td>
+<td>The comment entry to reply to</td>
+<td></td>
+</tr>
+<tr>
+<td>$commentText</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The text of the comment to post</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_YouTube_CommentEntry.html#Zend_Gdata_YouTube_CommentEntry">Zend_Gdata_YouTube_CommentEntry</a></td>
+<td>the posted comment</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::sendVideoMessage()"></a><h3>sendVideoMessage<span class="nb-faded-text">(
+          string
+             
+            $body,
+          <a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a>
+             
+            $videoEntry
+            = null,
+          string
+             
+            $videoId
+            = null,
+          string
+             
+            $recipientUserName,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Gdata_YouTube_InboxEntry|null</span>
+</h3>
+<h4>Description</h4>
+<em>Send a video message.</em><br><small><p>Note: Either a Zend_Gdata_YouTube_VideoEntry or a valid video ID must
+be provided.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$body</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The body of the message</td>
+<td></td>
+</tr>
+<tr>
+<td>$videoEntry</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_YouTube_VideoEntry.html#Zend_Gdata_YouTube_VideoEntry">Zend_Gdata_YouTube_VideoEntry</a> |
+                </td>
+<td>(optional) The video entry to send</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$videoId</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The id of the video to send</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$recipientUserName</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The username of the recipient</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Gdata_YouTube_InboxEntry|null</td>
+<td>The Zend_Gdata_YouTube_Inbox_Entry representing the sent message.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_InvalidArgumentException if no valid
+        Zend_Gdata_YouTube_VideoEntry or videoId were provided</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_YouTube::setHttpClient()"></a><h3>setHttpClient<span class="nb-faded-text">(
+          <a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a>
+             
+            $client,
+          
+             
+            $applicationId
+            = MyCompany-MyApp-1.0,
+          
+             
+            $clientId
+            = null,
+          
+             
+            $developerKey
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_App.html#Zend_Gdata_App">Zend_Gdata_App</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the Zend_Http_Client object used for communication</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$client</td>
+<td style="white-space: normal;">
+<a href="Zend_Http_Client.html#Zend_Http_Client">Zend_Http_Client</a> |
+                </td>
+<td>The client to use for communication</td>
+<td></td>
+</tr>
+<tr>
+<td>$applicationId</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>MyCompany-MyApp-1.0</td>
+</tr>
+<tr>
+<td>$clientId</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr>
+<tr>
+<td>$developerKey</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_App.html#Zend_Gdata_App">Zend_Gdata_App</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Gdata_App_HttpException</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Gdata_YouTube">
+<h4>Properties</h4>
+<a href="#Zend_Gdata_YouTube::%24namespaces">$namespaces</a>,
+      <div class="method">
+<a id="Zend_Gdata_YouTube::$namespaces"></a><h3>
+<span class="nb-faded-text"> 
+          public 
+          static </span>$namespaces
+          =
+          array</h3>
+<em>Namespaces used for Zend_Gdata_YouTubearray</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div id="constants_Zend_Gdata_YouTube">
+<h4>Constants</h4>
+<a id="Zend_Gdata_YouTube::ACTIVITY_FEED_MAX_USERS"></a><div class="constant">
+<h3>
+<span class="nb-faded-text">integer 
+        </span>ACTIVITY_FEED_MAX_USERS<span class="nb-faded-text">
+         = 20</span>
+</h3>
+<em>The maximum number of users for which activity can be requested for,
+as enforced by the API.</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::ACTIVITY_FEED_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>ACTIVITY_FEED_URI<span class="nb-faded-text">
+         = http://gdata.youtube.com/feeds/api/events</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::AUTH_SERVICE_NAME"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>AUTH_SERVICE_NAME<span class="nb-faded-text">
+         = youtube</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::CLIENTLOGIN_URL"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>CLIENTLOGIN_URL<span class="nb-faded-text">
+         = https://www.google.com/youtube/accounts/ClientLogin</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::FAVORITES_URI_SUFFIX"></a><div class="constant">
+<h3>
+<span class="nb-faded-text">string 
+        </span>FAVORITES_URI_SUFFIX<span class="nb-faded-text">
+         = favorites</span>
+</h3>
+<em>The suffix for a feed of favorites.</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::FRIEND_ACTIVITY_FEED_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>FRIEND_ACTIVITY_FEED_URI<span class="nb-faded-text">
+         = http://gdata.youtube.com/feeds/api/users/default/friendsactivity</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::INBOX_FEED_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text">string 
+        </span>INBOX_FEED_URI<span class="nb-faded-text">
+         = http://gdata.youtube.com/feeds/api/users/default/inbox</span>
+</h3>
+<em>The URI of the inbox feed for the currently authenticated user.</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::INBOX_URI_SUFFIX"></a><div class="constant">
+<h3>
+<span class="nb-faded-text">string 
+        </span>INBOX_URI_SUFFIX<span class="nb-faded-text">
+         = inbox</span>
+</h3>
+<em>The suffix for a feed of messages (inbox entries).</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::IN_REPLY_TO_SCHEME"></a><div class="constant">
+<h3>
+<span class="nb-faded-text">string 
+        </span>IN_REPLY_TO_SCHEME<span class="nb-faded-text">
+         = http://gdata.youtube.com/schemas/2007#in-reply-to</span>
+</h3>
+<em>The URI of the in-reply-to schema for comments in reply to
+other comments.</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::PLAYLIST_REL"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>PLAYLIST_REL<span class="nb-faded-text">
+         = http://gdata.youtube.com/schemas/2007#playlist</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::RELATED_URI_SUFFIX"></a><div class="constant">
+<h3>
+<span class="nb-faded-text">string 
+        </span>RELATED_URI_SUFFIX<span class="nb-faded-text">
+         = related</span>
+</h3>
+<em>The suffix for a feed of related videos.</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::RESPONSES_URI_SUFFIX"></a><div class="constant">
+<h3>
+<span class="nb-faded-text">string 
+        </span>RESPONSES_URI_SUFFIX<span class="nb-faded-text">
+         = responses</span>
+</h3>
+<em>The suffix for a feed of video responses.</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::STANDARD_MOST_VIEWED_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>STANDARD_MOST_VIEWED_URI<span class="nb-faded-text">
+         = http://gdata.youtube.com/feeds/api/standardfeeds/most_viewed</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::STANDARD_MOST_VIEWED_URI_V2"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>STANDARD_MOST_VIEWED_URI_V2<span class="nb-faded-text">
+         = http://gdata.youtube.com/feeds/api/standardfeeds/most_viewed</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::STANDARD_RECENTLY_FEATURED_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>STANDARD_RECENTLY_FEATURED_URI<span class="nb-faded-text">
+         = http://gdata.youtube.com/feeds/api/standardfeeds/recently_featured</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::STANDARD_RECENTLY_FEATURED_URI_V2"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>STANDARD_RECENTLY_FEATURED_URI_V2<span class="nb-faded-text">
+         = http://gdata.youtube.com/feeds/api/standardfeeds/recently_featured</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::STANDARD_TOP_RATED_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>STANDARD_TOP_RATED_URI<span class="nb-faded-text">
+         = http://gdata.youtube.com/feeds/api/standardfeeds/top_rated</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::STANDARD_TOP_RATED_URI_V2"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>STANDARD_TOP_RATED_URI_V2<span class="nb-faded-text">
+         = http://gdata.youtube.com/feeds/api/standardfeeds/top_rated</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::STANDARD_WATCH_ON_MOBILE_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>STANDARD_WATCH_ON_MOBILE_URI<span class="nb-faded-text">
+         = http://gdata.youtube.com/feeds/api/standardfeeds/watch_on_mobile</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::STANDARD_WATCH_ON_MOBILE_URI_V2"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>STANDARD_WATCH_ON_MOBILE_URI_V2<span class="nb-faded-text">
+         = http://gdata.youtube.com/feeds/api/standardfeeds/watch_on_mobile</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::UPLOADS_URI_SUFFIX"></a><div class="constant">
+<h3>
+<span class="nb-faded-text">string 
+        </span>UPLOADS_URI_SUFFIX<span class="nb-faded-text">
+         = uploads</span>
+</h3>
+<em>The suffix for the user's upload feed.</em><br><small>
+</small><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::USER_CONTACTS_REL"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>USER_CONTACTS_REL<span class="nb-faded-text">
+         = http://gdata.youtube.com/schemas/2007#user.contacts</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::USER_FAVORITES_REL"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>USER_FAVORITES_REL<span class="nb-faded-text">
+         = http://gdata.youtube.com/schemas/2007#user.favorites</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::USER_PLAYLISTS_REL"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>USER_PLAYLISTS_REL<span class="nb-faded-text">
+         = http://gdata.youtube.com/schemas/2007#user.playlists</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::USER_SUBSCRIPTIONS_REL"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>USER_SUBSCRIPTIONS_REL<span class="nb-faded-text">
+         = http://gdata.youtube.com/schemas/2007#user.subscriptions</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::USER_UPLOADS_REL"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>USER_UPLOADS_REL<span class="nb-faded-text">
+         = http://gdata.youtube.com/schemas/2007#user.uploads</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::USER_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>USER_URI<span class="nb-faded-text">
+         = http://gdata.youtube.com/feeds/api/users</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::VIDEO_COMPLAINTS_REL"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>VIDEO_COMPLAINTS_REL<span class="nb-faded-text">
+         = http://gdata.youtube.com/schemas/2007#video.complaints</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::VIDEO_RATINGS_REL"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>VIDEO_RATINGS_REL<span class="nb-faded-text">
+         = http://gdata.youtube.com/schemas/2007#video.ratings</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::VIDEO_RESPONSES_REL"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>VIDEO_RESPONSES_REL<span class="nb-faded-text">
+         = http://gdata.youtube.com/schemas/2007#video.responses</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="Zend_Gdata_YouTube::VIDEO_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>VIDEO_URI<span class="nb-faded-text">
+         = http://gdata.youtube.com/feeds/api/videos</span>
+</h3>
+<em></em><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

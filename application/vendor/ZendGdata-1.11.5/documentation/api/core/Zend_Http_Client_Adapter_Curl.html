@@ -1,0 +1,681 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Http/Client/Adapter/Curl.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Uri/Http.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Http/Client/Adapter/Interface.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Http/Client/Adapter/Stream.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Http_Client_Adapter_Curl" class="class">
+<h3>Zend_Http_Client_Adapter_Curl</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+         </div>
+<label class="property-key">Implements</label><div class="property-value">Zend_Http_Client_Adapter_Interface<br>Zend_Http_Client_Adapter_Stream<br> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Http</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">Client_Adapter</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>An adapter class for Zend_Http_Client based on the curl extension.</em><br><p>Curl requires libcurl. See for full requirements the PHP manual: http://php.net/curl</p>
+<br><div id="methods_Zend_Http_Client_Adapter_Curl">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Curl::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Curl::close()">close</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Curl::connect()">connect</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Curl::getConfig()">getConfig</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Curl::getHandle()">getHandle</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Curl::read()">read</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Curl::readHeader()">readHeader</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Curl::setConfig()">setConfig</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Curl::setCurlOption()">setCurlOption</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Curl::setOutputStream()">setOutputStream</a>,
+      <a style="font-style: italic;" href="#Zend_Http_Client_Adapter_Curl::write()">write</a>,
+      <div class="method">
+<a id="Zend_Http_Client_Adapter_Curl::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Adapter constructor</em><br><small><p>Config is set using setConfig()</p>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Http_Client_Adapter_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Curl::close()"></a><h3>close<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Close the connection to the server</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Curl::connect()"></a><h3>connect<span class="nb-faded-text">(
+          string
+             
+            $host,
+          int
+             
+            $port
+            = 80,
+          boolean
+             
+            $secure
+            = false,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Initialize curl</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$host</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$port</td>
+<td style="white-space: normal;">int |
+                </td>
+<td></td>
+<td>80</td>
+</tr>
+<tr>
+<td>$secure</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td></td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Http_Client_Adapter_Exception if unable to connect</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Curl::getConfig()"></a><h3>getConfig<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieve the array of all configuration options</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Curl::getHandle()"></a><h3>getHandle<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">resource</span>
+</h3>
+<h4>Description</h4>
+<em>Get cUrl Handle</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>resource</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Curl::read()"></a><h3>read<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Return read response from server</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Curl::readHeader()"></a><h3>readHeader<span class="nb-faded-text">(
+          resource
+             
+            $curl,
+          string
+             
+            $header,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">int</span>
+</h3>
+<h4>Description</h4>
+<em>Header reader function for CURL</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$curl</td>
+<td style="white-space: normal;">resource |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$header</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>int</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Curl::setConfig()"></a><h3>setConfig<span class="nb-faded-text">(
+          Zend_Config
+             
+            $config
+            = array,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client_Adapter_Curl.html#Zend_Http_Client_Adapter_Curl">Zend_Http_Client_Adapter_Curl</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the configuration array for the adapter</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$config</td>
+<td style="white-space: normal;">Zend_Config |
+                </td>
+<td>| array $config</td>
+<td>array</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client_Adapter_Curl.html#Zend_Http_Client_Adapter_Curl">Zend_Http_Client_Adapter_Curl</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Http_Client_Adapter_Exception</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Curl::setCurlOption()"></a><h3>setCurlOption<span class="nb-faded-text">(
+          string|int
+             
+            $option,
+          mixed
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Http_Adapter_Curl</span>
+</h3>
+<h4>Description</h4>
+<em>Direct setter for cURL adapter related options.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$option</td>
+<td style="white-space: normal;">string |
+                int |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$value</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Http_Adapter_Curl</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Curl::setOutputStream()"></a><h3>setOutputStream<span class="nb-faded-text">(
+          resource
+             
+            $stream,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Http_Client_Adapter_Socket.html#Zend_Http_Client_Adapter_Socket">Zend_Http_Client_Adapter_Socket</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set output stream for the response</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$stream</td>
+<td style="white-space: normal;">resource |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Http_Client_Adapter_Socket.html#Zend_Http_Client_Adapter_Socket">Zend_Http_Client_Adapter_Socket</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Curl::write()"></a><h3>write<span class="nb-faded-text">(
+          string
+             
+            $method,
+          <a href="Zend_Uri_Http.html#Zend_Uri_Http">Zend_Uri_Http</a>
+             
+            $uri,
+          
+             
+            $httpVersion,
+          array
+             
+            $headers
+            = array,
+          string
+             
+            $body,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Send request to the remote server</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$method</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$uri</td>
+<td style="white-space: normal;">
+<a href="Zend_Uri_Http.html#Zend_Uri_Http">Zend_Uri_Http</a> |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$httpVersion</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$headers</td>
+<td style="white-space: normal;">array |
+                </td>
+<td></td>
+<td>array</td>
+</tr>
+<tr>
+<td>$body</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>$request</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>Zend_Http_Client_Adapter_Exception If connection fails, connected to wrong host, no PUT file defined, unsupported method, or unsupported cURL option</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Http_Client_Adapter_Curl">
+<h4>Properties</h4>
+<a href="#Zend_Http_Client_Adapter_Curl::%24_config">$_config</a>,
+      <a href="#Zend_Http_Client_Adapter_Curl::%24_connected_to">$_connected_to</a>,
+      <a href="#Zend_Http_Client_Adapter_Curl::%24_curl">$_curl</a>,
+      <a href="#Zend_Http_Client_Adapter_Curl::%24_invalidOverwritableCurlOptions">$_invalidOverwritableCurlOptions</a>,
+      <a href="#Zend_Http_Client_Adapter_Curl::%24_response">$_response</a>,
+      <a href="#Zend_Http_Client_Adapter_Curl::%24out_stream">$out_stream</a>,
+      <div class="method">
+<a id="Zend_Http_Client_Adapter_Curl::$_config"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_config
+          =
+          array</h3>
+<em>Parameters arrayarray</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Curl::$_connected_to"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_connected_to
+          =
+          array</h3>
+<em>What host/port are we connected to?array</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Curl::$_curl"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_curl
+          =
+          null</h3>
+<em>The curl session handleresource|null</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Curl::$_invalidOverwritableCurlOptions"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_invalidOverwritableCurlOptions
+          =
+          </h3>
+<em>List of cURL options that should never be overwrittenarray</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Curl::$_response"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_response
+          =
+          null</h3>
+<em>Response gotten from serverstring</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Http_Client_Adapter_Curl::$out_stream"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$out_stream
+          =
+          </h3>
+<em>Stream for storing outputresource</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

@@ -1,0 +1,698 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Gdata/Calendar/ListEntry.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Gdata/Entry.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Calendar/Extension/AccessLevel.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Calendar/Extension/Color.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Calendar/Extension/Hidden.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Calendar/Extension/Selected.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Extension/EventStatus.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Extension/Visibility.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Extension/Where.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Gdata_Calendar_ListEntry" class="class">
+<h3>Zend_Gdata_Calendar_ListEntry</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="Zend_Gdata_Entry.html#Zend_Gdata_Entry">Zend_Gdata_Entry</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Gdata</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">Calendar</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Represents a Calendar entry in the Calendar data API meta feed of a user's
+calendars.</em><br>
+<br><div id="methods_Zend_Gdata_Calendar_ListEntry">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Gdata_Calendar_ListEntry::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Calendar_ListEntry::getAccessLevel()">getAccessLevel</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Calendar_ListEntry::getColor()">getColor</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Calendar_ListEntry::getDOM()">getDOM</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Calendar_ListEntry::getHidden()">getHidden</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Calendar_ListEntry::getSelected()">getSelected</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Calendar_ListEntry::getTimezone()">getTimezone</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Calendar_ListEntry::getWhere()">getWhere</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Calendar_ListEntry::setAccessLevel()">setAccessLevel</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Calendar_ListEntry::setColor()">setColor</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Calendar_ListEntry::setHidden()">setHidden</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Calendar_ListEntry::setSelected()">setSelected</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Calendar_ListEntry::setTimezone()">setTimezone</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Calendar_ListEntry::setWhere()">setWhere</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Calendar_ListEntry::takeChildFromDOM()">takeChildFromDOM</a>,
+      <div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          
+             
+            $element
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$element</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::getAccessLevel()"></a><h3>getAccessLevel<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::getColor()"></a><h3>getColor<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::getDOM()"></a><h3>getDOM<span class="nb-faded-text">(
+          
+             
+            $doc
+            = null,
+          
+             
+            $majorVersion
+            = 1,
+          
+             
+            $minorVersion
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$doc</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr>
+<tr>
+<td>$majorVersion</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>1</td>
+</tr>
+<tr>
+<td>$minorVersion</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::getHidden()"></a><h3>getHidden<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::getSelected()"></a><h3>getSelected<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::getTimezone()"></a><h3>getTimezone<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::getWhere()"></a><h3>getWhere<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::setAccessLevel()"></a><h3>setAccessLevel<span class="nb-faded-text">(
+          <a href="Zend_Gdata_Calendar_Extension_AccessLevel.html#Zend_Gdata_Calendar_Extension_AccessLevel">Zend_Gdata_Calendar_Extension_AccessLevel</a>
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Gdata_Extension_ListEntry</span>
+</h3>
+<h4>Description</h4>
+<small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_Calendar_Extension_AccessLevel.html#Zend_Gdata_Calendar_Extension_AccessLevel">Zend_Gdata_Calendar_Extension_AccessLevel</a> |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Gdata_Extension_ListEntry</td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::setColor()"></a><h3>setColor<span class="nb-faded-text">(
+          <a href="Zend_Gdata_Calendar_Extension_Color.html#Zend_Gdata_Calendar_Extension_Color">Zend_Gdata_Calendar_Extension_Color</a>
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Gdata_Extension_ListEntry</span>
+</h3>
+<h4>Description</h4>
+<small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_Calendar_Extension_Color.html#Zend_Gdata_Calendar_Extension_Color">Zend_Gdata_Calendar_Extension_Color</a> |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Gdata_Extension_ListEntry</td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::setHidden()"></a><h3>setHidden<span class="nb-faded-text">(
+          <a href="Zend_Gdata_Calendar_Extension_Hidden.html#Zend_Gdata_Calendar_Extension_Hidden">Zend_Gdata_Calendar_Extension_Hidden</a>
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Gdata_Extension_ListEntry</span>
+</h3>
+<h4>Description</h4>
+<small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_Calendar_Extension_Hidden.html#Zend_Gdata_Calendar_Extension_Hidden">Zend_Gdata_Calendar_Extension_Hidden</a> |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Gdata_Extension_ListEntry</td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::setSelected()"></a><h3>setSelected<span class="nb-faded-text">(
+          <a href="Zend_Gdata_Calendar_Extension_Selected.html#Zend_Gdata_Calendar_Extension_Selected">Zend_Gdata_Calendar_Extension_Selected</a>
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Gdata_Extension_ListEntry</span>
+</h3>
+<h4>Description</h4>
+<small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_Calendar_Extension_Selected.html#Zend_Gdata_Calendar_Extension_Selected">Zend_Gdata_Calendar_Extension_Selected</a> |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Gdata_Extension_ListEntry</td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::setTimezone()"></a><h3>setTimezone<span class="nb-faded-text">(
+          <a href="Zend_Gdata_Calendar_Extension_Timezone.html#Zend_Gdata_Calendar_Extension_Timezone">Zend_Gdata_Calendar_Extension_Timezone</a>
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Gdata_Extension_ListEntry</span>
+</h3>
+<h4>Description</h4>
+<small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_Calendar_Extension_Timezone.html#Zend_Gdata_Calendar_Extension_Timezone">Zend_Gdata_Calendar_Extension_Timezone</a> |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Gdata_Extension_ListEntry</td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::setWhere()"></a><h3>setWhere<span class="nb-faded-text">(
+          <a href="Zend_Gdata_Extension_Where.html#Zend_Gdata_Extension_Where">Zend_Gdata_Extension_Where</a>
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Zend_Gdata_Extension_ListEntry</span>
+</h3>
+<h4>Description</h4>
+<small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">
+<a href="Zend_Gdata_Extension_Where.html#Zend_Gdata_Extension_Where">Zend_Gdata_Extension_Where</a> |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Zend_Gdata_Extension_ListEntry</td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::takeChildFromDOM()"></a><h3>takeChildFromDOM<span class="nb-faded-text">(
+          
+             
+            $child,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$child</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Gdata_Calendar_ListEntry">
+<h4>Properties</h4>
+<a href="#Zend_Gdata_Calendar_ListEntry::%24_accessLevel">$_accessLevel</a>,
+      <a href="#Zend_Gdata_Calendar_ListEntry::%24_color">$_color</a>,
+      <a href="#Zend_Gdata_Calendar_ListEntry::%24_hidden">$_hidden</a>,
+      <a href="#Zend_Gdata_Calendar_ListEntry::%24_selected">$_selected</a>,
+      <a href="#Zend_Gdata_Calendar_ListEntry::%24_timezone">$_timezone</a>,
+      <a href="#Zend_Gdata_Calendar_ListEntry::%24_where">$_where</a>,
+      <div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::$_accessLevel"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_accessLevel
+          =
+          null</h3>
+<em></em><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::$_color"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_color
+          =
+          null</h3>
+<em></em><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::$_hidden"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_hidden
+          =
+          null</h3>
+<em></em><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::$_selected"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_selected
+          =
+          null</h3>
+<em></em><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::$_timezone"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_timezone
+          =
+          null</h3>
+<em></em><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Calendar_ListEntry::$_where"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_where
+          =
+          array</h3>
+<em></em><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

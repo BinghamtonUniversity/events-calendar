@@ -1,0 +1,1486 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Gdata/Photos/PhotoEntry.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Gdata/Media/Entry.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Photos/Extension/PhotoId.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Photos/Extension/Version.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Photos/Extension/AlbumId.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Photos/Extension/Id.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Photos/Extension/Width.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Photos/Extension/Height.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Photos/Extension/Size.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Photos/Extension/Client.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Photos/Extension/Checksum.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Photos/Extension/Timestamp.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Photos/Extension/CommentingEnabled.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Photos/Extension/CommentCount.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Exif/Extension/Tags.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/Geo/Extension/GeoRssWhere.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Gdata/App/Extension/Category.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Gdata_Photos_PhotoEntry" class="class">
+<h3>Zend_Gdata_Photos_PhotoEntry</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="Zend_Gdata_Media_Entry.html#Zend_Gdata_Media_Entry">Zend_Gdata_Media_Entry</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Gdata</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">Photos</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Data model class for a Comment Entry.</em><br><p>To transfer user entries to and from the servers, including
+creating new entries, refer to the service class,
+Zend_Gdata_Photos.</p>
+
+<p>This class represents <atom:entry> in the Google Data protocol.</p>
+<br><div id="methods_Zend_Gdata_Photos_PhotoEntry">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::getDOM()">getDOM</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::getExifTags()">getExifTags</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::getGeoRssWhere()">getGeoRssWhere</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::getGphotoAlbumId()">getGphotoAlbumId</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::getGphotoChecksum()">getGphotoChecksum</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::getGphotoClient()">getGphotoClient</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::getGphotoCommentCount()">getGphotoCommentCount</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::getGphotoCommentingEnabled()">getGphotoCommentingEnabled</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::getGphotoHeight()">getGphotoHeight</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::getGphotoId()">getGphotoId</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::getGphotoSize()">getGphotoSize</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::getGphotoTimestamp()">getGphotoTimestamp</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::getGphotoVersion()">getGphotoVersion</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::getGphotoWidth()">getGphotoWidth</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::getMediaGroup()">getMediaGroup</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::setExifTags()">setExifTags</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::setGeoRssWhere()">setGeoRssWhere</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::setGphotoAlbumId()">setGphotoAlbumId</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::setGphotoChecksum()">setGphotoChecksum</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::setGphotoClient()">setGphotoClient</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::setGphotoCommentCount()">setGphotoCommentCount</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::setGphotoCommentingEnabled()">setGphotoCommentingEnabled</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::setGphotoHeight()">setGphotoHeight</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::setGphotoId()">setGphotoId</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::setGphotoSize()">setGphotoSize</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::setGphotoTimestamp()">setGphotoTimestamp</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::setGphotoVersion()">setGphotoVersion</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::setGphotoWidth()">setGphotoWidth</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::setMediaGroup()">setMediaGroup</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Photos_PhotoEntry::takeChildFromDOM()">takeChildFromDOM</a>,
+      <div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          DOMElement
+             
+            $element
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Create a new instance.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$element</td>
+<td style="white-space: normal;">DOMElement |
+                </td>
+<td>(optional) DOMElement from which this object should be constructed.</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::getDOM()"></a><h3>getDOM<span class="nb-faded-text">(
+          DOMDocument
+             
+            $doc
+            = null,
+          
+             
+            $majorVersion
+            = 1,
+          
+             
+            $minorVersion
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">DOMElement</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves a DOMElement which corresponds to this element and all
+child properties.  This is used to build an entry back into a DOM
+and eventually XML text for application storage/persistence.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$doc</td>
+<td style="white-space: normal;">DOMDocument |
+                </td>
+<td>The DOMDocument used to construct DOMElements</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$majorVersion</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>1</td>
+</tr>
+<tr>
+<td>$minorVersion</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>DOMElement</td>
+<td>The DOMElement representing this element and all child properties.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::getExifTags()"></a><h3>getExifTags<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's exif:tags attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setExifTags</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::getGeoRssWhere()"></a><h3>getGeoRssWhere<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's georss:where attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setGeoRssWhere</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::getGphotoAlbumId()"></a><h3>getGphotoAlbumId<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's gphoto:albumid attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setGphotoAlbumId</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::getGphotoChecksum()"></a><h3>getGphotoChecksum<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's gphoto:checksum attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setGphotoChecksum</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::getGphotoClient()"></a><h3>getGphotoClient<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's gphoto:client attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setGphotoClient</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::getGphotoCommentCount()"></a><h3>getGphotoCommentCount<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's gphoto:commentCount attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setGphotoCommentCount</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::getGphotoCommentingEnabled()"></a><h3>getGphotoCommentingEnabled<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's gphoto:commentingEnabled attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setGphotoCommentingEnabled</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::getGphotoHeight()"></a><h3>getGphotoHeight<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's gphoto:height attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setGphotoHeight</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::getGphotoId()"></a><h3>getGphotoId<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's gphoto:id attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setGphotoId</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::getGphotoSize()"></a><h3>getGphotoSize<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's gphoto:size attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setGphotoSize</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::getGphotoTimestamp()"></a><h3>getGphotoTimestamp<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's gphoto:timestamp attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setGphotoTimestamp</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::getGphotoVersion()"></a><h3>getGphotoVersion<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's gphoto:version attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setGphotoVersion</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::getGphotoWidth()"></a><h3>getGphotoWidth<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's gphoto:width attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setGphotoWidth</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::getMediaGroup()"></a><h3>getMediaGroup<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the value for this element's media:group attribute.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The requested attribute.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>setMediaGroup</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::setExifTags()"></a><h3>setExifTags<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Exif_Extension_Tags.html#Zend_Gdata_Exif_Extension_Tags">Zend_Gdata_Exif_Extension_Tags</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's exif:tags attribute.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Exif_Extension_Tags.html#Zend_Gdata_Exif_Extension_Tags">Zend_Gdata_Exif_Extension_Tags</a></td>
+<td>The element being modified.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::setGeoRssWhere()"></a><h3>setGeoRssWhere<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Geo_Extension_GeoRssWhere.html#Zend_Gdata_Geo_Extension_GeoRssWhere">Zend_Gdata_Geo_Extension_GeoRssWhere</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's georss:where attribute.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Geo_Extension_GeoRssWhere.html#Zend_Gdata_Geo_Extension_GeoRssWhere">Zend_Gdata_Geo_Extension_GeoRssWhere</a></td>
+<td>The element being modified.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::setGphotoAlbumId()"></a><h3>setGphotoAlbumId<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_Extension_AlbumId.html#Zend_Gdata_Photos_Extension_AlbumId">Zend_Gdata_Photos_Extension_AlbumId</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's gphoto:albumid attribute.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_Extension_AlbumId.html#Zend_Gdata_Photos_Extension_AlbumId">Zend_Gdata_Photos_Extension_AlbumId</a></td>
+<td>The element being modified.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::setGphotoChecksum()"></a><h3>setGphotoChecksum<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_Extension_Checksum.html#Zend_Gdata_Photos_Extension_Checksum">Zend_Gdata_Photos_Extension_Checksum</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's gphoto:checksum attribute.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_Extension_Checksum.html#Zend_Gdata_Photos_Extension_Checksum">Zend_Gdata_Photos_Extension_Checksum</a></td>
+<td>The element being modified.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::setGphotoClient()"></a><h3>setGphotoClient<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_Extension_Client.html#Zend_Gdata_Photos_Extension_Client">Zend_Gdata_Photos_Extension_Client</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's gphoto:client attribute.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_Extension_Client.html#Zend_Gdata_Photos_Extension_Client">Zend_Gdata_Photos_Extension_Client</a></td>
+<td>The element being modified.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::setGphotoCommentCount()"></a><h3>setGphotoCommentCount<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_Extension_CommentCount.html#Zend_Gdata_Photos_Extension_CommentCount">Zend_Gdata_Photos_Extension_CommentCount</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's gphoto:commentCount attribute.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_Extension_CommentCount.html#Zend_Gdata_Photos_Extension_CommentCount">Zend_Gdata_Photos_Extension_CommentCount</a></td>
+<td>The element being modified.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::setGphotoCommentingEnabled()"></a><h3>setGphotoCommentingEnabled<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_Extension_CommentingEnabled.html#Zend_Gdata_Photos_Extension_CommentingEnabled">Zend_Gdata_Photos_Extension_CommentingEnabled</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's gphoto:commentingEnabled attribute.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_Extension_CommentingEnabled.html#Zend_Gdata_Photos_Extension_CommentingEnabled">Zend_Gdata_Photos_Extension_CommentingEnabled</a></td>
+<td>The element being modified.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::setGphotoHeight()"></a><h3>setGphotoHeight<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_Extension_Height.html#Zend_Gdata_Photos_Extension_Height">Zend_Gdata_Photos_Extension_Height</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's gphoto:height attribute.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_Extension_Height.html#Zend_Gdata_Photos_Extension_Height">Zend_Gdata_Photos_Extension_Height</a></td>
+<td>The element being modified.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::setGphotoId()"></a><h3>setGphotoId<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_Extension_Id.html#Zend_Gdata_Photos_Extension_Id">Zend_Gdata_Photos_Extension_Id</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's gphoto:id attribute.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_Extension_Id.html#Zend_Gdata_Photos_Extension_Id">Zend_Gdata_Photos_Extension_Id</a></td>
+<td>The element being modified.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::setGphotoSize()"></a><h3>setGphotoSize<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_Extension_Size.html#Zend_Gdata_Photos_Extension_Size">Zend_Gdata_Photos_Extension_Size</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's gphoto:size attribute.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_Extension_Size.html#Zend_Gdata_Photos_Extension_Size">Zend_Gdata_Photos_Extension_Size</a></td>
+<td>The element being modified.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::setGphotoTimestamp()"></a><h3>setGphotoTimestamp<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_Extension_Timestamp.html#Zend_Gdata_Photos_Extension_Timestamp">Zend_Gdata_Photos_Extension_Timestamp</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's gphoto:timestamp attribute.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_Extension_Timestamp.html#Zend_Gdata_Photos_Extension_Timestamp">Zend_Gdata_Photos_Extension_Timestamp</a></td>
+<td>The element being modified.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::setGphotoVersion()"></a><h3>setGphotoVersion<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_Extension_Version.html#Zend_Gdata_Photos_Extension_Version">Zend_Gdata_Photos_Extension_Version</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's gphoto:version attribute.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_Extension_Version.html#Zend_Gdata_Photos_Extension_Version">Zend_Gdata_Photos_Extension_Version</a></td>
+<td>The element being modified.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::setGphotoWidth()"></a><h3>setGphotoWidth<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Photos_Extension_Width.html#Zend_Gdata_Photos_Extension_Width">Zend_Gdata_Photos_Extension_Width</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's gphoto:width attribute.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Photos_Extension_Width.html#Zend_Gdata_Photos_Extension_Width">Zend_Gdata_Photos_Extension_Width</a></td>
+<td>The element being modified.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::setMediaGroup()"></a><h3>setMediaGroup<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Media_Extension_MediaGroup.html#Zend_Gdata_Media_Extension_MediaGroup">Zend_Gdata_Media_Extension_MediaGroup</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the value for this element's media:group attribute.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>The desired value for this attribute.</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Media_Extension_MediaGroup.html#Zend_Gdata_Media_Extension_MediaGroup">Zend_Gdata_Media_Extension_MediaGroup</a></td>
+<td>The element being modified.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::takeChildFromDOM()"></a><h3>takeChildFromDOM<span class="nb-faded-text">(
+          DOMNode
+             
+            $child,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Creates individual Entry objects of the appropriate type and
+stores them as members of this entry based upon DOM data.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$child</td>
+<td style="white-space: normal;">DOMNode |
+                </td>
+<td>The DOMNode to process</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Gdata_Photos_PhotoEntry">
+<h4>Properties</h4>
+<a href="#Zend_Gdata_Photos_PhotoEntry::%24_entryClassName">$_entryClassName</a>,
+      <a href="#Zend_Gdata_Photos_PhotoEntry::%24_exifTags">$_exifTags</a>,
+      <a href="#Zend_Gdata_Photos_PhotoEntry::%24_geoRssWhere">$_geoRssWhere</a>,
+      <a href="#Zend_Gdata_Photos_PhotoEntry::%24_gphotoAlbumId">$_gphotoAlbumId</a>,
+      <a href="#Zend_Gdata_Photos_PhotoEntry::%24_gphotoChecksum">$_gphotoChecksum</a>,
+      <a href="#Zend_Gdata_Photos_PhotoEntry::%24_gphotoClient">$_gphotoClient</a>,
+      <a href="#Zend_Gdata_Photos_PhotoEntry::%24_gphotoCommentCount">$_gphotoCommentCount</a>,
+      <a href="#Zend_Gdata_Photos_PhotoEntry::%24_gphotoCommentingEnabled">$_gphotoCommentingEnabled</a>,
+      <a href="#Zend_Gdata_Photos_PhotoEntry::%24_gphotoHeight">$_gphotoHeight</a>,
+      <a href="#Zend_Gdata_Photos_PhotoEntry::%24_gphotoId">$_gphotoId</a>,
+      <a href="#Zend_Gdata_Photos_PhotoEntry::%24_gphotoSize">$_gphotoSize</a>,
+      <a href="#Zend_Gdata_Photos_PhotoEntry::%24_gphotoTimestamp">$_gphotoTimestamp</a>,
+      <a href="#Zend_Gdata_Photos_PhotoEntry::%24_gphotoVersion">$_gphotoVersion</a>,
+      <a href="#Zend_Gdata_Photos_PhotoEntry::%24_gphotoWidth">$_gphotoWidth</a>,
+      <div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::$_entryClassName"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_entryClassName
+          =
+          Zend_Gdata_Photos_PhotoEntry</h3>
+<em></em><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::$_exifTags"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_exifTags
+          =
+          null</h3>
+<em>exif:tags elementZend_Gdata_Exif_Extension_Tags</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::$_geoRssWhere"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_geoRssWhere
+          =
+          null</h3>
+<em>georss:where elementZend_Gdata_Geo_Extension_GeoRssWhere</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::$_gphotoAlbumId"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_gphotoAlbumId
+          =
+          null</h3>
+<em>gphoto:albumid elementZend_Gdata_Photos_Extension_AlbumId</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::$_gphotoChecksum"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_gphotoChecksum
+          =
+          null</h3>
+<em>gphoto:checksum elementZend_Gdata_Photos_Extension_Checksum</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::$_gphotoClient"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_gphotoClient
+          =
+          null</h3>
+<em>gphoto:client elementZend_Gdata_Photos_Extension_Client</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::$_gphotoCommentCount"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_gphotoCommentCount
+          =
+          null</h3>
+<em>gphoto:commentCount elementZend_Gdata_Photos_Extension_CommentCount</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::$_gphotoCommentingEnabled"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_gphotoCommentingEnabled
+          =
+          null</h3>
+<em>gphoto:commentingEnabled elementZend_Gdata_Photos_Extension_CommentingEnabled</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::$_gphotoHeight"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_gphotoHeight
+          =
+          null</h3>
+<em>gphoto:height elementZend_Gdata_Photos_Extension_Height</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::$_gphotoId"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_gphotoId
+          =
+          null</h3>
+<em>gphoto:id elementZend_Gdata_Photos_Extension_Id</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::$_gphotoSize"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_gphotoSize
+          =
+          null</h3>
+<em>gphoto:size elementZend_Gdata_Photos_Extension_Size</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::$_gphotoTimestamp"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_gphotoTimestamp
+          =
+          null</h3>
+<em>gphoto:timestamp elementZend_Gdata_Photos_Extension_Timestamp</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::$_gphotoVersion"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_gphotoVersion
+          =
+          null</h3>
+<em>gphoto:version elementZend_Gdata_Photos_Extension_Version</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Photos_PhotoEntry::$_gphotoWidth"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_gphotoWidth
+          =
+          null</h3>
+<em>gphoto:width elementZend_Gdata_Photos_Extension_Width</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

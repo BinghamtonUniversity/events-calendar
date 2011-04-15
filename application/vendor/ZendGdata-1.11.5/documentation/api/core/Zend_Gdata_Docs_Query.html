@@ -1,0 +1,475 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>Zend/Gdata/Docs/Query.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Gdata/Query.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Zend_Gdata_Docs_Query" class="class">
+<h3>Zend_Gdata_Docs_Query</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="Zend_Gdata_Query.html#Zend_Gdata_Query">Zend_Gdata_Query</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">Zend</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">link</label><div class="property-value">
+<a title="">http://code.google.com/apis/gdata/spreadsheets/</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">Zend_Gdata</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">Docs</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Assists in constructing queries for Google Document List documents</em><br>
+<br><div id="methods_Zend_Gdata_Docs_Query">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Zend_Gdata_Docs_Query::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Docs_Query::getProjection()">getProjection</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Docs_Query::getQueryUrl()">getQueryUrl</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Docs_Query::getTitle()">getTitle</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Docs_Query::getTitleExact()">getTitleExact</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Docs_Query::getVisibility()">getVisibility</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Docs_Query::setProjection()">setProjection</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Docs_Query::setTitle()">setTitle</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Docs_Query::setTitleExact()">setTitleExact</a>,
+      <a style="font-style: italic;" href="#Zend_Gdata_Docs_Query::setVisibility()">setVisibility</a>,
+      <div class="method">
+<a id="Zend_Gdata_Docs_Query::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Constructs a new instance of a Zend_Gdata_Docs_Query object.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Docs_Query::getProjection()"></a><h3>getProjection<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the projection for this query.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>projection</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Docs_Query::getQueryUrl()"></a><h3>getQueryUrl<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the full query URL for this query.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>url</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Docs_Query::getTitle()"></a><h3>getTitle<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the title attribute for this query.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>title</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Docs_Query::getTitleExact()"></a><h3>getTitleExact<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the title-exact attribute for this query.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>title-exact</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Docs_Query::getVisibility()"></a><h3>getVisibility<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Gets the visibility for this query.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>visibility</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Docs_Query::setProjection()"></a><h3>setProjection<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Docs_Query.html#Zend_Gdata_Docs_Query">Zend_Gdata_Docs_Query</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the projection for this query. Common values for projection
+include 'full'.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Docs_Query.html#Zend_Gdata_Docs_Query">Zend_Gdata_Docs_Query</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Docs_Query::setTitle()"></a><h3>setTitle<span class="nb-faded-text">(
+          string
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Docs_Query.html#Zend_Gdata_Docs_Query">Zend_Gdata_Docs_Query</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the title attribute for this query. The title parameter is used
+to restrict the results to documents whose titles either contain or
+completely match the title.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Docs_Query.html#Zend_Gdata_Docs_Query">Zend_Gdata_Docs_Query</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Docs_Query::setTitleExact()"></a><h3>setTitleExact<span class="nb-faded-text">(
+          boolean
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Docs_Query.html#Zend_Gdata_Docs_Query">Zend_Gdata_Docs_Query</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the title-exact attribute for this query.</em><br><small><p>If title-exact is set to true, the title query parameter will be used
+in an exact match. Only documents with a title identical to the
+title parameter will be returned.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">boolean |
+                </td>
+<td>Use either true or false</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Docs_Query.html#Zend_Gdata_Docs_Query">Zend_Gdata_Docs_Query</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Docs_Query::setVisibility()"></a><h3>setVisibility<span class="nb-faded-text">(
+          
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="Zend_Gdata_Docs_Query.html#Zend_Gdata_Docs_Query">Zend_Gdata_Docs_Query</a></span>
+</h3>
+<h4>Description</h4>
+<em>Sets the visibility for this query. Common values for visibility
+include 'private'.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="Zend_Gdata_Docs_Query.html#Zend_Gdata_Docs_Query">Zend_Gdata_Docs_Query</a></td>
+<td>Provides a fluent interface</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Zend_Gdata_Docs_Query">
+<h4>Properties</h4>
+<a href="#Zend_Gdata_Docs_Query::%24_defaultFeedUri">$_defaultFeedUri</a>,
+      <a href="#Zend_Gdata_Docs_Query::%24_projection">$_projection</a>,
+      <a href="#Zend_Gdata_Docs_Query::%24_visibility">$_visibility</a>,
+      <div class="method">
+<a id="Zend_Gdata_Docs_Query::$_defaultFeedUri"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_defaultFeedUri
+          =
+          self</h3>
+<em>The generic base URL used by some inherited methodsstring</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Docs_Query::$_projection"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_projection
+          =
+          full</h3>
+<em>The projection determines how much detail should be given in the
+result of the query. Full is the only valid projection for the
+documents list.string</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="Zend_Gdata_Docs_Query::$_visibility"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_visibility
+          =
+          private</h3>
+<em>The visibility to be used when querying for the feed. A request for a
+feed with private visbility requires the user to be authenricated.string</em><br><small>&lt;p&gt;Private is the only avilable visibility for the documents list.&lt;/p&gt;
+</small><br><br>
+</div>
+</div>
+<div id="constants_Zend_Gdata_Docs_Query">
+<h4>Constants</h4>
+<a id="Zend_Gdata_Docs_Query::DOCUMENTS_LIST_FEED_URI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text">string 
+        </span>DOCUMENTS_LIST_FEED_URI<span class="nb-faded-text">
+         = https://docs.google.com/feeds/documents</span>
+</h3>
+<em>The base URL for retrieving a document list</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>
