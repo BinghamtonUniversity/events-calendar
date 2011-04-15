@@ -4,7 +4,9 @@ class Controller_Welcome extends Controller {
 
 	public function action_index()
 	{
-		$this->response->body('hello, world!');
+        $calendar = new Model_Calendar();
+        $calendar->get_events();
+		//$this->response->body('hello, world!');
 	}
 
 } // End Welcome
