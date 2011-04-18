@@ -25,11 +25,6 @@ class Model_Calendar extends Model {
 
     public function __construct()
     {
-        $path = Kohana::find_file('vendor', 'ZendGdata-1.11.2/library/Zend/Loader');
-        // The Zend libraries don't work unless you add them to the PHP include path
-        set_include_path(get_include_path().PATH_SEPARATOR.dirname(dirname($path)));
-        require $path;
-
         Zend_Loader::loadClass('Zend_Gdata');
         Zend_Loader::loadClass('Zend_Gdata_HttpClient');
         Zend_Loader::loadClass('Zend_Gdata_Calendar');
