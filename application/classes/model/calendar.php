@@ -35,6 +35,7 @@ class Model_Calendar extends ORM {
         } catch (Zend_Gdata_App_Exception $e) {
             // TODO Handle failure to connect to google calendar API
             echo 'Error: ' . $e->getMessage();
+            return;
         }
 
         foreach ($event_feed as $event) {

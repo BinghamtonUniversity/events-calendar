@@ -18,6 +18,18 @@ class Controller_Calendar extends Controller {
 
     public function action_index()
     {
+        $calendars = ORM::factory('calendar');
+        $calendars = $calendars->find_all();
+
+        foreach ($calendars as $calendar) {
+            echo $calendar->title.'<br/>';
+
+            $events = $calendar->events->find_all();
+
+            foreach ($events as $event) {
+                echo $event->title.'<br/>';
+            }
+        }
     }
 
 	public function action_refresh()
@@ -26,8 +38,6 @@ class Controller_Calendar extends Controller {
         $calendars = $calendars->find_all();
 
         foreach ($calendars as $calendar) {
-            echo $calendar->title.'<br/>';
-
             $events = $calendar->events->find_all();
 
             foreach ($events as $event) {
@@ -38,22 +48,20 @@ class Controller_Calendar extends Controller {
 
             foreach ($google_events as $google_event) {
                 $event = ORM::factory('event');
+
                 // Associate the event with the current calendar
                 $event->calendar = $calendar;
 
+                // Map the properties of the Google event to our local copy
                 foreach ($google_event as $name => $value) {
                     $event->$name = $value;
                 }
 
                 $event->save();
             }
-
-            $events = $calendar->events->find_all();
-
-            foreach ($events as $event) {
-                echo $event->title.'<br/>';
-            }
         }
+
+        $this->request->redirect('calendar');
 	}
 
 }
