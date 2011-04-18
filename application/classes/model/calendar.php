@@ -22,6 +22,7 @@ class Model_Calendar extends Model {
     // Zend object for connecting to the Google API
     private $_gdata;
     private $_events = array();
+    private $_DSN;
 
     public function __construct()
     {
@@ -29,10 +30,14 @@ class Model_Calendar extends Model {
         Zend_Loader::loadClass('Zend_Gdata_HttpClient');
         Zend_Loader::loadClass('Zend_Gdata_Calendar');
 
+        $this->_DSN = 'sqlite:'.Kohana::find_file('db', 'events', 'sqlite3');
+
         $this->_gdata = new Zend_Gdata_Calendar();
 
-        $this->_getGoogleEvents();
+        //$this->_getGoogleEvents();
+        //$this->_updateEventCache();
         //$this->_printEventList($this->_events);
+        $this->getEvents();
     }
 
     private function _getGoogleEvents()
@@ -87,8 +92,54 @@ class Model_Calendar extends Model {
                 }
             }
         }
+    }
 
-        echo json_encode($this->_events);
+    private function _updateEventCache()
+    {
+        // Open connection to database
+        // TODO make sure this file exists and is writeable
+        // chmod 777 on directory, 666 on file
+        try {
+            $db = new PDO($this->_DSN);
+
+            $db->beginTransaction();
+
+            $db->exec('DROP TABLE Events');
+
+            $db->exec('CREATE TABLE Events (id INTEGER PRIMARY KEY, date TEXT, human_date TEXT, start_time TEXT, end_time TEXT, title TEXT, content TEXT, calendar TEXT, address TEXT, permalink TEXT)');
+
+            foreach ($this->_events as $event) {
+                $keys   = implode(', ', array_keys($event));
+                $values = implode('", "', array_values($event));
+                $sql    = sprintf('INSERT INTO Events (%s) VALUES ("%s")', $keys, $values);
+
+                $db->exec($sql);
+            }
+
+            $db->commit();
+
+            // Close the database
+            $db = null;
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+    }
+
+    public function getEvents($search_string = null)
+    {
+        try {
+            $db = new PDO($this->_DSN);
+
+            // TODO replace this with a prepared statement
+            // Returns all results by default
+            $result = $db->query("SELECT * FROM Events WHERE title LIKE '%$search_string%' OR content LIKE '%$search_string%' ORDER BY date, start_time, calendar, title");
+
+            $this->_printEventList($result);
+
+            $db = null;
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
     }
 
     private function _printEventList($events)
@@ -119,9 +170,36 @@ class Model_Calendar extends Model {
                 $event['permalink'],
                 $event['title'],
                 $event['calendar']
-                );
+            );
         }
         echo '</div>';
+    }
+
+    public function displayEvent($permalink)
+    {
+        $db     = new PDO($this->_DSN);
+        // TODO Prevent injection
+        $result = $db->query("SELECT * FROM Events WHERE permalink = \"$permalink\"");
+
+        foreach ($result as $event) {
+            echo "<h2>{$event['title']}</h2>";
+            echo $event['human_date'] . '<br/>';
+
+            if ($event['start_time'] && $event['end_time']) {
+                $start_time = strftime('%l:%M %p', $event['start_time']);
+                $end_time   = strftime('%l:%M %p', $event['end_time']);
+                echo "$start_time - $end_time";
+            } else {
+                echo "All Day";
+            }
+
+            if ($event['content']) {
+                echo "<p>{$event['content']}</p>";
+            }
+        }
+
+        echo '<h3><a class="event_link" href="index.html">Back</a></h3>';
+        $db = null;
     }
 
 }
