@@ -15,14 +15,10 @@ class Controller_Calendar extends Controller {
 
     public function action_index()
     {
-        $calendars = ORM::factory('calendar')->find_all();
+        $events = ORM::factory('event')->order_by('date', 'ASC')->order_by('start_time', 'ASC')->find_all();
 
-        foreach ($calendars as $calendar) {
-            $events = $calendar->events->find_all();
-
-            foreach ($events as $event) {
-                array_push($this->_all_events, $event);
-            }
+        foreach ($events as $event) {
+            array_push($this->_all_events, $event);
         }
 
         $view = View::factory('template')
