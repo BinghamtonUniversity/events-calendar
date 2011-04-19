@@ -2,6 +2,8 @@
 
 class Controller_Calendar extends Controller {
 
+    private $_all_events = array();
+
     private function _delete_all($model)
     {
         $collection = ORM::factory($model)->find_all();
@@ -19,9 +21,14 @@ class Controller_Calendar extends Controller {
             $events = $calendar->events->find_all();
 
             foreach ($events as $event) {
-                echo $event->calendar->title.': '.$event->title.'<br/>';
+                array_push($this->_all_events, $event);
             }
         }
+
+        $view = View::factory('template')
+            ->bind('events', $this->_all_events);
+
+        $this->response->body($view);
     }
 
 	public function action_refresh()
