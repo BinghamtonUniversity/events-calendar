@@ -58,7 +58,7 @@ class Controller_Calendar extends Controller {
             }
         }
 
-        //$this->request->redirect('calendar');
+        $this->request->redirect('calendar');
 	}
 
 }

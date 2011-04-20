@@ -1,0 +1,8 @@
+// config/site.php
+ 
+<?php defined('SYSPATH') or die('No direct script access.');
+ 
+return array(
+    'username' => 'google_username',
+    'password' => 'google_password',
+);

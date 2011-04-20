@@ -17,10 +17,11 @@ class Model_Calendar extends ORM {
         Zend_Loader::loadClass('Zend_Gdata_Calendar');
 
         $service = Zend_Gdata_Calendar::AUTH_SERVICE_NAME;
-        $user = 'web@binghamton.edu';
-        $pass = 'WebTeam1';
+        // Pull username and password information from the config/google.php file
+        $username = Kohana::config('google.username');
+        $password = Kohana::config('google.password');
 
-        $client = Zend_Gdata_ClientLogin::getHttpClient($user, $pass, $service);
+        $client = Zend_Gdata_ClientLogin::getHttpClient($username, $password, $service);
 
         $this->_gdata = new Zend_Gdata_Calendar($client);
     }
