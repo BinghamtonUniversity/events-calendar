@@ -2,8 +2,6 @@
 
 class Controller_Calendar extends Controller {
 
-    private $_all_events = array();
-
     private function _delete_all($model)
     {
         $collection = ORM::factory($model)->find_all();
@@ -15,14 +13,13 @@ class Controller_Calendar extends Controller {
 
     public function action_index()
     {
-        $events = ORM::factory('event')->order_by('date', 'ASC')->order_by('start_time', 'ASC')->find_all();
-
-        foreach ($events as $event) {
-            array_push($this->_all_events, $event);
-        }
+        $events = ORM::factory('event')
+            ->order_by('date', 'ASC')
+            ->order_by('start_time', 'ASC')
+            ->find_all();
 
         $view = View::factory('template')
-            ->bind('events', $this->_all_events);
+            ->bind('events', $events);
 
         $this->response->body($view);
     }
@@ -64,9 +61,4 @@ class Controller_Calendar extends Controller {
         //$this->request->redirect('calendar');
 	}
 
-    public function action_calendars()
-    {
-        $calendar = ORM::factory('calendar');
-        $calendar->get_google_calendars();
-    }
 }

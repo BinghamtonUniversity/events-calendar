@@ -3,6 +3,7 @@
 <head>
 <title>Binghamton University - Events Calendar</title>
 <link media="all" href="/css/styles.css" type="text/css" rel="stylesheet" />
+<?php echo HTML::style('media/css/events.css'); ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="Keywords" content="" />
 <meta name="Description" content="" />
@@ -23,7 +24,7 @@
 <div class="contentWidth bodyContent">
     <div class="calendar_container" style="padding: 20px 40px;">
         <div style="float: left; width: 700px;">
-            <h1>Binghamton University Events</h1>
+            <h1>Binghamton University Events Calendar</h1>
             <form id="search_form">
                 <input id="search_string" type="text" class="text" style="font-size: 24px; margin: 20px 0;" value="Search Events" size="40" />
             </form>
