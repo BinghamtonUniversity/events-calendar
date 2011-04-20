@@ -1,1 +1,2 @@
-logs
+application/logs/*
+!.gitignore
