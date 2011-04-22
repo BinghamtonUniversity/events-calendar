@@ -9,6 +9,14 @@
 <meta name="Description" content="" />
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <meta http-equiv="imageToolbar" content="no" />
+<script src="https://www.google.com/jsapi?key=ABQIAAAA3ia0NPE98EwrkgLZHTSkgxTXO7ZdFP8GFbr4e1voZqr2tFi3GBQN00cLkqcQU9y6_jIvQSyed39Wfg">
+
+</script>
+<script> 
+    //<![CDATA[
+    google.load("jquery", "1.5.0");
+    //]]>
+</script>
 <?php echo HTML::script('media/js/calendar.js'); ?>
 <script type="text/javascript">
 		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

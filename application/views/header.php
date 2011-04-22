@@ -1,11 +1,3 @@
-<script src="https://www.google.com/jsapi?key=ABQIAAAA3ia0NPE98EwrkgLZHTSkgxTXO7ZdFP8GFbr4e1voZqr2tFi3GBQN00cLkqcQU9y6_jIvQSyed39Wfg">
-
-</script>
-<script> 
-    //<![CDATA[
-    google.load("jquery", "1.5.0");
-    //]]>
-</script>
 <script src="/inc/header-search.js">
 
 </script>
