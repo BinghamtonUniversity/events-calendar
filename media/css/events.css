@@ -1,23 +1,37 @@
+a, a:link, a:visited {
+    color: #006a4e;
+}
+
 h1 {
     font-size: 26px;
 }
 
 h3 {
     font-size: 20px; 
+    padding: 5px 0;
+}
+
+div.date {
     margin-top: 40px;
+    background-color: #C1CFCB;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 div.event {
-    border-top: 1px dotted #bababa;
-    /*border-bottom: 1px solid #bababa;*/
-    padding: 10px 0 0 0;
+    border-radius: 5px;
+    background-color: #E5EEEB;
+    padding: 10px;
     margin: 10px 0;
 }
 
 div.event .event_header {
-    font-size: 14px;
     font-weight: bold;
     margin: 0;
+}
+
+div.event .event_header .event_title {
+    font-size: 16px;
 }
 
 div.event .event_content {
