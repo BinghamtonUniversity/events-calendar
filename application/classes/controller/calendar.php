@@ -2,6 +2,7 @@
 
 class Controller_Calendar extends Controller {
 
+    // Helper function for clearing out local caches
     private function _delete_all($model)
     {
         $collection = ORM::factory($model)->find_all();
@@ -21,9 +22,29 @@ class Controller_Calendar extends Controller {
         $view = View::factory('template')
             ->bind('events', $events);
 
+        $view->subview = 'pages/events';
+
         $this->response->body($view);
     }
 
+    // Display details for a specific event
+    public function action_event($permalink = null)
+    {
+        $event = ORM::factory('event')
+            ->where('permalink', '=', $permalink)
+            ->find();
+
+        if ($event->loaded()) {
+            $view = View::factory('template')
+                ->bind('event', $event);
+
+            $view->subview = 'pages/event';
+
+            $this->response->body($view);
+        }
+    }
+
+    // Retrieve and cache calendar and event information from Google Calendar
 	public function action_refresh()
 	{
         $this->_delete_all('calendar');

@@ -17,7 +17,7 @@
     google.load("jquery", "1.5.0");
     //]]>
 </script>
-<?php echo HTML::script('media/js/calendar.js'); ?>
+<?php // echo HTML::script('media/js/calendar.js'); ?>
 <script type="text/javascript">
 		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -39,36 +39,7 @@
 
             <div>
                 <div id="calendar_view">
-                <?php
-                    $previous_date = null;
-
-                    foreach ($events as $event) {
-                        if ($event->date != $previous_date) {
-                            if ($previous_date) {
-                                echo '</div>';
-                            }
-                            echo '<div class="date">';
-                            echo "<h3>{$event->human_date}</h3>";
-                            $previous_date = $event->date;
-                        }
-
-                        if ($event->start_time) {
-                            $start_time = strftime('%l:%M %p', $event->start_time);
-                        } else {
-                            $start_time = 'All Day';
-                        }
-
-                        echo sprintf('<p class="event" data-calendar="%s"><strong>%s</strong> <a class="event_link" data-event="%s" href="?event=%s">%s</a> (%s)</p>',
-                            $event->calendar->title,
-                            $start_time,
-                            $event->permalink,
-                            $event->permalink,
-                            $event->title,
-                            $event->calendar->title
-                        );
-                    }
-                    echo '</div>';
-                ?>
+                    <?php include Kohana::find_file('views', $subview) ?>
                 </div>
             </div>
         </div>
