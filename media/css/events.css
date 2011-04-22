@@ -7,20 +7,19 @@ h1 {
 }
 
 h3 {
-    font-size: 20px; 
-    padding: 5px 0;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 20px;
 }
 
 div.date {
-    margin-top: 40px;
-    background-color: #C1CFCB;
-    border-radius: 5px;
-    padding: 10px;
+    border-top: 1px dotted #bababa;
 }
 
 div.event {
+    border: 1px solid #bababa;
     border-radius: 5px;
-    background-color: #E5EEEB;
+    background-color: #F5F6F6;
     padding: 10px;
     margin: 10px 0;
 }
@@ -31,7 +30,7 @@ div.event .event_header {
 }
 
 div.event .event_header .event_title {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 div.event .event_content {
