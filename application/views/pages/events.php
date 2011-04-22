@@ -17,14 +17,21 @@ foreach ($events as $event) {
         $start_time = 'All Day';
     }
 
-    echo sprintf('<p class="event" data-calendar="%s"><strong>%s</strong> <a class="event_link" data-event="%s" href="%s">%s</a> (%s)</p>',
-        $event->calendar->title,
-        $start_time,
+    echo sprintf('<div class="event" data-calendar="%s">', $event->calendar->title);
+    echo '<p class="event_header">';
+    echo sprintf('<a class="event_link" data-event="%s" href="%s">%s</a>',
         $event->permalink,
         URL::site('calendar/event/'.$event->permalink),
-        $event->title,
-        $event->calendar->title
+        $event->title
     );
+    echo '<span style="float: right;">'.$start_time.'</span>';
+    echo '</p>';
+    if ($event->content) {
+        echo '<p class="event_content">';
+        echo $event->content;
+        echo '</p>';
+    }
+    echo '</div>';
 }
 echo '</div>';
 ?>

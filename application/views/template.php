@@ -31,10 +31,10 @@
 <?php echo View::factory('header'); ?>
 <div class="contentWidth bodyContent">
     <div class="calendar_container" style="padding: 20px 40px;">
-        <div style="float: left; width: 700px;">
+        <div style="float: left; width: 600px;">
             <h1>Binghamton University Events Calendar</h1>
             <form id="search_form">
-                <input id="search_string" type="text" class="text" style="font-size: 24px; margin: 20px 0;" value="Search Events" size="40" />
+                <input id="search_string" type="text" class="text" style="width: 289px; font-size: 18px; margin: 20px 0;" value="Search Events" size="40" />
             </form>
 
             <div>
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <div style="float: right; width: 150px;">
+        <div style="float: right; width: 200px;">
             <h2>View Date</h2>
             <p>(JS Calendar Here)
             <h2>Filter Events</h2>

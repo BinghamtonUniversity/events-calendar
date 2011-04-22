@@ -1,1 +1,29 @@
-h1 { font-size: 26px; }
+h1 {
+    font-size: 26px;
+}
+
+h3 {
+    font-size: 20px; 
+    margin-top: 40px;
+}
+
+div.event {
+    border-top: 1px dotted #bababa;
+    /*border-bottom: 1px solid #bababa;*/
+    padding: 10px 0 0 0;
+    margin: 10px 0;
+}
+
+div.event .event_header {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+
+div.event .event_content {
+    margin: 10px 0 0 0;
+}
+
+form#search_form {
+    margin-bottom: -20px;
+}
