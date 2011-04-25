@@ -9,11 +9,13 @@ h1 {
 h3 {
     margin-top: 30px;
     margin-bottom: 10px;
+    padding-bottom: 5px;
     font-size: 20px;
+    border-bottom: 1px dotted #bababa;
 }
 
-div.date {
-    border-top: 1px dotted #bababa;
+div#calendar_container {
+    padding: 20px 40px;
 }
 
 div.event {
@@ -38,6 +40,9 @@ div.event .event_content {
     margin: 5px 0 0 0;
 }
 
-form#search_form {
-    margin-bottom: -20px;
+form#search_form input {
+    border: 1px solid #bababa;
+    border-radius: 5px;
+    margin: 0;
+    padding: 2px;
 }

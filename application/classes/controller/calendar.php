@@ -19,8 +19,13 @@ class Controller_Calendar extends Controller {
             ->order_by('start_time', 'ASC')
             ->find_all();
 
+        $calendars = ORM::factory('calendar')
+            ->order_by('title', 'ASC')
+            ->find_all();
+
         $view = View::factory('template')
-            ->bind('events', $events);
+            ->bind('events', $events)
+            ->bind('calendars', $calendars);
 
         $view->subview = 'pages/events';
 

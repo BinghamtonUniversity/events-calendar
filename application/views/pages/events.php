@@ -6,8 +6,8 @@ foreach ($events as $event) {
         if ($previous_date) {
             echo '</div>';
         }
-        echo "<h3>{$event->human_date}</h3>";
         echo '<div class="date">';
+        echo "<h3>{$event->human_date}</h3>";
         $previous_date = $event->date;
     }
 

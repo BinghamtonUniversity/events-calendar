@@ -28,27 +28,29 @@
 <body>
 <?php echo View::factory('header'); ?>
 <div class="contentWidth bodyContent">
-    <div class="calendar_container" style="padding: 20px 40px;">
+    <div id="calendar_container">
         <div style="float: left; width: 600px;">
             <h1>Binghamton University Events Calendar</h1>
-            <form id="search_form">
-                <input id="search_string" type="text" class="text" style="width: 289px; font-size: 18px; margin: 20px 0;" value="Search Events" size="40" />
-            </form>
 
             <div>
                 <div id="calendar_view">
-                    <?php include Kohana::find_file('views', $subview) ?>
+                    <?php include Kohana::find_file('views', $subview); ?>
                 </div>
             </div>
         </div>
         <div style="float: right; width: 200px;">
             <h2>View Date</h2>
             <p>(JS Calendar Here)
+            <h2>Search Events</h2>
+            <form id="search_form">
+                <p>
+                <input id="search_string" type="text" class="text" value="Search Events" />
+                </p>
+            </form>
             <h2>Filter Events</h2>
             <p><a href="#" class="show_all">Show All</a> | <a href="#" class="hide_all">Hide All</a></p>
-            <form>
-               <!-- display calendar toggles -->
-            </form>
+                <!-- display calendar toggles -->
+                <?php include Kohana::find_file('views', 'calendars'); ?>
         </div>
     </div>
 <!-- body content -->

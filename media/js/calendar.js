@@ -6,12 +6,12 @@ $(document).ready(function() {
 
     // Toggle events on and off by calendar
     $('.calendar_toggle').change(function(event) {
-        var self = $(this),
+        var self     = $(this),
             calendar = self.data('calendar'), // get this calendar associated with the clicked element
-            show = self.is(':checked'); // assuming the element is a checkbox
+            show     = self.is(':checked'); // assuming the element is a checkbox
 
         // Toggle all events for the changed calendar
-        $('p.event').each(function() {
+        $('div.event').each(function() {
             if ($(this).data('calendar') === calendar) {
                 if (show) {
                     $(this).parent('div.date').show();
@@ -24,7 +24,7 @@ $(document).ready(function() {
 
         // Hide the date container if there are no visible events on that date
         $('div.date').each(function() {
-            if ($(this).children('p.event:visible').length === 0) {
+            if ($(this).find('div.event:visible').length === 0) {
                 $(this).hide();
             } else {
                 $(this).show();
@@ -52,25 +52,14 @@ $(document).ready(function() {
         event.preventDefault();
     });
 
-    $('a.event_link').click(function(event) {
-        $.get('calendar.php', { event: $(this).data('event') }, function(data) {
-            $('div#calendar_view').html(data);
-        });
-        event.preventDefault();
-    });
-
     //$('#search_form').submit(function(event) {
         //$.get('calendar.php', { search_string: $('#search_string').val() }, function(data) {
             //$('div#calendar_view').html(data);
         //});
         //event.preventDefault();
     //});
-    $('#search_string').keyup(function(event) {
-        $.get('calendar.php', { search_string: $('#search_string').val() }, function(data) {
-            $('div#calendar_view').html(data);
-        });
-    });
 
+    // Make the entire div clickable for calendar events
     $('.event').mouseenter(function(event) {
         $(this).css('background-color', '#E5EEEB');
     });
