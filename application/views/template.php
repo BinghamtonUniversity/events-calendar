@@ -39,15 +39,15 @@
             </div>
         </div>
         <div style="float: right; width: 200px;">
-            <h2>View Date</h2>
+            <h4>View Date</h4>
             <p>(JS Calendar Here)
-            <h2>Search Events</h2>
+            <h4>Search Events</h4>
             <form id="search_form">
                 <p>
                 <input id="search_string" type="text" class="text" value="Search Events" />
                 </p>
             </form>
-            <h2>Filter Events by Category</h2>
+            <h4>Filter Events by Category</h4>
             <p><a href="#" class="show_all">Show All</a> <a href="#" class="hide_all">Hide All</a></p>
                 <!-- display calendar toggles -->
                 <?php include Kohana::find_file('views', 'calendars'); ?>

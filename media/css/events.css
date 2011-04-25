@@ -14,6 +14,14 @@ h3 {
     border-bottom: 1px dotted #bababa;
 }
 
+h4 {
+    font-size: 14px;
+}
+
+p, form, input {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
 div#calendar_container {
     padding: 20px 40px;
 }
@@ -35,6 +43,7 @@ div.event {
 }
 
 div.event .event_header {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     font-weight: bold;
     margin: 0;
 }
