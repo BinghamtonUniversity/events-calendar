@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#search_string').focus();
+    //$('#search_string').focus();
     $('#search_string').click(function() {
         $(this).select();
     });
@@ -69,5 +69,18 @@ $(document).ready(function() {
         $.get('calendar.php', { search_string: $('#search_string').val() }, function(data) {
             $('div#calendar_view').html(data);
         });
+    });
+
+    $('.event').mouseenter(function(event) {
+        $(this).css('background-color', '#E5EEEB');
+    });
+
+    $('.event').mouseleave(function(event) {
+        $(this).css('background-color', '#F5F6F6');
+    });
+
+    $('.event').click(function(event) {
+        //window.location = $(this).
+        window.location = $(this).find('a.event_link').attr('href');
     });
 });

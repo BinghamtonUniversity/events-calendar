@@ -21,7 +21,8 @@ div.event {
     border-radius: 5px;
     background-color: #F5F6F6;
     padding: 10px;
-    margin: 10px 0;
+    margin: 15px 0;
+    cursor: pointer;
 }
 
 div.event .event_header {
@@ -30,11 +31,11 @@ div.event .event_header {
 }
 
 div.event .event_header .event_title {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 div.event .event_content {
-    margin: 10px 0 0 0;
+    margin: 5px 0 0 0;
 }
 
 form#search_form {
