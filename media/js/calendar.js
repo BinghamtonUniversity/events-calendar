@@ -93,4 +93,9 @@ $(document).ready(function() {
             minDate: '0'
         });
     });
+
+    // Make the 'today' button actually select today
+    $('button.ui-datepicker-current').live('click', function() {
+        $('.ui-datepicker-today').click();
+    });
 });
