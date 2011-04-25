@@ -18,13 +18,20 @@ div#calendar_container {
     padding: 20px 40px;
 }
 
+div#main_column {
+    float: left;
+    width: 600px;
+    min-height: 500px;
+    border-right: 1px dotted #bababa;
+    padding-right: 40px;
+}
+
 div.event {
     border: 1px solid #bababa;
     border-radius: 5px;
     background-color: #F5F6F6;
     padding: 10px;
     margin: 15px 0;
-    cursor: pointer;
 }
 
 div.event .event_header {
@@ -40,9 +47,18 @@ div.event .event_content {
     margin: 5px 0 0 0;
 }
 
+div.event .event_calendar {
+    margin: 5px 0 0 0;
+}
+
 form#search_form input {
     border: 1px solid #bababa;
-    border-radius: 5px;
     margin: 0;
-    padding: 2px;
+    padding: 5px;
+}
+
+a.show_all, a.hide_all {
+    border: 1px solid #bababa;
+    padding: 5px;
+    margin-right: 5px;
 }

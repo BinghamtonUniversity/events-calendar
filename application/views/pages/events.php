@@ -7,7 +7,11 @@ foreach ($events as $event) {
             echo '</div>';
         }
         echo '<div class="date">';
-        echo "<h3>{$event->human_date}</h3>";
+        if ($event->date == date('Y-m-d')) {
+            echo "<h3>{$event->human_date} (Today)</h3>";
+        } else {
+            echo "<h3>{$event->human_date}</h3>";
+        }
         $previous_date = $event->date;
     }
 
@@ -33,6 +37,9 @@ foreach ($events as $event) {
         echo $event->content;
         echo '</p>';
     }
+    echo '<p class="event_calendar">';
+    echo '<em>'.$event->calendar->title.'</em>';
+    echo '</p>';
     echo '</div>';
 }
 echo '</div>';

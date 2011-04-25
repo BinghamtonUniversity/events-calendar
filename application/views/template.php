@@ -29,8 +29,8 @@
 <?php echo View::factory('header'); ?>
 <div class="contentWidth bodyContent">
     <div id="calendar_container">
-        <div style="float: left; width: 600px;">
-            <h1>Binghamton University Events Calendar</h1>
+        <h1>Binghamton University Events Calendar</h1>
+        <div id="main_column">
 
             <div>
                 <div id="calendar_view">
@@ -47,8 +47,8 @@
                 <input id="search_string" type="text" class="text" value="Search Events" />
                 </p>
             </form>
-            <h2>Filter Events</h2>
-            <p><a href="#" class="show_all">Show All</a> | <a href="#" class="hide_all">Hide All</a></p>
+            <h2>Filter Events by Category</h2>
+            <p><a href="#" class="show_all">Show All</a> <a href="#" class="hide_all">Hide All</a></p>
                 <!-- display calendar toggles -->
                 <?php include Kohana::find_file('views', 'calendars'); ?>
         </div>
