@@ -29,7 +29,7 @@ div#calendar_container {
 
 div#main_column {
     float: left;
-    width: 600px;
+    width: 575px;
     min-height: 500px;
     border-right: 1px dotted #bababa;
     padding-right: 40px;
@@ -61,19 +61,41 @@ div.event .event_calendar {
     margin: 5px 0 0 0;
 }
 
+div#secondary_column {
+    float: right;
+    width: 225px;
+}
+
+div.secondary_block {
+    padding: 10px;
+    border: 1px solid #bababa;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
 form#search_form input {
     border: 1px solid #bababa;
     margin: 0;
     padding: 5px;
-    width: 152px;
+    width: 190px;
 }
 
-div.calendar_show_buttons {
+div.calendars_show_buttons {
     text-align: center;
     font-weight: bold;
     border: 1px solid #bababa;
-    width: 68px;
-    float: left;
+    border-radius: 5px;
+    width: 85px;
     padding: 5px;
-    margin: 10px 5px 10px 0;
+    margin: 10px 0;
+    background: #f5f6f6;
+    color: #006a4e;
+}
+
+div#calendars_show_all {
+    float: left;
+}
+
+div#calendars_hide_all {
+    float: right;
 }

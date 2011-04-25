@@ -4,6 +4,7 @@
 <title>Binghamton University - Events Calendar</title>
 <link media="all" href="/css/styles.css" type="text/css" rel="stylesheet" />
 <?php echo HTML::style('media/css/events.css'); ?>
+<?php echo HTML::style('media/css/jquery-ui-1.8.12.custom.css'); ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="Keywords" content="" />
 <meta name="Description" content="" />
@@ -12,7 +13,8 @@
 </script>
 <script> 
     //<![CDATA[
-    google.load("jquery", "1.5.0");
+    google.load("jquery", "1.5.2");
+    google.load("jqueryui", "1.8.12");
     //]]>
 </script>
 <?php echo HTML::script('media/js/calendar.js'); ?>
@@ -38,21 +40,24 @@
                 </div>
             </div>
         </div>
-        <div style="float: right; width: 200px;">
-            <h4>View Date</h4>
-            <p>(JS Calendar Here)
-            <h4>Search Events</h4>
-            <form id="search_form">
-                <p>
-                <input id="search_string" type="text" class="text" value="Search Events" />
-                </p>
-            </form>
-            <h4>Filter Events by Category</h4>
-            <div class="calendar_show_buttons"><a href="#" class="show_all">Show All</a></div>
-            <div class="calendar_show_buttons"><a href="#" class="hide_all">Hide All</a></div>
-            <div style="clear: both;"></div>
-            <!-- display calendar toggles -->
-            <?php include Kohana::find_file('views', 'calendars'); ?>
+        <div id="secondary_column">
+            <div id="datepicker" class="secondary_block"></div>
+            <div class="secondary_block">
+                <h4>Search Events</h4>
+                <form id="search_form">
+                    <p>
+                    <input id="search_string" type="text" class="text" value="Search Events" />
+                    </p>
+                </form>
+            </div>
+            <div class="secondary_block">
+                <h4>Filter Events by Category</h4>
+                <div class="calendars_show_buttons" id="calendars_show_all">Show All</div>
+                <div class="calendars_show_buttons" id="calendars_hide_all">Hide All</div>
+                <div style="clear: both;"></div>
+                <!-- display calendar toggles -->
+                <?php include Kohana::find_file('views', 'calendars'); ?>
+            </div>
         </div>
     </div>
 <!-- body content -->

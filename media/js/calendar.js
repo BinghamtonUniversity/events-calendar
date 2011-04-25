@@ -33,7 +33,7 @@ $(document).ready(function() {
     });
 
     // Show all calendars
-    $('.show_all').click(function(event) {
+    $('#calendars_show_all').click(function(event) {
         $('.calendar_toggle').each(function() {
             if (!($(this).attr('checked'))) {
                 $(this).attr('checked', true).change();
@@ -43,7 +43,7 @@ $(document).ready(function() {
     });
 
     // Hide all calendars
-    $('.hide_all').click(function(event) {
+    $('#calendars_hide_all').click(function(event) {
         $('.calendar_toggle').each(function() {
             if ($(this).attr('checked')) {
                 $(this).removeAttr('checked').change();
@@ -73,5 +73,24 @@ $(document).ready(function() {
     $('.event').click(function(event) {
         //window.location = $(this).
         window.location = $(this).find('a.event_link').attr('href');
+    });
+
+    // Toggle color for show/hide all calendar buttons
+    $('.calendars_show_buttons').mouseenter(function(event) {
+        $(this).css('background-color', '#E5EEEB');
+        $(this).css('cursor', 'pointer');
+    });
+
+    $('.calendars_show_buttons').mouseleave(function(event) {
+        $(this).css('background-color', '#F5F6F6');
+        $(this).css('cursor', 'default');
+    });
+
+    // jQuery UI datepicker
+    $(function() {
+        $('#datepicker').datepicker({
+            showButtonPanel: true,
+            minDate: '0'
+        });
     });
 });
