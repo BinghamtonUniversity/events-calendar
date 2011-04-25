@@ -48,9 +48,11 @@
                 </p>
             </form>
             <h4>Filter Events by Category</h4>
-            <p><a href="#" class="show_all">Show All</a> <a href="#" class="hide_all">Hide All</a></p>
-                <!-- display calendar toggles -->
-                <?php include Kohana::find_file('views', 'calendars'); ?>
+            <div class="calendar_show_buttons"><a href="#" class="show_all">Show All</a></div>
+            <div class="calendar_show_buttons"><a href="#" class="hide_all">Hide All</a></div>
+            <div style="clear: both;"></div>
+            <!-- display calendar toggles -->
+            <?php include Kohana::find_file('views', 'calendars'); ?>
         </div>
     </div>
 <!-- body content -->

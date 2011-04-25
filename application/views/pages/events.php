@@ -23,6 +23,7 @@ foreach ($events as $event) {
 
     echo sprintf('<div class="event" data-calendar="%s">', $event->calendar->title);
     echo '<p class="event_header">';
+    echo '<span style="float: right;">'.$start_time.'</span>';
     echo '<span class="event_title">';
     echo sprintf('<a class="event_link" data-event="%s" href="%s">%s</a>',
         $event->permalink,
@@ -30,7 +31,6 @@ foreach ($events as $event) {
         $event->title
     );
     echo '</span>';
-    echo '<span style="float: right;">'.$start_time.'</span>';
     echo '</p>';
     if ($event->content) {
         echo '<p class="event_content">';

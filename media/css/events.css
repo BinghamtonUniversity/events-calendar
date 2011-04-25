@@ -20,6 +20,7 @@ h4 {
 
 p, form, input {
     font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
 }
 
 div#calendar_container {
@@ -64,10 +65,15 @@ form#search_form input {
     border: 1px solid #bababa;
     margin: 0;
     padding: 5px;
+    width: 152px;
 }
 
-a.show_all, a.hide_all {
+div.calendar_show_buttons {
+    text-align: center;
+    font-weight: bold;
     border: 1px solid #bababa;
+    width: 68px;
+    float: left;
     padding: 5px;
-    margin-right: 5px;
+    margin: 10px 5px 10px 0;
 }
