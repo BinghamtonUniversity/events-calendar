@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Binghamton University - Events Calendar</title>
@@ -7,8 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="Keywords" content="" />
 <meta name="Description" content="" />
-<meta http-equiv="Content-Style-Type" content="text/css" />
-<meta http-equiv="imageToolbar" content="no" />
 <script src="https://www.google.com/jsapi?key=ABQIAAAA3ia0NPE98EwrkgLZHTSkgxTXO7ZdFP8GFbr4e1voZqr2tFi3GBQN00cLkqcQU9y6_jIvQSyed39Wfg">
 
 </script>
