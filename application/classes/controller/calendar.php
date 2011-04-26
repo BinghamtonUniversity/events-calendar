@@ -10,6 +10,10 @@ class Controller_Calendar extends Controller {
         foreach ($collection as $item) {
             $item->delete();
         }
+
+        // Reset MySQL auto_increment values
+        $query  = DB::query(NULL, "ALTER TABLE {$model}s AUTO_INCREMENT=0");
+        $query->execute();
     }
 
     public function action_index()

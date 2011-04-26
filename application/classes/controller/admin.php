@@ -4,7 +4,11 @@ class Controller_Admin extends Controller {
 
     public function action_index()
     {
-        $view = View::factory('template');
+        $feeds = ORM::factory('feed')
+            ->find_all();
+
+        $view = View::factory('template')
+            ->bind('feeds', $feeds);
 
         $view->subview = 'pages/feeds';
 
