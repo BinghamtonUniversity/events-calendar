@@ -1,10 +1,10 @@
 <div style="margin-top: 20px;">
+    <h3>Current Feeds</h3>
+    <ul>
 <?php
     foreach ($feeds as $feed) {
-        $events = $feed->events->find_all();
-        foreach ($events as $event) {
-            echo $event->title;
-        }
+        echo "<li>{$feed->title}</li>";
     }
 ?>
+    </ul>
 </div>
