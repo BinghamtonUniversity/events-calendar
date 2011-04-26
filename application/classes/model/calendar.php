@@ -7,7 +7,6 @@ class Model_Calendar extends ORM {
     // Zend object for connecting to the Google API
     private $_gdata;
     private $_events = array();
-    private $_DSN;
 
     private function _load_zend()
     {
