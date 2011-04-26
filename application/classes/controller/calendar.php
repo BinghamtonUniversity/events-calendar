@@ -39,14 +39,9 @@ class Controller_Calendar extends Controller {
             ->where('permalink', '=', $permalink)
             ->find();
 
-        $calendars = ORM::factory('calendar')
-            ->order_by('title', 'ASC')
-            ->find_all();
-
         if ($event->loaded()) {
             $view = View::factory('template')
-                ->bind('event', $event)
-                ->bind('calendars', $calendars);
+                ->bind('event', $event);
 
             $view->subview = 'pages/event';
 

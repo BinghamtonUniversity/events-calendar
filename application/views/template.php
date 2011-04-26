@@ -50,6 +50,7 @@
                     </p>
                 </form>
             </div>
+            <?php if (isset($calendars)): ?>
             <div class="secondary_block">
                 <h4>Filter Events by Category</h4>
                 <div class="calendars_show_buttons" id="calendars_show_all">Show All</div>
@@ -58,6 +59,7 @@
                 <!-- display calendar toggles -->
                 <?php include Kohana::find_file('views', 'calendars'); ?>
             </div>
+            <?php endif; ?>
         </div>
     </div>
 <!-- body content -->
