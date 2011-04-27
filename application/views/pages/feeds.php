@@ -3,8 +3,9 @@
     <ul>
     <?php
         foreach ($feeds as $feed) {
-            echo sprintf('<li>%s [<a href="%s">delete</a>]</li>',
+            echo sprintf('<li>%s [<a href="%s">edit</a>] [<a href="%s">delete</a>]</li>',
                 $feed->title,
+                URL::site('feed/edit/'.$feed->id),
                 URL::site('feed/delete/'.$feed->id)
             );
         }
