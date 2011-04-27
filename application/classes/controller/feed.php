@@ -46,12 +46,20 @@ class Controller_Feed extends Controller {
 
     public function action_edit($feed_id)
     {
-        $feed   = ORM::factory('feed', $feed_id);
-        $events = ORM::factory('event')->order_by('date')->order_by('start_time')->find_all();
+        $feed        = ORM::factory('feed', $feed_id);
+        $feed_events = $feed->events->order_by('date')->find_all()->as_array();
+        $events      = ORM::factory('event')->order_by('date')->order_by('start_time')->find_all()->as_array();
+
+        // Remove events that are currently in the feed from the list of available events
+        foreach ($feed_events as $event) {
+            $key = array_search($event, $events);
+            unset($events[$key]);
+        }
 
         $view = View::factory('template')
             ->bind('feed', $feed)
-            ->bind('events', $events);
+            ->bind('feed_events', $feed_events)
+            ->bind('available_events', $events);
 
         $view->subview = 'pages/edit_feed';
 
@@ -62,6 +70,13 @@ class Controller_Feed extends Controller {
     {
         $feed = ORM::factory('feed', $feed_id);
         $feed->add('events', $event_permalink);
+        $this->request->redirect('feed/edit/'.$feed_id);
+    }
+
+    public function action_delete_event($feed_id, $event_permalink)
+    {
+        $feed = ORM::factory('feed', $feed_id);
+        $feed->remove('events', $event_permalink);
         $this->request->redirect('feed/edit/'.$feed_id);
     }
 }
