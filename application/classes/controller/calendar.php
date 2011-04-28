@@ -36,6 +36,21 @@ class Controller_Calendar extends Controller {
         $this->response->body($view);
     }
 
+    // Display a list of events starting at a specified future date
+    public function action_show($start_date)
+    {
+        $events = ORM::factory('event')
+            ->where('date', '>=', $start_date)
+            ->order_by('date', 'ASC')
+            ->order_by('start_time', 'ASC')
+            ->find_all();
+
+        $view = View::factory('pages/events')
+            ->bind('events', $events);
+
+        $this->response->body($view);
+    }
+
     // Display details for a specific event
     public function action_event($permalink = null)
     {

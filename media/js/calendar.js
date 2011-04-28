@@ -90,7 +90,14 @@ $(document).ready(function() {
     $(function() {
         $('#datepicker').datepicker({
             showButtonPanel: true,
-            minDate: '0'
+            minDate: '0',
+            onSelect: function() {
+                $date = $('#datepicker').datepicker('getDate');
+                $formatted_date = $.datepicker.formatDate('yy-mm-dd', $date);
+                $.get('/events/index.php/calendar/show/' + $formatted_date, function(data) {
+                    $('#calendar_view').html(data);
+                });
+            }
         });
     });
 
