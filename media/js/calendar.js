@@ -10,6 +10,9 @@ $(document).ready(function() {
             calendar = self.data('calendar'), // get this calendar associated with the clicked element
             show     = self.is(':checked'); // assuming the element is a checkbox
 
+        // Update the cookie to reflect the status of the checkbox
+        $.cookie(calendar, show, { path: '/' });
+
         // Toggle all events for the changed calendar
         $('div.event').each(function() {
             if ($(this).data('calendar') === calendar) {

@@ -27,6 +27,15 @@ class Controller_Calendar extends Controller {
             ->order_by('title', 'ASC')
             ->find_all();
 
+        // Cookies are used to track the status of the calendar toggle checkboxes
+        // Set them to true by default
+        foreach ($calendars as $calendar) {
+            $title = rawurlencode($calendar->title);
+            if (!isset($_COOKIE[$title])) {
+                setcookie($title, 'true', 0, '/');
+            }
+        }
+
         $view = View::factory('template')
             ->bind('events', $events)
             ->bind('calendars', $calendars);
