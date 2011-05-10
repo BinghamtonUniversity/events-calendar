@@ -1,4 +1,16 @@
 <?php
+
+//foreach ($calendar_date as $date) {
+	//echo '<div class="date" style="">';
+	//if ($event->date == date('Y-m-d')) {
+		//echo "<h3>{$event->human_date} (Today)</h3>";
+	//} else {
+		//echo "<h3>{$event->human_date}</h3>";
+	//}
+	//echo '</div'>;
+//}
+
+// --------
 $previous_date = null;
 
 foreach ($events as $event) {
@@ -6,7 +18,13 @@ foreach ($events as $event) {
         if ($previous_date) {
             echo '</div>';
         }
-        echo '<div class="date">';
+		if (isset($display_dates[$event->date])) {
+			$display = '';
+		} else {
+			$display = 'display: none;';
+		}
+
+		echo sprintf('<div class="date" style="%s">', $display);
         if ($event->date == date('Y-m-d')) {
             echo "<h3>{$event->human_date} (Today)</h3>";
         } else {
@@ -21,7 +39,17 @@ foreach ($events as $event) {
         $start_time = 'All Day';
     }
 
-    echo sprintf('<div class="event" data-calendar="%s">', $event->calendar->title);
+	if (isset($_COOKIE[$event->calendar->permalink]) && $_COOKIE[$event->calendar->permalink] == 'false') {
+		$display = 'display: none;';
+	} else {
+		$display = '';
+	}
+
+	echo sprintf('<div class="event" data-calendar="%s" style="%s">',
+		$event->calendar->permalink,
+		$display
+	);
+
     echo '<p class="event_header">';
     echo '<span style="float: right;">'.$start_time.'</span>';
     echo '<span class="event_title">';

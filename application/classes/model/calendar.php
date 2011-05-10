@@ -72,7 +72,7 @@ class Model_Calendar extends ORM {
                     'title'      => $event_title,
                     'content'    => $event_content,
                     'address'    => $event_id,
-                    'permalink'  => hash('crc32', $date . $start_time . $event_id)
+                    'permalink'  => md5($date . $start_time . $event_id)
                 );
 
                 array_push($this->_events, (object) $event);

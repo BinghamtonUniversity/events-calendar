@@ -30,15 +30,23 @@ class Controller_Calendar extends Controller {
         // Cookies are used to track the status of the calendar toggle checkboxes
         // Set them to true by default
         foreach ($calendars as $calendar) {
-            $title = rawurlencode($calendar->title);
-            if (!isset($_COOKIE[$title])) {
-                setcookie($title, 'true', 0, '/');
+            if (!isset($_COOKIE[$calendar->permalink])) {
+                setcookie($calendar->permalink, 'true', 0, '/');
+            }
+        }
+
+        $display_dates = array();
+
+        foreach ($events as $event) {
+            if ($_COOKIE[$event->calendar->permalink] == 'true') {
+                $display_dates[$event->date] = true;
             }
         }
 
         $view = View::factory('template')
             ->bind('events', $events)
-            ->bind('calendars', $calendars);
+            ->bind('calendars', $calendars)
+            ->bind('display_dates', $display_dates);
 
         $view->subview = 'pages/events';
 
@@ -54,18 +62,25 @@ class Controller_Calendar extends Controller {
             ->order_by('start_time', 'ASC')
             ->find_all();
 
+        $display_dates = array();
+
+        foreach ($events as $event) {
+            if ($_COOKIE[$event->calendar->permalink] == 'true') {
+                $display_dates[$event->date] = true;
+            }
+        }
+
         $view = View::factory('pages/events')
-            ->bind('events', $events);
+            ->bind('events', $events)
+            ->bind('display_dates', $display_dates);
 
         $this->response->body($view);
     }
 
     // Display details for a specific event
-    public function action_event($permalink = null)
+    public function action_event($id = null)
     {
-        $event = ORM::factory('event')
-            ->where('permalink', '=', $permalink)
-            ->find();
+        $event = ORM::factory('event', $id);
 
         if ($event->loaded()) {
             $view = View::factory('template')
@@ -87,8 +102,9 @@ class Controller_Calendar extends Controller {
 
         foreach ($google_calendars as $google_calendar) {
             $calendar = ORM::factory('calendar');
-            $calendar->title = $google_calendar->title;
-            $calendar->address = $google_calendar->link[0]->href;
+            $calendar->title     = $google_calendar->title;
+            $calendar->address   = $google_calendar->link[0]->href;
+            $calendar->permalink = md5($calendar->address);
             $calendar->save();
         }
 
