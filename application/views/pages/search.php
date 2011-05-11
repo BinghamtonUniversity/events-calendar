@@ -1,3 +1,4 @@
+<h2>Search Results</h2>
 <?php
 
 $previous_date = null;
@@ -7,18 +8,15 @@ foreach ($events as $event) {
         if ($previous_date) {
             echo '</div>';
         }
-		if (isset($display_dates[$event->date])) {
-			$display = '';
-		} else {
-			$display = 'display: none;';
-		}
 
-		echo sprintf('<div class="date" style="%s">', $display);
+        echo '<div class="date">';
+
         if ($event->date == date('Y-m-d')) {
             echo "<h3>{$event->human_date} (Today)</h3>";
         } else {
             echo "<h3>{$event->human_date}</h3>";
         }
+
         $previous_date = $event->date;
     }
 

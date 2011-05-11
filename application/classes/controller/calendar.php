@@ -131,4 +131,16 @@ class Controller_Calendar extends Controller {
         $this->request->redirect('calendar');
 	}
 
+    public function action_search($search_string)
+    {
+        $events = ORM::factory('event')
+            ->where('title', 'LIKE', "%${search_string}%")
+            ->or_where('content', 'LIKE', "%${search_string}%")
+            ->find_all();
+
+        $view = View::factory('pages/search')
+            ->bind('events', $events);
+
+        $this->response->body($view);
+    }
 }

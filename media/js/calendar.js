@@ -55,12 +55,13 @@ $(document).ready(function() {
         event.preventDefault();
     });
 
-    //$('#search_form').submit(function(event) {
-        //$.get('calendar.php', { search_string: $('#search_string').val() }, function(data) {
-            //$('div#calendar_view').html(data);
-        //});
-        //event.preventDefault();
-    //});
+    // Search events
+    $('#search_form').submit(function(event) {
+        $.get('/events/index.php/calendar/search/' + $('#search_string').val(), function(data) {
+            $('#calendar_view').html(data);
+        });
+        event.preventDefault();
+    });
 
     // Make the entire div clickable for calendar events
     $('.event').live({
