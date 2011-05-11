@@ -38,7 +38,7 @@ class Controller_Calendar extends Controller {
         $display_dates = array();
 
         foreach ($events as $event) {
-            if ($_COOKIE[$event->calendar->permalink] == 'true') {
+            if (!isset($_COOKIE[$event->calendar->permalink]) || $_COOKIE[$event->calendar->permalink] == 'true') {
                 $display_dates[$event->date] = true;
             }
         }
