@@ -63,18 +63,17 @@ $(document).ready(function() {
     //});
 
     // Make the entire div clickable for calendar events
-    $('.event').mouseenter(function(event) {
+    $('.event').live('mouseenter', function(event) {
         $(this).css('background-color', '#E5EEEB');
         $(this).css('cursor', 'pointer');
     });
 
-    $('.event').mouseleave(function(event) {
+    $('.event').live('mouseleave', function(event) {
         $(this).css('background-color', '#F5F6F6');
         $(this).css('cursor', 'default');
     });
 
-    $('.event').click(function(event) {
-        //window.location = $(this).
+    $('.event').live('click', function(event) {
         window.location = $(this).find('a.event_link').attr('href');
     });
 
