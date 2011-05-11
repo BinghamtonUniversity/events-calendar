@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    //$('#search_string').focus();
+    // Select all text in the search input field when it's clicked
     $('#search_string').click(function() {
         $(this).select();
     });
@@ -63,29 +63,30 @@ $(document).ready(function() {
     //});
 
     // Make the entire div clickable for calendar events
-    $('.event').live('mouseenter', function(event) {
-        $(this).css('background-color', '#E5EEEB');
-        $(this).css('cursor', 'pointer');
-    });
-
-    $('.event').live('mouseleave', function(event) {
-        $(this).css('background-color', '#F5F6F6');
-        $(this).css('cursor', 'default');
-    });
-
-    $('.event').live('click', function(event) {
-        window.location = $(this).find('a.event_link').attr('href');
+    $('.event').live({
+        mouseenter: function() {
+            $(this).css('background-color', '#E5EEEB');
+            $(this).css('cursor', 'pointer');
+        },
+        mouseleave: function() {
+            $(this).css('background-color', '#F5F6F6');
+            $(this).css('cursor', 'default');
+        },
+        click: function() {
+            window.location = $(this).find('a.event_link').attr('href');
+        }
     });
 
     // Toggle color for show/hide all calendar buttons
-    $('.calendars_show_buttons').mouseenter(function(event) {
-        $(this).css('background-color', '#E5EEEB');
-        $(this).css('cursor', 'pointer');
-    });
-
-    $('.calendars_show_buttons').mouseleave(function(event) {
-        $(this).css('background-color', '#F5F6F6');
-        $(this).css('cursor', 'default');
+    $('.calendars_show_buttons').bind({
+        mouseenter: function() {
+            $(this).css('background-color', '#E5EEEB');
+            $(this).css('cursor', 'pointer');
+        },
+        mouseleave: function() {
+            $(this).css('background-color', '#F5F6F6');
+            $(this).css('cursor', 'default');
+        }
     });
 
     // jQuery UI datepicker
