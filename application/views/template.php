@@ -13,7 +13,7 @@
 </script>
 <script> 
     //<![CDATA[
-    google.load("jquery", "1.5.2");
+    google.load("jquery", "1.6.0");
     google.load("jqueryui", "1.8.12");
     //]]>
 </script>
