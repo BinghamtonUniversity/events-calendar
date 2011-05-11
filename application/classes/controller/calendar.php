@@ -28,7 +28,7 @@ class Controller_Calendar extends Controller {
             ->find_all();
 
         // Cookies are used to track the status of the calendar toggle checkboxes
-        // Set them to true by default
+        // and maintain state between client and server. Set them to true by default
         foreach ($calendars as $calendar) {
             if (!isset($_COOKIE[$calendar->permalink])) {
                 setcookie($calendar->permalink, 'true', 0, '/');
