@@ -93,8 +93,9 @@ class Controller_Calendar extends Controller {
     }
 
     // Retrieve and cache calendar and event information from Google Calendar
-	public function action_refresh()
-	{
+    public function action_refresh()
+    {
+        // Change this to only delete cached date following a succesful call to Google
         $this->_delete_all('calendar');
         $this->_delete_all('event');
 
@@ -129,7 +130,7 @@ class Controller_Calendar extends Controller {
         }
 
         $this->request->redirect('calendar');
-	}
+    }
 
     public function action_search($search_string)
     {
