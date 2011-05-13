@@ -34,7 +34,7 @@ $(document).ready(function() {
     $('#calendars_show_all').click(function(event) {
         console.log('Showing all');
         $('.calendar_toggle').each(function() {
-            if (!($(this).prop('checked'))) {
+            if (!($(this).is(':checked'))) {
                 $(this).prop('checked', true).change();
             }
         });
@@ -45,8 +45,8 @@ $(document).ready(function() {
     $('#calendars_hide_all').click(function(event) {
         console.log('Hiding all');
         $('.calendar_toggle').each(function() {
-            if ($(this).prop('checked')) {
-                $(this).removeProp('checked').change();
+            if ($(this).is(':checked')) {
+                $(this).prop('checked', false).change();
             }
         });
         event.preventDefault();
