@@ -42,24 +42,31 @@
             </div>
         </div>
         <div id="secondary_column">
-            <div id="datepicker" class="secondary_block"></div>
+            <?php if (isset($show_datepicker)): ?>
+                <div id="datepicker" class="secondary_block"></div>
+            <?php endif; ?>
+
             <div class="secondary_block">
                 <h4>Search Events</h4>
-                <form id="search_form">
-                    <p>
-                    <input id="search_string" type="text" class="text" value="Search Events" />
-                    </p>
-                </form>
+                <?php
+                    echo Form::open('search', array('id' => 'search_form'));
+                    echo '<p>';
+                    echo Form::input('search_string', '', array('id' => 'search_string'));
+                    echo Form::input('search_submit', 'Search', array('type' => 'submit', 'id' => 'search_submit'));
+                    echo '</p>';
+                    echo Form::close();
+                ?>
             </div>
+
             <?php if (isset($calendars)): ?>
-            <div class="secondary_block">
-                <h4>Filter Events by Category</h4>
-                <div class="calendars_show_buttons" id="calendars_show_all">Show All</div>
-                <div class="calendars_show_buttons" id="calendars_hide_all">Hide All</div>
-                <div style="clear: both;"></div>
-                <!-- display calendar toggles -->
-                <?php include Kohana::find_file('views', 'calendars'); ?>
-            </div>
+                <div class="secondary_block">
+                    <h4>Filter Events by Category</h4>
+                    <div class="calendars_show_buttons" id="calendars_show_all">Show All</div>
+                    <div class="calendars_show_buttons" id="calendars_hide_all">Hide All</div>
+                    <div style="clear: both;"></div>
+                    <!-- display calendar toggles -->
+                    <?php include Kohana::find_file('views', 'calendars'); ?>
+                </div>
             <?php endif; ?>
         </div>
     </div>

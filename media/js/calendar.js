@@ -1,9 +1,4 @@
 $(document).ready(function() {
-    // Select all text in the search input field when it's clicked
-    $('#search_string').click(function() {
-        $(this).select();
-    });
-
     // Toggle events on and off by calendar
     $('.calendar_toggle').change(function(event) {
         var self     = $(this),
@@ -55,14 +50,6 @@ $(document).ready(function() {
         event.preventDefault();
     });
 
-    // Search events
-    $('#search_form').submit(function(event) {
-        $.get('/events/index.php/calendar/search/' + $('#search_string').val(), function(data) {
-            $('#calendar_view').html(data);
-        });
-        event.preventDefault();
-    });
-
     // Make the entire div clickable for calendar events
     $('.event').live({
         mouseenter: function() {
@@ -79,7 +66,7 @@ $(document).ready(function() {
     });
 
     // Toggle color for show/hide all calendar buttons
-    $('.calendars_show_buttons').bind({
+    $('.calendars_show_buttons, #search_submit, .ui-datepicker-current').live({
         mouseenter: function() {
             $(this).css('background-color', '#E5EEEB');
             $(this).css('cursor', 'pointer');

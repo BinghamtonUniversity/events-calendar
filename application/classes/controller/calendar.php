@@ -31,19 +31,18 @@ class Controller_Calendar extends Controller {
         // and maintain state between client and server. Set them to true by default
         foreach ($calendars as $calendar) {
             if (!isset($_COOKIE[$calendar->permalink])) {
-                setcookie($calendar->permalink, 'true', 0, '/');
+                setcookie($calendar->permalink, '1', 0, '/');
             }
         }
 
-        $display_dates = array();
-
         foreach ($events as $event) {
-            if (!isset($_COOKIE[$event->calendar->permalink]) || $_COOKIE[$event->calendar->permalink] == 'true') {
+            if ($_COOKIE[$event->calendar->permalink] == 'true') {
                 $display_dates[$event->date] = true;
             }
         }
 
         $view = View::factory('template')
+            ->set('show_datepicker', true)
             ->bind('events', $events)
             ->bind('calendars', $calendars)
             ->bind('display_dates', $display_dates);
@@ -61,8 +60,6 @@ class Controller_Calendar extends Controller {
             ->order_by('date', 'ASC')
             ->order_by('start_time', 'ASC')
             ->find_all();
-
-        $display_dates = array();
 
         foreach ($events as $event) {
             if ($_COOKIE[$event->calendar->permalink] == 'true') {
@@ -132,16 +129,4 @@ class Controller_Calendar extends Controller {
         $this->request->redirect('calendar');
     }
 
-    public function action_search($search_string)
-    {
-        $events = ORM::factory('event')
-            ->where('title', 'LIKE', "%${search_string}%")
-            ->or_where('content', 'LIKE', "%${search_string}%")
-            ->find_all();
-
-        $view = View::factory('pages/search')
-            ->bind('events', $events);
-
-        $this->response->body($view);
-    }
 }

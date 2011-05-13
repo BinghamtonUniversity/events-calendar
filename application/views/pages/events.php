@@ -7,6 +7,7 @@ foreach ($events as $event) {
         if ($previous_date) {
             echo '</div>';
         }
+
 		if (isset($display_dates[$event->date])) {
 			$display = '';
 		} else {
@@ -28,7 +29,7 @@ foreach ($events as $event) {
         $start_time = 'All Day';
     }
 
-	if (isset($_COOKIE[$event->calendar->permalink]) && $_COOKIE[$event->calendar->permalink] == 'false') {
+    if (Arr::get($_COOKIE, $event->calendar->permalink, false) == 'false') {
 		$display = 'display: none;';
 	} else {
 		$display = '';

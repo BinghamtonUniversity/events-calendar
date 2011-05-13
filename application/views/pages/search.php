@@ -26,15 +26,8 @@ foreach ($events as $event) {
         $start_time = 'All Day';
     }
 
-	if (isset($_COOKIE[$event->calendar->permalink]) && $_COOKIE[$event->calendar->permalink] == 'false') {
-		$display = 'display: none;';
-	} else {
-		$display = '';
-	}
-
-	echo sprintf('<div class="event" data-calendar="%s" style="%s">',
-		$event->calendar->permalink,
-		$display
+	echo sprintf('<div class="event" data-calendar="%s">',
+		$event->calendar->permalink
 	);
 
     echo '<p class="event_header">';
