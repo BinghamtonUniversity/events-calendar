@@ -30,13 +30,11 @@ class Controller_Calendar extends Controller {
         // Cookies are used to track the status of the calendar toggle checkboxes
         // and maintain state between client and server. Set them to true by default
         foreach ($calendars as $calendar) {
-            if (!isset($_COOKIE[$calendar->permalink])) {
-                setcookie($calendar->permalink, '1', 0, '/');
-            }
+            setcookie($calendar->permalink, Arr::get($_COOKIE, $calendar->permalink, 'true'), 0, '/');
         }
 
         foreach ($events as $event) {
-            if ($_COOKIE[$event->calendar->permalink] == 'true') {
+            if (Arr::get($_COOKIE, $event->calendar->permalink, 'true') == 'true') {
                 $display_dates[$event->date] = true;
             }
         }
@@ -62,7 +60,7 @@ class Controller_Calendar extends Controller {
             ->find_all();
 
         foreach ($events as $event) {
-            if ($_COOKIE[$event->calendar->permalink] == 'true') {
+            if (Arr::get($_COOKIE, $event->calendar->permalink, 'true') == 'true') {
                 $display_dates[$event->date] = true;
             }
         }

@@ -32,9 +32,10 @@ $(document).ready(function() {
 
     // Show all calendars
     $('#calendars_show_all').click(function(event) {
+        console.log('Showing all');
         $('.calendar_toggle').each(function() {
-            if (!($(this).attr('checked'))) {
-                $(this).attr('checked', true).change();
+            if (!($(this).prop('checked'))) {
+                $(this).prop('checked', true).change();
             }
         });
         event.preventDefault();
@@ -42,9 +43,10 @@ $(document).ready(function() {
 
     // Hide all calendars
     $('#calendars_hide_all').click(function(event) {
+        console.log('Hiding all');
         $('.calendar_toggle').each(function() {
-            if ($(this).attr('checked')) {
-                $(this).removeAttr('checked').change();
+            if ($(this).prop('checked')) {
+                $(this).removeProp('checked').change();
             }
         });
         event.preventDefault();

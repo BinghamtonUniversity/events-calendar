@@ -13,8 +13,8 @@
 </script>
 <script> 
     //<![CDATA[
-    google.load("jquery", "1.6.0");
-    google.load("jqueryui", "1.8.12");
+    google.load("jquery", "1.6");
+    google.load("jqueryui", "1.8");
     //]]>
 </script>
 <?php echo HTML::script('media/js/jquery.cookie.js'); ?>
