@@ -125,3 +125,12 @@ if ($path = Kohana::find_file('vendor', 'ZendGdata-1.11.2/library/Zend/Loader'))
     set_include_path(get_include_path().PATH_SEPARATOR.dirname(dirname($path)));
     require_once 'Zend/Loader.php';
 }
+
+/**
+ * Load iCalcreator ( http://www.kigkonsult.se/iCalcreator/index.php )
+ */
+if ($path = Kohana::find_file('vendor', 'iCalcreator-2.8/iCalcreator.class'))
+{
+    set_include_path(get_include_path().PATH_SEPARATOR.dirname($path));
+    require_once 'iCalcreator.class.php';
+}
