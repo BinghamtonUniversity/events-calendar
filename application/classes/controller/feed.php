@@ -122,22 +122,21 @@ class Controller_Feed extends Controller {
             $vevent = new vevent();
             $vevent->setProperty('summary', $event->title);
             $vevent->setProperty('description', $event->content);
+            $vevent->setProperty('categories', $event->calendar->title);
 
             $date = explode('-', $event->date);
 
-            if ($event->start_time) {
-                $vevent->setProperty(
-                    'dtstart',
-                    array('timestamp' => $event->start_time)
-                );
+            $start_time = strftime('%R', $event->start_time);
+            $end_time   = strftime('%R', $event->end_time);
+
+            if ($start_time == $end_time && $start_time == '00:00') {
+                $vevent->setProperty('dtstart', array('timestamp' => $event->start_time), array('VALUE' => 'DATE'));
+                $vevent->setProperty('dtend',   array('timestamp' => $event->end_time), array('VALUE' => 'DATE'));
             } else {
-                $date = explode('-', $event->date);
-                $vevent->setProperty(
-                    'dtstart',
-                    array('year' => $date[0], 'month' => $date[1], 'day' => $date[2]),
-                    array('VALUE' => 'DATE')
-                );
+                $vevent->setProperty('dtstart', array('timestamp' => $event->start_time));
+                $vevent->setProperty('dtend',   array('timestamp' => $event->end_time));
             }
+
             $vcalendar->setComponent($vevent);
         }
         echo $vcalendar->createCalendar();
