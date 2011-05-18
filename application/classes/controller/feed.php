@@ -118,6 +118,42 @@ class Controller_Feed extends Controller {
 
         $vcalendar = new vcalendar();
 
+        $vcalendar->setProperty('X-WR-TIMEZONE', 'America/New_York');
+
+        $vtimezone = new vtimezone();
+        $vtimezone->setProperty('tzid', 'America/New_York');
+
+        $standard = new vtimezone('standard');
+        $standard->setProperty('tzname', 'EST');
+        $standard->setProperty('tzoffsetfrom', '-0400');
+        $standard->setProperty('tzoffsetto', '-0500');
+        $standard->setProperty('dtstart', '19701101T020000');
+        $standard->setProperty('rrule',
+            array(
+                'FREQ' => 'YEARLY',
+                'BYDAY' => array('1', 'DAY' => 'SU'),
+                'BYMONTH' => '11'
+            )
+        );
+
+        $daylight = new vtimezone('daylight');
+        $daylight->setProperty('tzname', 'EDT');
+        $daylight->setProperty('tzoffsetfrom', '-0500');
+        $daylight->setProperty('tzoffsetto', '-0400');
+        $daylight->setProperty('dtstart', '19700308T020000');
+        $daylight->setProperty('rrule',
+            array(
+                'FREQ' => 'YEARLY',
+                'BYDAY' => array('2', 'DAY' => 'SU'),
+                'BYMONTH' => '3'
+            )
+        );
+
+        $vtimezone->setComponent($standard);
+        $vtimezone->setComponent($daylight);
+
+        $vcalendar->setComponent($vtimezone);
+
         foreach ($events as $event) {
             $vevent = new vevent();
             $vevent->setProperty('summary', $event->title);
@@ -133,8 +169,8 @@ class Controller_Feed extends Controller {
                 $vevent->setProperty('dtstart', array('timestamp' => $event->start_time), array('VALUE' => 'DATE'));
                 $vevent->setProperty('dtend',   array('timestamp' => $event->end_time), array('VALUE' => 'DATE'));
             } else {
-                $vevent->setProperty('dtstart', array('timestamp' => $event->start_time));
-                $vevent->setProperty('dtend',   array('timestamp' => $event->end_time));
+                $vevent->setProperty('dtstart', array('timestamp' => $event->start_time), array('tzid' => 'America/New_York'));
+                $vevent->setProperty('dtend',   array('timestamp' => $event->end_time), array('tzid' => 'America/New_York'));
             }
 
             $vcalendar->setComponent($vevent);
