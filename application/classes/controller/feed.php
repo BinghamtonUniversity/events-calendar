@@ -110,4 +110,36 @@ class Controller_Feed extends Controller {
         echo print_r($feed_events_json);
         echo '</pre>';
     }
+
+    // Output an iCalendar-formatted feed of all calendar events
+    public function action_ics()
+    {
+        $events = ORM::factory('event')->order_by('date')->order_by('start_time')->find_all()->as_array();
+
+        $vcalendar = new vcalendar();
+
+        foreach ($events as $event) {
+            $vevent = new vevent();
+            $vevent->setProperty('summary', $event->title);
+            $vevent->setProperty('description', $event->content);
+
+            $date = explode('-', $event->date);
+
+            if ($event->start_time) {
+                $vevent->setProperty(
+                    'dtstart',
+                    array('timestamp' => $event->start_time)
+                );
+            } else {
+                $date = explode('-', $event->date);
+                $vevent->setProperty(
+                    'dtstart',
+                    array('year' => $date[0], 'month' => $date[1], 'day' => $date[2]),
+                    array('VALUE' => 'DATE')
+                );
+            }
+            $vcalendar->setComponent($vevent);
+        }
+        echo $vcalendar->createCalendar();
+    }
 }

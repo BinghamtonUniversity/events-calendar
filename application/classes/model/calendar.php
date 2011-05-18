@@ -53,26 +53,19 @@ class Model_Calendar extends ORM {
             $event_content = $event->content->text;
 
             // Recurring events have an array containing multiple 'whens'
+            // TODO Permalink might change if event start time changes
             foreach ($event->when as $when) {
                 $date = substr($when->startTime, 0, 10);
-
-                if (strlen($when->startTime) > 10) {
-                    $start_time = strtotime(substr($when->startTime, 11, 5));
-                    $end_time   = strtotime(substr($when->endTime, 11, 5));
-                } else {
-                    $start_time = null;
-                    $end_time   = null;
-                }
 
                 $event = array(
                     'date'       => $date,
                     'human_date' => strftime('%A, %B %e, %Y', strtotime($date)),
-                    'start_time' => $start_time,
-                    'end_time'   => $end_time,
+                    'start_time' => strtotime($when->startTime),
+                    'end_time'   => strtotime($when->endTime),
                     'title'      => $event_title,
                     'content'    => $event_content,
                     'address'    => $event_id,
-                    'permalink'  => md5($date . $start_time . $event_id)
+                    'permalink'  => md5($date . $when->startTime . $event_id)
                 );
 
                 array_push($this->_events, (object) $event);

@@ -23,9 +23,10 @@ foreach ($events as $event) {
         $previous_date = $event->date;
     }
 
-    if ($event->start_time) {
-        $start_time = strftime('%l:%M %p', $event->start_time);
-    } else {
+    $start_time = strftime('%l:%M %p', $event->start_time);
+    $end_time   = strftime('%l:%M %p', $event->end_time);
+
+    if ($start_time == $end_time) {
         $start_time = 'All Day';
     }
 

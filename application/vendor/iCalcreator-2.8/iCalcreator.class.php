@@ -5690,7 +5690,7 @@ class calendarComponent {
     $tmp    = $string;
     $string = null;
             /* if PHP is config with  mb_string.. . */
-    if( defined( MB_OVERLOAD_STRING )) {
+    if( defined( 'MB_OVERLOAD_STRING' )) {
       $strlen  = mb_strlen( $tmp );
       while( $strlen > 75 ) {
          $breakAtChar = 75;
