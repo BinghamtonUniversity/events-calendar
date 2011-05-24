@@ -32,7 +32,7 @@
 <?php echo View::factory('header'); ?>
 <div class="contentWidth bodyContent">
     <div id="calendar_container">
-        <h1>Binghamton University Events Calendar</h1>
+    <h1><a href="<?php echo URL::site(); ?>">Binghamton University Events Calendar</a></h1>
         <div id="main_column">
 
             <div>
