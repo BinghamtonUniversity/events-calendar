@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>Binghamton University - Events Calendar</title>
+
+<?php
+    $title = 'Binghamton University - Events Calendar';
+    if (isset($extended_title)) {
+        $title = $title.": ".$extended_title;
+    }
+    echo "<title>$title</title>";
+?>
+
 <link media="all" href="/css/styles.css" type="text/css" rel="stylesheet" />
 <?php echo HTML::style('media/css/events.css'); ?>
 <?php echo HTML::style('media/css/jquery-ui-1.8.12.custom.css'); ?>

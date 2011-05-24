@@ -79,7 +79,8 @@ class Controller_Calendar extends Controller {
 
         if ($event->loaded()) {
             $view = View::factory('template')
-                ->bind('event', $event);
+                ->bind('event', $event)
+                ->set('extended_title', $event->title." ({$event->human_date})");
 
             $view->subview = 'pages/event';
 

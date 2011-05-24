@@ -13,7 +13,8 @@ class Controller_Search extends Controller {
 
         $view = View::factory('template')
             ->bind('search_string', $search_string)
-            ->bind('events', $events);
+            ->bind('events', $events)
+            ->set('extended_title', 'Search Results');
 
         $view->subview = 'pages/search';
 

@@ -21,7 +21,8 @@ class Controller_Feed extends Controller {
             ->find_all();
 
         $view = View::factory('template')
-            ->bind('feeds', $feeds);
+            ->bind('feeds', $feeds)
+            ->set('extended_title', 'Feed Management');
 
         $view->subview = 'pages/feeds';
 
@@ -41,7 +42,8 @@ class Controller_Feed extends Controller {
         $feed = ORM::factory('feed', $feed_id);
 
         $view = View::factory('template')
-            ->bind('feed', $feed);
+            ->bind('feed', $feed)
+            ->set('extended_title', 'Delete Feed');
 
         $view->subview = 'pages/delete_feed';
 
@@ -73,7 +75,8 @@ class Controller_Feed extends Controller {
             ->bind('feed', $feed)
             ->bind('feed_events', $feed_events)
             ->bind('feed_events_json', $feed_events_json)
-            ->bind('available_events', $events);
+            ->bind('available_events', $events)
+            ->set('extended_title', 'Edit Feed');
 
         $view->subview = 'pages/edit_feed';
 
