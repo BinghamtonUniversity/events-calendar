@@ -1,5 +1,5 @@
-<h2>Search Results</h2>
 <?php
+echo "<h2>Search Results for <em>$search_string</em>:</h2>";
 
 $previous_date = null;
 
