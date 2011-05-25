@@ -11,12 +11,20 @@ class Controller_Search extends Controller {
             ->or_where('content', 'LIKE', "%${search_string}%")
             ->find_all();
 
-        $view = View::factory('template')
-            ->bind('search_string', $search_string)
-            ->bind('events', $events)
-            ->set('extended_title', 'Search Results');
+        if ($events->count() > 0) {
+            $view = View::factory('template')
+                ->bind('search_string', $search_string)
+                ->bind('events', $events)
+                ->set('extended_title', 'Search Results');
 
-        $view->subview = 'pages/search';
+            $view->subview = 'pages/search';
+        } else {
+            $view = View::factory('template')
+                ->bind('search_string', $search_string)
+                ->set('extended_title', 'No Match Found');
+
+            $view->subview = 'pages/no_results';
+        }
 
         $this->response->body($view);
     }
