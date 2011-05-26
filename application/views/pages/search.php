@@ -1,5 +1,13 @@
+<h1>Search Results</h1>
 <?php
-echo "<h2>Search Results for <em>$search_string</em>:</h2>";
+
+echo '<p style="margin-top: 20px; margin-bottom: -10px;">';
+if ($events->count() == 1) {
+    echo "One result found for <strong>$search_string</strong>:";
+} else {
+    echo "{$events->count()} results found for <strong>$search_string</strong>:";
+}
+echo '</p>';
 
 $previous_date = null;
 
