@@ -40,7 +40,7 @@ div#calendar_container {
 div#main_column {
     float: left;
     width: 575px;
-    min-height: 500px;
+    min-height: 700px;
     border-right: 1px dotted #bababa;
     padding-right: 40px;
 }
