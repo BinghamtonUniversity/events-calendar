@@ -128,3 +128,7 @@ div#calendars_show_all {
 div#calendars_hide_all {
     float: right;
 }
+
+iframe.twitter-share-button {
+    margin-bottom: 5px;
+}
