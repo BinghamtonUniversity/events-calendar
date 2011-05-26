@@ -8,15 +8,13 @@
 		<a href="#skipHeader">
 			<img class="skipnav" src="/images/common/clear.gif" alt="Skip header content and main navigation" width="0" height="0" />
 		</a>
-		<a class="logoLink" title="Binghamton University Home" href="http://www.binghamton.edu/index.html">
-			<img src="/images/common/binghamton-logo.gif" alt="Binghamton University, State University of New York - The Premier Public" />
-		</a>
-		<a class="logoLink logoLinkSmall" title="Binghamton University Home" href="http://www2.binghamton.edu/index.html">
-			<img src="/images/common/binghamton-logo-small.gif" alt="Binghamton University, State University of New York - The Premier Public" />
-		</a>
-		<!-- com.omniupdate.div path="/inc/hdrQuickLinks.shtml" label="hdrQuickLinks" -->
+        <img class="logoLink" src="/images/siteLogos/logo-events.gif" alt="Binghamton University, State University of New York - Events Calendar" usemap="#Map" />
+        <map name="Map" id="Map">
+            <area shape="rect" coords="0,0,210,66" href="/index.html" alt="" />
+            <area shape="rect" coords="220,0,407,66" href="/events/" alt="" />
+        </map>
 			
-<form action="http://www2.binghamton.edu/results.html" id="cse-search-box">
+<form action="http://www.binghamton.edu/results.html" id="cse-search-box">
   <div class="searchControls">
     <input type="hidden" name="cx" value="013262338783433875854:7stszgiris8" />
     <input type="hidden" name="cof" value="FORID:11" />
@@ -31,9 +29,9 @@
 	<li>|</li>
 	<li><a href="http://www.telecom.binghamton.edu/directory/directory.search" title="Directory">Directory</a></li>
 	<li>|</li>
-	<li><a href="http://www2.binghamton.edu/about/contact-us.html" title="Contact Us">Contact Us</a></li>
+	<li><a href="http://www.binghamton.edu/about/contact-us.html" title="Contact Us">Contact Us</a></li>
 	<li>|</li>
-	<li><a href="http://www2.binghamton.edu/a-to-z/index.html" title="A-Z Index">A-Z Index</a></li>
+	<li><a href="http://www.binghamton.edu/a-to-z/index.html" title="A-Z Index">A-Z Index</a></li>
 </ul>
 
 <div class="searchRadioButtons">
