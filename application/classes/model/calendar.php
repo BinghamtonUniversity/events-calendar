@@ -64,6 +64,7 @@ class Model_Calendar extends ORM {
                     'end_time'   => strtotime($when->endTime),
                     'title'      => $event_title,
                     'content'    => $event_content,
+                    'where'      => $event->where,
                     'address'    => $event_id,
                     'permalink'  => md5($date . $when->startTime . $event_id)
                 );

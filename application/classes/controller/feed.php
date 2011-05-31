@@ -11,6 +11,7 @@ class Controller_Feed extends Controller {
         $event->end_time   = $feed_event->end_time;
         $event->permalink  = $feed_event->permalink;
         $event->content    = $feed_event->content;
+        $event->where      = $feed_event->where;
 
         return $event;
     }
@@ -161,6 +162,7 @@ class Controller_Feed extends Controller {
             $vevent = new vevent();
             $vevent->setProperty('summary', $event->title);
             $vevent->setProperty('description', $event->content);
+            $vevent->setProperty('location', $event->where);
             $vevent->setProperty('categories', $event->calendar->title);
 
             $date = explode('-', $event->date);
