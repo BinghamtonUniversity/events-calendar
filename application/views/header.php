@@ -16,7 +16,7 @@
     <input type="hidden" name="cof" value="FORID:11" />
     <input type="hidden" name="ie" value="UTF-8" />
     <input type="text" name="q" size="31" class="searchBox" value="Search" onclick="this.select();" />
-    <img src="/images/common/search.png" class="searchButton" />
+    <img src="/images/common/search.png" class="searchButton" alt="Search Button" />
   </div>
 </form>
 
