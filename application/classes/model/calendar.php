@@ -36,7 +36,7 @@ class Model_Calendar extends ORM {
         $query->setVisibility(NULL);
         $query->setProjection(NULL);
         $query->setStartMin($today);
-        $query->setStartMax(date('Y-m-d', strtotime("$today +1 week")));
+        $query->setStartMax(date('Y-m-d', strtotime("$today +1 year")));
 
         try {
             $event_feed = $this->_gdata->getCalendarEventFeed($query);
