@@ -1,7 +1,3 @@
-<script src="/inc/header-search.js">
-
-</script>
-
 <!-- begin header -->
 <div class="headerOuter">
 	<div class="contentWidth headerInner">

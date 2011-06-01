@@ -16,25 +16,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="Keywords" content="" />
 <meta name="Description" content="" />
-<script src="https://www.google.com/jsapi?key=ABQIAAAA3ia0NPE98EwrkgLZHTSkgxTXO7ZdFP8GFbr4e1voZqr2tFi3GBQN00cLkqcQU9y6_jIvQSyed39Wfg">
-
-</script>
-<script> 
-    //<![CDATA[
-    google.load("jquery", "1.6");
-    google.load("jqueryui", "1.8");
-    //]]>
-</script>
-<?php echo HTML::script('media/js/jquery.cookie.js'); ?>
-<?php echo HTML::script('media/js/calendar.js'); ?>
-<script type="text/javascript">
-		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-	</script>
-<script type="text/javascript">
-		var pageTracker = _gat._getTracker("UA-1861349-1");
-		pageTracker._trackPageview();
-	</script>
 </head>
 <body>
 <?php echo View::factory('header'); ?>
@@ -80,5 +61,25 @@
 <!-- body content -->
 </div>
 <?php echo View::factory('footer'); ?>
+
+<script src="https://www.google.com/jsapi?key=ABQIAAAA3ia0NPE98EwrkgLZHTSkgxTXO7ZdFP8GFbr4e1voZqr2tFi3GBQN00cLkqcQU9y6_jIvQSyed39Wfg"> </script>
+<script> 
+    //<![CDATA[
+    google.load("jquery", "1.6");
+    google.load("jqueryui", "1.8");
+    //]]>
+</script>
+<?php echo HTML::script('media/js/jquery.cookie.min.js'); ?>
+<?php echo HTML::script('media/js/calendar.min.js'); ?>
+<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+		var pageTracker = _gat._getTracker("UA-1861349-1");
+		pageTracker._trackPageview();
+</script>
+<script src="/inc/header-search.min.js"> </script>
+
 </body>
 </html>
