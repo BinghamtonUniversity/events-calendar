@@ -19,6 +19,8 @@ class Controller_Calendar extends Controller {
     public function action_index()
     {
         $events = ORM::factory('event')
+            ->where('date', '>=', date('Y-m-d'))
+            ->where('date', '<=', date('Y-m-d', strtotime('+1 week')))
             ->order_by('date', 'ASC')
             ->order_by('start_time', 'ASC')
             ->find_all();
@@ -55,6 +57,7 @@ class Controller_Calendar extends Controller {
     {
         $events = ORM::factory('event')
             ->where('date', '>=', $start_date)
+            ->where('date', '<=', date('Y-m-d', strtotime($start_date.' +1 week')))
             ->order_by('date', 'ASC')
             ->order_by('start_time', 'ASC')
             ->find_all();
