@@ -50,7 +50,7 @@ foreach ($events as $event) {
     echo '</p>';
     if ($event->content) {
         echo '<p class="event_content">';
-        echo $event->content;
+        echo Text::auto_link($event->content);
         echo '</p>';
     }
     echo '<p class="event_calendar">';
