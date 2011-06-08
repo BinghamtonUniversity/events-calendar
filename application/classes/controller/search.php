@@ -13,6 +13,8 @@ class Controller_Search extends Controller {
         $events = ORM::factory('event')
             ->where('title', 'LIKE', "%${search_string}%")
             ->or_where('content', 'LIKE', "%${search_string}%")
+            ->order_by('date', 'ASC')
+            ->order_by('start_time', 'ASC')
             ->find_all();
 
         if ($events->count() > 0) {
