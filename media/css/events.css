@@ -10,6 +10,10 @@ h1 {
     font-size: 26px;
 }
 
+h1 a, h1 a:link, h1 a:visited {
+    color: #000;
+}
+
 h2 {
     font-size: 22px;
     margin-top: 30px;
@@ -17,11 +21,8 @@ h2 {
 }
 
 h3 {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
+    font-weight: normal;
     font-size: 20px;
-    border-bottom: 1px dotted #bababa;
 }
 
 h4 {
@@ -43,6 +44,10 @@ div#main_column {
     min-height: 700px;
     border-right: 1px dotted #bababa;
     padding-right: 40px;
+}
+
+div.date {
+    margin-bottom: 30px;
 }
 
 div.event {
@@ -131,4 +136,14 @@ div#calendars_hide_all {
 
 iframe.twitter-share-button {
     margin-bottom: 5px;
+}
+
+div#banner {
+    width: 880px;
+    height: 165px;
+    margin-bottom: 20px;
+}
+
+div#banner h1 {
+    padding: 20px;
 }

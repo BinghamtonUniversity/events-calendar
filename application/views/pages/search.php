@@ -1,7 +1,7 @@
 <h1>Search Results</h1>
 <?php
 
-echo '<p style="margin-top: 20px; margin-bottom: -10px;">';
+echo '<p style="margin: 20px 0;">';
 if ($events->count() == 1) {
     echo "One result found for <strong>$search_string</strong>:";
 } else {

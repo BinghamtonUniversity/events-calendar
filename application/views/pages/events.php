@@ -1,5 +1,3 @@
-<h1>Binghamton University Events Calendar</h1>
-
 <?php
 
 $previous_date = null;
