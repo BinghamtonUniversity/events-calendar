@@ -8,6 +8,7 @@ a, a:link, a:visited {
 
 h1 {
     font-size: 26px;
+    line-height: 30px;
 }
 
 h1 a, h1 a:link, h1 a:visited {
@@ -145,5 +146,5 @@ div#banner {
 }
 
 div#banner h1 {
-    padding: 20px;
+    padding: 12px 20px;
 }
