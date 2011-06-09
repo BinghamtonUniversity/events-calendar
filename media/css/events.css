@@ -67,6 +67,7 @@ div.event .event_header {
 
 div.event .event_header .event_title {
     font-size: 16px;
+    line-height: 20px;
 }
 
 div.event .event_content {
