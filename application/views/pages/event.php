@@ -1,3 +1,4 @@
+<div id="event_view">
 <?php
     echo "<h1>{$event->title}</h1>";
 
@@ -32,3 +33,4 @@
 
     echo '</div>';
 ?>
+</div>

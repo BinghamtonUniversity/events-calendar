@@ -1,3 +1,4 @@
+<div id="list_view">
 <?php
 
 $previous_date = null;
@@ -65,3 +66,4 @@ foreach ($events as $event) {
 echo '</div>';
 
 ?>
+</div>

@@ -2,6 +2,10 @@ body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
+.bodyContent {
+    padding-bottom: 10px;
+}
+
 a, a:link, a:visited {
     color: #006a4e;
 }
@@ -40,9 +44,20 @@ div#calendar_container {
 }
 
 div#main_column {
+    width: 575px;
     float: left;
+}
+
+div#list_view {
     width: 575px;
     min-height: 700px;
+    border-right: 1px dotted #bababa;
+    padding-right: 40px;
+}
+
+div#event_view, div#results_view {
+    width: 575px;
+    min-height: 125px;
     border-right: 1px dotted #bababa;
     padding-right: 40px;
 }

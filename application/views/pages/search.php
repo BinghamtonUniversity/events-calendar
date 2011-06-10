@@ -1,3 +1,4 @@
+<div id="results_view">
 <h1>Search Results</h1>
 <?php
 
@@ -62,3 +63,4 @@ foreach ($events as $event) {
 echo '</div>';
 
 ?>
+</div>
