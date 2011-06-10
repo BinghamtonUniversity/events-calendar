@@ -86,7 +86,7 @@ $(document).ready(function() {
                 $date = $('#datepicker').datepicker('getDate');
                 $formatted_date = $.datepicker.formatDate('yy-mm-dd', $date);
                 $.get('/events/index.php/calendar/show/' + $formatted_date, function(data) {
-                    $('#calendar_view').html(data);
+                    $('#list_view').html(data);
                 });
             }
         });
