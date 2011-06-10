@@ -120,7 +120,7 @@ Route::set('default', '(<controller>(/<action>(/<id>(/<param>))))')
 /**
  * Enable Zend Framework loading
  */
-if ($path = Kohana::find_file('vendor', 'ZendGdata-1.11.2/library/Zend/Loader'))
+if ($path = Kohana::find_file('vendor', 'ZendGdata-1.11.7/library/Zend/Loader'))
 {
     set_include_path(get_include_path().PATH_SEPARATOR.dirname(dirname($path)));
     require_once 'Zend/Loader.php';
