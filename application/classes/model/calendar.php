@@ -52,6 +52,12 @@ class Model_Calendar extends ORM {
             $event_id      = $event->id->text;
             $event_content = $event->content->text;
 
+            if (isset($event->where)) {
+                $event_where = $event->where;
+            } else {
+                $event_where = '';
+            }
+
             // Recurring events have an array containing multiple 'whens'
             // TODO Permalink might change if event start time changes
             foreach ($event->when as $when) {
@@ -64,7 +70,7 @@ class Model_Calendar extends ORM {
                     'end_time'   => strtotime($when->endTime),
                     'title'      => $event_title,
                     'content'    => $event_content,
-                    'where'      => $event->where,
+                    'where'      => $event_where,
                     'address'    => $event_id,
                     'permalink'  => md5($date . $when->startTime . $event_id)
                 );
@@ -92,7 +98,7 @@ class Model_Calendar extends ORM {
 
         foreach ($list_feed as $google_calendar) {
             // Hide the default calendar from the list
-            if ($google_calendar->title != 'calendar@binghamton.edu') {
+            if ($google_calendar->title != 'calendar@binghamton.edu' && $google_calendar->title != 'Pending') {
                 array_push($google_calendars, $google_calendar);
             }
         }
