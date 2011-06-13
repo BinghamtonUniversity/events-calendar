@@ -21,7 +21,7 @@
 <?php echo View::factory('header'); ?>
 <div class="contentWidth bodyContent">
     <div id="calendar_container">
-        <div id="banner" style="background-image: url('/events/media/images/banners/calendar-1.jpg');">
+        <div id="banner" style="background-image: url('/events/media/images/banners/calendar-6.jpg');">
             <h1><a href="<?php echo URL::base(); ?>">Events Calendar</a></h1>
         </div>
         <div id="main_column">
