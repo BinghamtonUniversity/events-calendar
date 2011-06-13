@@ -95,18 +95,7 @@ class Controller_Calendar extends Controller {
     public function action_refresh()
     {
         // Change this to only delete cached date following a succesful call to Google
-        $this->_delete_all('calendar');
         $this->_delete_all('event');
-
-        $google_calendars = ORM::factory('calendar')->get_google_calendars();
-
-        foreach ($google_calendars as $google_calendar) {
-            $calendar = ORM::factory('calendar');
-            $calendar->title     = $google_calendar->title;
-            $calendar->address   = $google_calendar->link[0]->href;
-            $calendar->permalink = md5($calendar->address);
-            $calendar->save();
-        }
 
         $calendars = ORM::factory('calendar')->find_all();
 
@@ -131,4 +120,19 @@ class Controller_Calendar extends Controller {
         $this->request->redirect('calendar');
     }
 
+    // Update the list of calendars from Google
+    public function action_update_calendars()
+    {
+        $this->_delete_all('calendar');
+
+        $google_calendars = ORM::factory('calendar')->get_google_calendars();
+
+        foreach ($google_calendars as $google_calendar) {
+            $calendar = ORM::factory('calendar');
+            $calendar->title     = $google_calendar->title;
+            $calendar->address   = $google_calendar->link[0]->href;
+            $calendar->permalink = md5($calendar->address);
+            $calendar->save();
+        }
+    }
 }
