@@ -8,7 +8,7 @@ class Model_Calendar extends ORM {
     private $_gdata;
     private $_events = array();
 
-    private function _load_zend()
+    public function get_google_events($calendar_address)
     {
         Zend_Loader::loadClass('Zend_Gdata');
         Zend_Loader::loadClass('Zend_Gdata_ClientLogin');
@@ -23,11 +23,6 @@ class Model_Calendar extends ORM {
         $client = Zend_Gdata_ClientLogin::getHttpClient($username, $password, $service);
 
         $this->_gdata = new Zend_Gdata_Calendar($client);
-    }
-
-    public function get_google_events($calendar_address)
-    {
-        $this->_load_zend();
 
         $query = $this->_gdata->newEventQuery($calendar_address);
         $today = date('Y-m-d');
@@ -37,6 +32,7 @@ class Model_Calendar extends ORM {
         $query->setProjection(NULL);
         $query->setStartMin($today);
         $query->setStartMax(date('Y-m-d', strtotime("$today +1 year")));
+        $query->setMaxResults(1000);
 
         try {
             $event_feed = $this->_gdata->getCalendarEventFeed($query);
@@ -84,7 +80,19 @@ class Model_Calendar extends ORM {
 
     public function get_google_calendars()
     {
-        $this->_load_zend();
+        Zend_Loader::loadClass('Zend_Gdata');
+        Zend_Loader::loadClass('Zend_Gdata_ClientLogin');
+        Zend_Loader::loadClass('Zend_Gdata_HttpClient');
+        Zend_Loader::loadClass('Zend_Gdata_Calendar');
+
+        $service = Zend_Gdata_Calendar::AUTH_SERVICE_NAME;
+        // Pull username and password information from the config/google.php file
+        $username = Kohana::config('google.username');
+        $password = Kohana::config('google.password');
+
+        $client = Zend_Gdata_ClientLogin::getHttpClient($username, $password, $service);
+
+        $this->_gdata = new Zend_Gdata_Calendar($client);
 
         try {
             $list_feed = $this->_gdata->getCalendarListFeed();
