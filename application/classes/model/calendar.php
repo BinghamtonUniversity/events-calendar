@@ -106,7 +106,7 @@ class Model_Calendar extends ORM {
 
         foreach ($list_feed as $google_calendar) {
             // Hide the default calendar from the list
-            if ($google_calendar->title != 'calendar@binghamton.edu' && $google_calendar->title != 'Pending') {
+            if ($google_calendar->title != 'calendar@binghamton.edu' && $google_calendar->title != 'Submit to BU Calendar') {
                 array_push($google_calendars, $google_calendar);
             }
         }
