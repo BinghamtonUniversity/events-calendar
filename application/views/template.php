@@ -10,7 +10,7 @@
     echo "<title>$title</title>";
 ?>
 
-<link media="all" href="/css/styles.css" type="text/css" rel="stylesheet" />
+<link media="all" href="http://www.binghamton.edu/css/styles.css" type="text/css" rel="stylesheet" />
 <?php echo HTML::style('media/css/events.css'); ?>
 <?php echo HTML::style('media/css/jquery-ui-1.8.12.custom.css'); ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,7 +21,7 @@
 <?php echo View::factory('header'); ?>
 <div class="contentWidth bodyContent">
     <div id="calendar_container">
-        <div id="banner" style="background-image: url('/events/media/images/banners/calendar-6.jpg');">
+        <div id="banner" style="background-image: url('/media/images/banners/calendar-6.jpg');">
             <h1><a href="<?php echo URL::base(); ?>">Events Calendar</a></h1>
         </div>
         <div id="main_column">

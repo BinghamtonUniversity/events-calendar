@@ -2,9 +2,9 @@
 <div class="headerOuter">
 	<div class="contentWidth headerInner">
 		<a href="#skipHeader">
-			<img class="skipnav" src="/images/common/clear.gif" alt="Skip header content and main navigation" width="0" height="0" />
+			<img class="skipnav" src="http://www.binghamton.edu/images/common/clear.gif" alt="Skip header content and main navigation" width="0" height="0" />
 		</a>
-        <img class="logoLink" src="/images/siteLogos/logo-events.gif" alt="Binghamton University, State University of New York - Events Calendar" usemap="#Map" />
+        <img class="logoLink" src="http://www.binghamton.edu/images/siteLogos/logo-events.gif" alt="Binghamton University, State University of New York - Events Calendar" usemap="#Map" />
         <map name="Map" id="Map">
             <area shape="rect" coords="0,0,210,66" href="/index.html" alt="" />
             <area shape="rect" coords="220,0,407,66" href="/events/" alt="" />
@@ -16,7 +16,7 @@
     <input type="hidden" name="cof" value="FORID:11" />
     <input type="hidden" name="ie" value="UTF-8" />
     <input type="text" name="q" size="31" class="searchBox" value="Search" onclick="this.select();" />
-    <img src="/images/common/search.png" class="searchButton" alt="Search Button" />
+    <img src="http://www.binghamton.edu/images/common/search.png" class="searchButton" alt="Search Button" />
   </div>
 </form>
 
