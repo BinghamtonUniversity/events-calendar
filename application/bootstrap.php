@@ -117,6 +117,12 @@ Route::set('default', '(<controller>(/<action>(/<id>(/<param>))))')
 		'action'     => 'index',
 	));
 
+Route::set('feeds', '<controller>(/<action>).<format>')
+    ->defaults(array(
+        'controller' => 'feed',
+        'format'     => 'ics',
+    ));
+
 /**
  * Enable Zend Framework loading
  */
