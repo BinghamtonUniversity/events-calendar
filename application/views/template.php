@@ -77,7 +77,7 @@
 		var pageTracker = _gat._getTracker("UA-1861349-1");
 		pageTracker._trackPageview();
 </script>
-<script src="/inc/header-search.min.js"> </script>
+<script src="http://www.binghamton.edu/inc/header-search.min.js"> </script>
 
 </body>
 </html>
