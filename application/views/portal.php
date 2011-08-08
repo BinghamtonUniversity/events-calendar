@@ -24,9 +24,6 @@
 <body>
 <div class="contentWidth bodyContent">
     <div id="calendar_container">
-        <div id="banner" style="background-image: url('/media/images/banners/calendar-6.jpg');">
-            <h1><a href="<?php echo URL::base(); ?>">Events Calendar</a></h1>
-        </div>
         <div id="main_column">
             <?php include Kohana::find_file('views', $subview); ?>
         </div>
