@@ -52,6 +52,43 @@ class Controller_Calendar extends Controller {
         $this->response->body($view);
     }
 
+    public function action_portal()
+    // Display a less formatted version of the calendar for embedding in the portal
+    {
+        $events = ORM::factory('event')
+            ->where('date', '>=', date('Y-m-d'))
+            ->where('date', '<=', date('Y-m-d', strtotime('+1 week')))
+            ->order_by('date', 'ASC')
+            ->order_by('start_time', 'ASC')
+            ->find_all();
+
+        $calendars = ORM::factory('calendar')
+            ->order_by('title', 'ASC')
+            ->find_all();
+
+        // Cookies are used to track the status of the calendar toggle checkboxes
+        // and maintain state between client and server. Set them to true by default
+        foreach ($calendars as $calendar) {
+            setcookie($calendar->permalink, Arr::get($_COOKIE, $calendar->permalink, 'true'), 0, '/');
+        }
+
+        foreach ($events as $event) {
+            if (Arr::get($_COOKIE, $event->calendar->permalink, 'true') == 'true') {
+                $display_dates[$event->date] = true;
+            }
+        }
+
+        $view = View::factory('portal')
+            ->set('show_datepicker', true)
+            ->bind('events', $events)
+            ->bind('calendars', $calendars)
+            ->bind('display_dates', $display_dates);
+
+        $view->subview = 'pages/events';
+
+        $this->response->body($view);
+    }
+
     // Display a list of events starting at a specified future date
     public function action_show($start_date)
     {
