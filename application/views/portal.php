@@ -17,8 +17,11 @@
 <meta name="Keywords" content="" />
 <meta name="Description" content="" />
 <style type="text/css">
-    body { background: none; }
-    .contentWidth { margin: 0; }
+    body { background: none; width: 670px; }
+    .contentWidth { margin: 0; width: 670px; }
+    div#calendar_container { padding: 10px; }
+    div#main_column { width: 400px; }
+    div#list_view { width: 400px; padding-right: 12px; }
 </style>
 </head>
 <body>
