@@ -31,6 +31,10 @@
         echo '</p>';
     }
 
+    echo sprintf('<h3><a href="%s">&larr; Return to Events Calendar</a></h3>',
+        URL::site('calendar/portal/')
+    );
+
     echo '</div>';
 ?>
 </div>

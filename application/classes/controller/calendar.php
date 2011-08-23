@@ -112,6 +112,29 @@ class Controller_Calendar extends Controller {
         $this->response->body($view);
     }
 
+    // Display a list of events starting at a specified future date
+    public function action_show_portal($start_date)
+    {
+        $events = ORM::factory('event')
+            ->where('date', '>=', $start_date)
+            ->where('date', '<=', date('Y-m-d', strtotime($start_date.' +1 week')))
+            ->order_by('date', 'ASC')
+            ->order_by('start_time', 'ASC')
+            ->find_all();
+
+        foreach ($events as $event) {
+            if (Arr::get($_COOKIE, $event->calendar->permalink, 'true') == 'true') {
+                $display_dates[$event->date] = true;
+            }
+        }
+
+        $view = View::factory('pages/events_portal')
+            ->bind('events', $events)
+            ->bind('display_dates', $display_dates);
+
+        $this->response->body($view);
+    }
+
     // Display details for a specific event
     public function action_event($id = null)
     {

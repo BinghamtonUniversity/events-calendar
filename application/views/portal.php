@@ -35,18 +35,6 @@
                 <div id="datepicker" class="secondary_block"></div>
             <?php endif; ?>
 
-            <div class="secondary_block">
-                <h4>Search Events</h4>
-                <?php
-                    echo Form::open('search', array('id' => 'search_form'));
-                    echo '<p>';
-                    echo Form::input('search_string', '', array('id' => 'search_string'));
-                    echo Form::input('search_submit', 'Search', array('type' => 'submit', 'id' => 'search_submit'));
-                    echo '</p>';
-                    echo Form::close();
-                ?>
-            </div>
-
             <?php if (isset($calendars)): ?>
                 <div class="secondary_block">
                     <h4>Filter Events by Category</h4>
@@ -70,6 +58,6 @@
     //]]>
 </script>
 <?php echo HTML::script('media/js/jquery.cookie.min.js'); ?>
-<?php echo HTML::script('media/js/calendar.min.js'); ?>
+<?php echo HTML::script('media/js/calendar_portal.js'); ?>
 </body>
 </html>
