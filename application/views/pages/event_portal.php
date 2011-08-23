@@ -1,4 +1,4 @@
-<div id="event_view" style="width: 400px; padding-right: 12px;">
+<div id="event_view" style="width: 650px; padding-right: 12px; border-right: none;">
 <?php
     echo "<h1>{$event->title}</h1>";
 
