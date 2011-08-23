@@ -84,7 +84,7 @@ class Controller_Calendar extends Controller {
             ->bind('calendars', $calendars)
             ->bind('display_dates', $display_dates);
 
-        $view->subview = 'pages/events';
+        $view->subview = 'pages/events_portal';
 
         $this->response->body($view);
     }
@@ -123,6 +123,22 @@ class Controller_Calendar extends Controller {
                 ->set('extended_title', $event->title." ({$event->human_date})");
 
             $view->subview = 'pages/event';
+
+            $this->response->body($view);
+        }
+    }
+
+    // Display details for a specific event
+    public function action_event_portal($id = null)
+    {
+        $event = ORM::factory('event', $id);
+
+        if ($event->loaded()) {
+            $view = View::factory('portal')
+                ->bind('event', $event)
+                ->set('extended_title', $event->title." ({$event->human_date})");
+
+            $view->subview = 'pages/event_portal';
 
             $this->response->body($view);
         }
