@@ -31,7 +31,7 @@ class Model_Calendar extends ORM {
         $query->setVisibility(NULL);
         $query->setProjection(NULL);
         $query->setStartMin($today);
-        $query->setStartMax(date('Y-m-d', strtotime("$today +1 year")));
+        $query->setStartMax(date('Y-m-d', strtotime("$today +6 months")));
         $query->setMaxResults(1000);
 
         try {
