@@ -6,7 +6,7 @@
 		</a>
         <img class="logoLink" src="http://www.binghamton.edu/images/siteLogos/logo-events.gif" alt="Binghamton University, State University of New York - Events Calendar" usemap="#Map" />
         <map name="Map" id="Map">
-            <area shape="rect" coords="0,0,210,66" href="/index.html" alt="" />
+            <area shape="rect" coords="0,0,210,66" href="http://www.binghamton.edu/index.html" alt="" />
             <area shape="rect" coords="220,0,407,66" href="/" alt="" />
         </map>
 			
