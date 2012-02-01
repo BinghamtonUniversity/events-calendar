@@ -109,10 +109,7 @@ class Controller_Feed extends Controller {
             array_push($feed_events_json, $this->_prepare_event($event));
         }
 
-        //echo json_encode($feed_events_json);
-        echo '<pre>';
-        echo print_r($feed_events_json);
-        echo '</pre>';
+        echo json_encode($feed_events_json);
     }
 
     // Output an iCalendar-formatted feed of all calendar events
