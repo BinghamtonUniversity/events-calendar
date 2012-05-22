@@ -3,7 +3,7 @@
 
 <?php
     foreach ($feed_events as $event) {
-        $formatted_date = strftime('%b. %e', strtotime($event->date));
+        $formatted_date = strftime('%b %e', strtotime($event->date));
         echo "<li><strong>$formatted_date:</strong> <a href=\"http://calendar.binghamton.edu/index.php/calendar/event/$event->permalink\">$event->title</a></li>";
     }
 ?>
