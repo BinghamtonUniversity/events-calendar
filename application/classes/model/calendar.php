@@ -33,6 +33,7 @@ class Model_Calendar extends ORM {
         $query->setStartMin($today);
         $query->setStartMax(date('Y-m-d', strtotime("$today +6 months")));
         $query->setMaxResults(1000);
+        $query->setsingleevents('true');
 
         try {
             $event_feed = $this->_gdata->getCalendarEventFeed($query);
