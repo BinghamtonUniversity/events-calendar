@@ -124,6 +124,18 @@ class Controller_Feed extends Controller {
         $this->response->body($view);
     }
 
+    // Output an HTML fragment with embedded CSS for Dateline syndication
+    public function action_dateline($feed_id)
+    {
+        $feed             = ORM::factory('feed', $feed_id);
+        $feed_events      = $feed->events->order_by('date')->find_all()->as_array();
+
+        $view = View::factory('dateline-include')
+            ->bind('feed_events', $feed_events);
+
+        $this->response->body($view);
+    }
+
     // Output an iCalendar-formatted feed of all calendar events
     public function action_ics()
     {
