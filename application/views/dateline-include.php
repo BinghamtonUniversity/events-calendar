@@ -1,5 +1,5 @@
 <h1 id="events-calendar-heading" style="color: #00694d; font-size: 14px; padding-left: 0px; padding-top: 10px; text-transform: none; font-family: Arial; font-weight: normal;" >UNIVERSITY CALENDAR</h1>
-<ul id="events-calendar-list" style="left-index: 0px; font-family: Arial; font-weight: normal;" >
+<ul id="events-calendar-list" style="left-index: 0px; font-family: Arial; font-weight: normal;padding-left: 10px;" >
 
 <?php
     foreach ($feed_events as $event) {
