@@ -1,4 +1,9 @@
 database.php
 google.php
+application/cache/*
 application/logs/*
+application/bootstrap.php
+application/config/*
+modules/database/config/*
+
 !.gitignore

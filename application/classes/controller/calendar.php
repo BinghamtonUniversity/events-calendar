@@ -2,6 +2,9 @@
 
 class Controller_Calendar extends Controller {
 
+    //Default banner image full path
+    private $_defaultBanner = "calendar-6.jpg";
+
     // Helper function for clearing out local caches
     private function _delete_all($model)
     {
@@ -41,8 +44,23 @@ class Controller_Calendar extends Controller {
             }
         }
 
+        $handle = opendir('media/images/banners');
+        $banners = array($this->_defaultBanner);
+
+
+        if ($handle !== false) {
+          
+            while (false !== ($entry = readdir($handle))) {
+                if(preg_match('/\.jpg$/i', $entry) != 0) {
+                    $banners[] = $entry;
+                }    
+            }
+            closedir($handle);
+        }
+
         $view = View::factory('template')
             ->set('show_datepicker', true)
+            ->set('banner_img_url',$banners[array_rand($banners)])
             ->bind('events', $events)
             ->bind('calendars', $calendars)
             ->bind('display_dates', $display_dates);

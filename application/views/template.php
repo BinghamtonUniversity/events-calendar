@@ -21,14 +21,14 @@
 <?php echo View::factory('header'); ?>
 <div class="contentWidth bodyContent">
     <div id="calendar_container">
-        <div id="banner" style="background-image: url('/media/images/banners/calendar-6.jpg');">
+        <div id="banner" style="background-image: url('<?=url::base()?>media/images/banners/<?=$banner_img_url?>');">
             <h1><a href="<?php echo URL::base(); ?>">Events Calendar</a></h1>
         </div>
         <div id="main_column">
             <?php include Kohana::find_file('views', $subview); ?>
         </div>
         <div id="secondary_column">
-            <?php if (isset($show_datepicker)): ?>
+            <?php if (isset($show_datepicker) && $show_datepicker): ?>
                 <div id="datepicker" class="secondary_block"></div>
             <?php endif; ?>
 
