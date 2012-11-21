@@ -2,8 +2,7 @@
 
 class Controller_Calendar extends Controller {
 
-    //Default banner image full path
-    private $_banners = null;
+    
 
     // Helper function for clearing out local caches
     private function _delete_all($model)
@@ -17,23 +16,6 @@ class Controller_Calendar extends Controller {
         // Reset MySQL auto_increment values
         $query  = DB::query(NULL, "ALTER TABLE {$model}s AUTO_INCREMENT=0");
         $query->execute();
-    }
-
-    public function before() {
-        $handle = opendir('media/images/banners');
-        $this->_banners = array("calendar-6.jpg");
-
-
-        if ($handle !== false) {
-          
-            while (false !== ($entry = readdir($handle))) {
-                if(preg_match('/\.jpg$/i', $entry) != 0) {
-                    $this->_banners[] = $entry;
-                }    
-            }
-            closedir($handle);
-        }
-
     }
 
     public function action_index()
@@ -61,10 +43,11 @@ class Controller_Calendar extends Controller {
             }
         }
 
-        
+        $banners = Model::factory('Utilities')->getBanners();
+
         $view = View::factory('template')
             ->set('show_datepicker', true)
-            ->set('banner_img_url',$this->_banners[array_rand($this->_banners)])
+            ->set('banner_img_url',$banners[array_rand($banners)])
             ->bind('events', $events)
             ->bind('calendars', $calendars)
             ->bind('display_dates', $display_dates);
@@ -163,10 +146,12 @@ class Controller_Calendar extends Controller {
     {
         $event = ORM::factory('event', $id);
 
+         $banners = Model::factory('Utilities')->getBanners();
+
         if ($event->loaded()) {
             $view = View::factory('template')
                 ->bind('event', $event)
-                ->set('banner_img_url',$this->_banners[array_rand($this->_banners)])
+                ->set('banner_img_url',$banners[array_rand($banners)])
                 ->set('extended_title', $event->title." ({$event->human_date})");
 
             $view->subview = 'pages/event';
