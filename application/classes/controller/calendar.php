@@ -3,7 +3,7 @@
 class Controller_Calendar extends Controller {
 
     //Default banner image full path
-    private $_defaultBanner = "calendar-6.jpg";
+    private $_banners = null;
 
     // Helper function for clearing out local caches
     private function _delete_all($model)
@@ -17,6 +17,23 @@ class Controller_Calendar extends Controller {
         // Reset MySQL auto_increment values
         $query  = DB::query(NULL, "ALTER TABLE {$model}s AUTO_INCREMENT=0");
         $query->execute();
+    }
+
+    public function before() {
+        $handle = opendir('media/images/banners');
+        $this->_banners = array("calendar-6.jpg");
+
+
+        if ($handle !== false) {
+          
+            while (false !== ($entry = readdir($handle))) {
+                if(preg_match('/\.jpg$/i', $entry) != 0) {
+                    $this->_banners[] = $entry;
+                }    
+            }
+            closedir($handle);
+        }
+
     }
 
     public function action_index()
@@ -44,23 +61,10 @@ class Controller_Calendar extends Controller {
             }
         }
 
-        $handle = opendir('media/images/banners');
-        $banners = array($this->_defaultBanner);
-
-
-        if ($handle !== false) {
-          
-            while (false !== ($entry = readdir($handle))) {
-                if(preg_match('/\.jpg$/i', $entry) != 0) {
-                    $banners[] = $entry;
-                }    
-            }
-            closedir($handle);
-        }
-
+        
         $view = View::factory('template')
             ->set('show_datepicker', true)
-            ->set('banner_img_url',$banners[array_rand($banners)])
+            ->set('banner_img_url',$this->_banners[array_rand($this->_banners)])
             ->bind('events', $events)
             ->bind('calendars', $calendars)
             ->bind('display_dates', $display_dates);
@@ -98,6 +102,7 @@ class Controller_Calendar extends Controller {
 
         $view = View::factory('portal')
             ->set('show_datepicker', true)
+            ->set('banner_img_url',$this->_banners[array_rand($this->__banners)])
             ->bind('events', $events)
             ->bind('calendars', $calendars)
             ->bind('display_dates', $display_dates);
@@ -161,6 +166,7 @@ class Controller_Calendar extends Controller {
         if ($event->loaded()) {
             $view = View::factory('template')
                 ->bind('event', $event)
+                ->set('banner_img_url',$this->_banners[array_rand($this->_banners)])
                 ->set('extended_title', $event->title." ({$event->human_date})");
 
             $view->subview = 'pages/event';
