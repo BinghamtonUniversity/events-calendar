@@ -17,7 +17,7 @@ class Controller_Search extends Controller {
             ->order_by('start_time', 'ASC')
             ->find_all();
         
-        $banners = Model::factory('Utilities')->getBanners();
+        $banners = utilities::getBanners();
 
         if ($events->count() > 0) {
             $view = View::factory('template')

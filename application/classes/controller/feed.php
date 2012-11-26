@@ -21,7 +21,7 @@ class Controller_Feed extends Controller {
         $feeds = ORM::factory('feed')
             ->find_all();
 
-        $banners = Model::factory('Utilities')->getBanners();
+        $banners = utilities::getBanners();
 
         $view = View::factory('template')
             ->bind('feeds', $feeds)
@@ -45,7 +45,7 @@ class Controller_Feed extends Controller {
     {
         $feed = ORM::factory('feed', $feed_id);
 
-        $banners = Model::factory('Utilities')->getBanners();
+        $banners = utilities::getBanners();
 
         $view = View::factory('template')
             ->bind('feed', $feed)
@@ -78,7 +78,7 @@ class Controller_Feed extends Controller {
             unset($events[$key]);
         } 
 
-        $banners = Model::factory('Utilities')->getBanners();
+        $banners = utilities::getBanners();
         
 
         $view = View::factory('template')

@@ -1,9 +1,7 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
 class Controller_Calendar extends Controller {
-
     
-
     // Helper function for clearing out local caches
     private function _delete_all($model)
     {
@@ -43,7 +41,7 @@ class Controller_Calendar extends Controller {
             }
         }
 
-        $banners = Model::factory('Utilities')->getBanners();
+        $banners = utilities::getBanners();
 
         $view = View::factory('template')
             ->set('show_datepicker', true)
@@ -146,7 +144,7 @@ class Controller_Calendar extends Controller {
     {
         $event = ORM::factory('event', $id);
 
-         $banners = Model::factory('Utilities')->getBanners();
+         $banners = utilities::getBanners();
 
         if ($event->loaded()) {
             $view = View::factory('template')
