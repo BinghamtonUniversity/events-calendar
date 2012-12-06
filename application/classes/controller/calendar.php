@@ -81,9 +81,9 @@ class Controller_Calendar extends Controller {
             }
         }
 
+
         $view = View::factory('portal')
             ->set('show_datepicker', true)
-            ->set('banner_img_url',$this->_banners[array_rand($this->__banners)])
             ->bind('events', $events)
             ->bind('calendars', $calendars)
             ->bind('display_dates', $display_dates);
