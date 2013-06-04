@@ -14,6 +14,7 @@
    <meta name="Description" content="Binghamton University, SUNY doctoral research university for 14,600 students in beautiful upstate New York; 140 plus undergraduate and graduate degrees in arts and sciences, nursing, education and human development, management, engineering and applied science">
     <?php include("http://www.binghamton.edu/_resources/includes/headcode.inc"); ?>
     <?php echo HTML::style('media/css/events-responsive.css'); ?>
+    <?php echo HTML::style('media/css/jquery-ui-1.8.12.custom.css'); ?>
 </head>
 <body>
   <?php include("http://www.binghamton.edu/_resources/includes/header.inc"); ?>
@@ -22,53 +23,52 @@
       <div id="content">
          <div id="secondaryContent" class="minimal">
             <column id="content">
-               
-               <ouc:div xmlns:ouc="http://omniupdate.com/XSL/Variables" wysiwyg-class="standard" label="content" group="Everyone" button="817" break="break">
-                  
-                  <ouc:editor csspath="/_resources/edit/responsive-minimal/content.css" cssmenu="/z-omniupdate/edit/edit-main.txt" width="1000"></ouc:editor>
-                  
+
                   <div class="contentBanner">
                     <div id="banner" style="background-image: url('<?=url::base()?>media/images/banners/<?=$banner_img_url?>');">
                         <h1><a href="<?php echo URL::base(); ?>">Events Calendar</a></h1>
                     </div>
                   </div>
-                  
-                  <h1>Graduate Study in Department Name Here</h1>
-                  
-                  <p>Binghamton University is one of the four university centers in the State University
-                     of New York, one of the largest systems of public higher education in the United States.
-                     The university has a strong commitment to academic and research excellence, and the
-                     department has an excellent national reputation — its smaller size allows individual
-                     attention to students, yet it is consistently ranked among the top 75 departments
-                     in the country. This makes Binghamton an outstanding choice for graduate study.
-                  </p>
-                  
-                  <h2>Integrative Program of Study</h2>
-                  
-                  <p>An integrated departmental approach to graduate instruction results in exposure of
-                     all graduate students to faculty from each specialization, thereby offering students
-                     the opportunity to gain theoretical and practical expertise from a number of different
-                     perspectives. The three graduate programs train students to carry out basic and applied
-                     research and to communicate concepts effectively. This preparation enables our graduates
-                     to compete successfully for academic appointments, positions at research or clinical
-                     institutions, and placements in human services and industry. All graduate students
-                     in good standing receive tuition waivers and are supported by stipends which go a
-                     long way especially given the low cost of living in the Binghamton area.
-                  </p>
-                  
-                  <p>
-                     Director Name Here<br>
-                     Director of Department Name Here<br>
-                     <a href="mailto:directornamehere@binghamton.edu">directornamehere@binghamton.edu</a>
-                     
-                  </p>
-                  
-               </ouc:div>
-               
+
+                  <nav id="leftNav">
+                      <?php if (isset($show_datepicker) && $show_datepicker): ?>
+                          <div id="datepicker" class="secondary_block"></div>
+                      <?php endif; ?>
+
+                      <div class="secondary_block">
+                          <h4>Search Events</h4>
+                          <?php
+                              echo Form::open('search', array('id' => 'search_form'));
+                              echo '<p>';
+                              echo Form::input('search_string', '', array('id' => 'search_string'));
+                              echo Form::input('search_submit', 'Search', array('type' => 'submit', 'id' => 'search_submit'));
+                              echo '</p>';
+                              echo Form::close();
+                          ?>
+                      </div>
+
+                      <?php if (isset($calendars)): ?>
+                          <div class="secondary_block">
+                              <h4>Filter Events by Category</h4>
+                              <div class="calendars_show_buttons" id="calendars_show_all">Show All</div>
+                              <div class="calendars_show_buttons" id="calendars_hide_all">Hide All</div>
+                              <div style="clear: both;"></div>
+                              <!-- display calendar toggles -->
+                              <?php include Kohana::find_file('views', 'calendars'); ?>
+                          </div>
+                      <?php endif; ?>
+                  </nav>
+                  <div id="secondaryContent">
+                      <?php include Kohana::find_file('views', $subview); ?>
+                  </div>
+
             </column>
          </div>
          <div class="clear"><span style="display: none;"></span></div>
       </div>
    </div>
     <?php include("http://www.binghamton.edu/_resources/includes/footer.inc"); ?>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <?php echo HTML::script('media/js/jquery.cookie.min.js'); ?>
+    <?php echo HTML::script('media/js/calendar.min.js'); ?>
 </body></html>

@@ -8,17 +8,13 @@ div#main_column {
 }
 
 div#list_view {
-    width: 575px;
+    max-width: 575px;
     min-height: 700px;
-    border-right: 1px dotted #bababa;
-    padding-right: 40px;
 }
 
 div#event_view, div#results_view {
-    width: 575px;
+    max-width: 575px;
     min-height: 125px;
-    border-right: 1px dotted #bababa;
-    padding-right: 40px;
 }
 
 div.date {
