@@ -20,7 +20,7 @@ class Controller_Search extends Controller {
         $banners = utilities::getBanners();
 
         if ($events->count() > 0) {
-            $view = View::factory('template')
+            $view = View::factory('template-responsive')
                 ->bind('search_string', $search_string)
                 ->bind('events', $events)
                 ->set('extended_title', 'Search Results')
@@ -28,7 +28,7 @@ class Controller_Search extends Controller {
 
             $view->subview = 'pages/search';
         } else {
-            $view = View::factory('template')
+            $view = View::factory('template-responsive')
                 ->bind('search_string', $search_string)
                 ->set('extended_title', 'No Match Found')
                 ->set('banner_img_url',$banners[array_rand($banners)]);

@@ -147,7 +147,7 @@ class Controller_Calendar extends Controller {
          $banners = utilities::getBanners();
 
         if ($event->loaded()) {
-            $view = View::factory('template')
+            $view = View::factory('template-responsive')
                 ->bind('event', $event)
                 ->set('banner_img_url',$banners[array_rand($banners)])
                 ->set('extended_title', $event->title." ({$event->human_date})");
