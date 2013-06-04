@@ -36,7 +36,7 @@
                       <?php endif; ?>
 
                       <div class="secondary_block">
-                          <h4>Search Events</h4>
+                          <h3>Search Events</h4>
                           <?php
                               echo Form::open('search', array('id' => 'search_form'));
                               echo '<p>';
@@ -49,7 +49,7 @@
 
                       <?php if (isset($calendars)): ?>
                           <div class="secondary_block">
-                              <h4>Filter Events by Category</h4>
+                              <h3>Filter Events by Category</h4>
                               <div class="calendars_show_buttons" id="calendars_show_all">Show All</div>
                               <div class="calendars_show_buttons" id="calendars_hide_all">Hide All</div>
                               <div style="clear: both;"></div>

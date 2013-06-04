@@ -30,14 +30,20 @@ div.event {
 }
 
 div.event .event_header {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Arvo', serif;
     font-weight: bold;
     margin: 0;
 }
 
 div.event .event_header .event_title {
-    font-size: 16px;
+    font-size: 20px;
     line-height: 20px;
+}
+
+div.event .event_header .event_title .event_link {
+    font-weight: bold !important;
+    text-decoration: none !important;
+    color: #005a43 !important;
 }
 
 div.event .event_content {
@@ -49,7 +55,7 @@ div.event .event_calendar {
 }
 
 p.event_when {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    /*font-family: 'Helvetica Neue', Arial, sans-serif;*/
     font-size: 16px;
 }
 
@@ -128,6 +134,10 @@ div#banner h1 {
 
 div#banner h1 a {
     text-decoration: none !important;
-    color: #005a43 !important;
+    color: #000 !important;
     font-weight: bold !important;
+}
+
+input.calendar_toggle {
+  margin: 0 5px 5px 0;
 }
