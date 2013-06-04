@@ -43,7 +43,7 @@ class Controller_Calendar extends Controller {
 
         $banners = utilities::getBanners();
 
-        $view = View::factory('template')
+        $view = View::factory('template-responsive')
             ->set('show_datepicker', true)
             ->set('banner_img_url',$banners[array_rand($banners)])
             ->bind('events', $events)
