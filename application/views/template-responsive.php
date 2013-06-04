@@ -12,8 +12,8 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="Keywords" content="Binghamton, Binghamton University, State University of New York, SUNY Binghamton, SUNY B, BU, Engineering, Nursing, Management, Computer Science, Education, Human Development, Harpur College of Arts and Sciences, Research">
    <meta name="Description" content="Binghamton University, SUNY doctoral research university for 14,600 students in beautiful upstate New York; 140 plus undergraduate and graduate degrees in arts and sciences, nursing, education and human development, management, engineering and applied science">
-    <?php include("http://www.binghamton.edu/_resources/includes/headcode.inc");
-  ?>
+    <?php include("http://www.binghamton.edu/_resources/includes/headcode.inc"); ?>
+    <?php echo HTML::style('media/css/events-responsive.css'); ?>
 </head>
 <body>
   <?php include("http://www.binghamton.edu/_resources/includes/header.inc"); ?>
@@ -21,7 +21,6 @@
    <div id="contentWhite">
       <div id="content">
          <div id="secondaryContent" class="minimal">
-            <div id="breadCrumb"><a href="http://www.binghamton.edu/">binghamton.edu</a>&nbsp;→&nbsp;<a href="/patrick/">patrick</a>&nbsp;→&nbsp;<a href="/patrick/responsive/">responsive</a></div>
             <column id="content">
                
                <ouc:div xmlns:ouc="http://omniupdate.com/XSL/Variables" wysiwyg-class="standard" label="content" group="Everyone" button="817" break="break">
@@ -29,8 +28,9 @@
                   <ouc:editor csspath="/_resources/edit/responsive-minimal/content.css" cssmenu="/z-omniupdate/edit/edit-main.txt" width="1000"></ouc:editor>
                   
                   <div class="contentBanner">
-                     <img src="http://placehold.it/655x127/005A43/FFFFFF" alt="Placeholder" width="655" height="127">
-                     
+                    <div id="banner" style="background-image: url('<?=url::base()?>media/images/banners/<?=$banner_img_url?>');">
+                        <h1><a href="<?php echo URL::base(); ?>">Events Calendar</a></h1>
+                    </div>
                   </div>
                   
                   <h1>Graduate Study in Department Name Here</h1>

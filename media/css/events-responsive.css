@@ -1,0 +1,137 @@
+div#calendar_container {
+    padding: 20px 40px;
+}
+
+div#main_column {
+    width: 575px;
+    float: left;
+}
+
+div#list_view {
+    width: 575px;
+    min-height: 700px;
+    border-right: 1px dotted #bababa;
+    padding-right: 40px;
+}
+
+div#event_view, div#results_view {
+    width: 575px;
+    min-height: 125px;
+    border-right: 1px dotted #bababa;
+    padding-right: 40px;
+}
+
+div.date {
+    margin-bottom: 30px;
+}
+
+div.event {
+    border: 1px solid #bababa;
+    border-radius: 5px;
+    background-color: #F5F6F6;
+    padding: 10px;
+    margin: 15px 0;
+}
+
+div.event .event_header {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: bold;
+    margin: 0;
+}
+
+div.event .event_header .event_title {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+div.event .event_content {
+    margin: 5px 0 0 0;
+}
+
+div.event .event_calendar {
+    margin: 5px 0 0 0;
+}
+
+p.event_when {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+}
+
+div#secondary_column {
+    float: right;
+    width: 225px;
+}
+
+div.secondary_block {
+    padding: 10px;
+    border: 1px solid #bababa;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+form#search_form p {
+    text-align: center;
+    margin: 10px 0 0 0;
+}
+
+form#search_form input#search_string {
+    border: 1px solid #bababa;
+    margin: 0;
+    padding: 5px;
+    width: 190px;
+}
+
+form#search_form input#search_submit {
+    text-align: center;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #bababa;
+    border-radius: 5px;
+    width: 85px;
+    padding: 5px;
+    margin: 10px 0 0 0;
+    background: #f5f6f6;
+    color: #006a4e;
+}
+
+div.calendars_show_buttons {
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #bababa;
+    border-radius: 5px;
+    width: 85px;
+    padding: 5px;
+    margin: 10px 0;
+    background: #f5f6f6;
+    color: #006a4e;
+}
+
+div#calendars_show_all {
+    float: left;
+}
+
+div#calendars_hide_all {
+    float: right;
+}
+
+iframe.twitter-share-button {
+    margin-bottom: 5px;
+}
+
+div#banner {
+    width: 880px;
+    height: 165px;
+    margin-bottom: 20px;
+}
+
+div#banner h1 {
+    padding: 12px 20px;
+    font-size: 26px;
+}
+
+div#banner h1 a {
+    text-decoration: none !important;
+    color: #005a43 !important;
+    font-weight: bold !important;
+}
