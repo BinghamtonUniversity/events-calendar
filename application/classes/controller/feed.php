@@ -16,6 +16,71 @@ class Controller_Feed extends Controller {
         return $event;
     }
 
+    private function _build_ics($events)
+    {
+        $vcalendar = new vcalendar();
+
+        $vcalendar->setProperty('X-WR-TIMEZONE', 'America/New_York');
+
+        $vtimezone = new vtimezone();
+        $vtimezone->setProperty('tzid', 'America/New_York');
+
+        $standard = new vtimezone('standard');
+        $standard->setProperty('tzname', 'EST');
+        $standard->setProperty('tzoffsetfrom', '-0400');
+        $standard->setProperty('tzoffsetto', '-0500');
+        $standard->setProperty('dtstart', '19701101T020000');
+        $standard->setProperty('rrule',
+            array(
+                'FREQ' => 'YEARLY',
+                'BYDAY' => array('1', 'DAY' => 'SU'),
+                'BYMONTH' => '11'
+            )
+        );
+
+        $daylight = new vtimezone('daylight');
+        $daylight->setProperty('tzname', 'EDT');
+        $daylight->setProperty('tzoffsetfrom', '-0500');
+        $daylight->setProperty('tzoffsetto', '-0400');
+        $daylight->setProperty('dtstart', '19700308T020000');
+        $daylight->setProperty('rrule',
+            array(
+                'FREQ' => 'YEARLY',
+                'BYDAY' => array('2', 'DAY' => 'SU'),
+                'BYMONTH' => '3'
+            )
+        );
+
+        $vtimezone->setComponent($standard);
+        $vtimezone->setComponent($daylight);
+
+        $vcalendar->setComponent($vtimezone);
+
+        foreach ($events as $event) {
+            $vevent = new vevent();
+            $vevent->setProperty('summary', $event->title);
+            $vevent->setProperty('description', $event->content);
+            $vevent->setProperty('location', $event->where);
+            $vevent->setProperty('categories', $event->calendar->title);
+
+            $date = explode('-', $event->date);
+
+            $start_time = strftime('%R', $event->start_time);
+            $end_time   = strftime('%R', $event->end_time);
+
+            if ($start_time == $end_time && $start_time == '00:00') {
+                $vevent->setProperty('dtstart', array('timestamp' => $event->start_time), array('VALUE' => 'DATE'));
+                $vevent->setProperty('dtend',   array('timestamp' => $event->end_time), array('VALUE' => 'DATE'));
+            } else {
+                $vevent->setProperty('dtstart', array('timestamp' => $event->start_time), array('tzid' => 'America/New_York'));
+                $vevent->setProperty('dtend',   array('timestamp' => $event->end_time), array('tzid' => 'America/New_York'));
+            }
+
+            $vcalendar->setComponent($vevent);
+        }
+        echo $vcalendar->createCalendar();
+    }
+
     public function action_index()
     {
         $feeds = ORM::factory('feed')
@@ -171,70 +236,12 @@ class Controller_Feed extends Controller {
     }
 
     // Output an iCalendar-formatted feed of all calendar events
-    public function action_ics()
+    public function action_ics($calendar = null)
     {
-        $events = ORM::factory('event')->order_by('date')->order_by('start_time')->find_all()->as_array();
-
-        $vcalendar = new vcalendar();
-
-        $vcalendar->setProperty('X-WR-TIMEZONE', 'America/New_York');
-
-        $vtimezone = new vtimezone();
-        $vtimezone->setProperty('tzid', 'America/New_York');
-
-        $standard = new vtimezone('standard');
-        $standard->setProperty('tzname', 'EST');
-        $standard->setProperty('tzoffsetfrom', '-0400');
-        $standard->setProperty('tzoffsetto', '-0500');
-        $standard->setProperty('dtstart', '19701101T020000');
-        $standard->setProperty('rrule',
-            array(
-                'FREQ' => 'YEARLY',
-                'BYDAY' => array('1', 'DAY' => 'SU'),
-                'BYMONTH' => '11'
-            )
-        );
-
-        $daylight = new vtimezone('daylight');
-        $daylight->setProperty('tzname', 'EDT');
-        $daylight->setProperty('tzoffsetfrom', '-0500');
-        $daylight->setProperty('tzoffsetto', '-0400');
-        $daylight->setProperty('dtstart', '19700308T020000');
-        $daylight->setProperty('rrule',
-            array(
-                'FREQ' => 'YEARLY',
-                'BYDAY' => array('2', 'DAY' => 'SU'),
-                'BYMONTH' => '3'
-            )
-        );
-
-        $vtimezone->setComponent($standard);
-        $vtimezone->setComponent($daylight);
-
-        $vcalendar->setComponent($vtimezone);
-
-        foreach ($events as $event) {
-            $vevent = new vevent();
-            $vevent->setProperty('summary', $event->title);
-            $vevent->setProperty('description', $event->content);
-            $vevent->setProperty('location', $event->where);
-            $vevent->setProperty('categories', $event->calendar->title);
-
-            $date = explode('-', $event->date);
-
-            $start_time = strftime('%R', $event->start_time);
-            $end_time   = strftime('%R', $event->end_time);
-
-            if ($start_time == $end_time && $start_time == '00:00') {
-                $vevent->setProperty('dtstart', array('timestamp' => $event->start_time), array('VALUE' => 'DATE'));
-                $vevent->setProperty('dtend',   array('timestamp' => $event->end_time), array('VALUE' => 'DATE'));
-            } else {
-                $vevent->setProperty('dtstart', array('timestamp' => $event->start_time), array('tzid' => 'America/New_York'));
-                $vevent->setProperty('dtend',   array('timestamp' => $event->end_time), array('tzid' => 'America/New_York'));
-            }
-
-            $vcalendar->setComponent($vevent);
+        if ($calendar == null) {
+          $events = ORM::factory('event')->order_by('date')->order_by('start_time')->find_all()->as_array();
         }
-        echo $vcalendar->createCalendar();
+
+        $this->_build_ics($events);
     }
 }
