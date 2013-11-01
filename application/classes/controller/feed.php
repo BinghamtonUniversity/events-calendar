@@ -236,12 +236,25 @@ class Controller_Feed extends Controller {
     }
 
     // Output an iCalendar-formatted feed of all calendar events
-    public function action_ics($calendar = null)
+    public function action_ics($calendar_id = null)
     {
-        if ($calendar == null) {
+        if ($calendar_id == null) {
           $events = ORM::factory('event')->order_by('date')->order_by('start_time')->find_all()->as_array();
+        } else {
+          $events = ORM::factory('event')->where('calendar_id', '=', $calendar_id)->order_by('date')->order_by('start_time')->find_all()->as_array();
         }
 
         $this->_build_ics($events);
+    }
+
+    public function action_bmobi() {
+        $calendars = ORM::factory('calendar')
+            ->order_by('title', 'ASC')
+            ->find_all();
+
+        $view = View::factory('bmobi')
+          ->bind('calendars', $calendars);
+
+        $this->response->body($view);
     }
 }
